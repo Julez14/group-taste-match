@@ -28,6 +28,16 @@ describe("profiles and areas", () => {
     expect(new Set(profilesJson.profiles.map((p) => p.id)).size).toBe(profilesJson.profiles.length);
   });
 
+  it("gives every profile an ordered 8–12 entry history whose snapshot links resolve", () => {
+    const ids = new Set(snapshotJson.restaurants.map((r) => r.id));
+    for (const p of profilesJson.profiles) {
+      expect(p.history.length).toBeGreaterThanOrEqual(8);
+      expect(p.history.length).toBeLessThanOrEqual(12);
+      expect(p.history.map((h) => h.rank)).toEqual(p.history.map((_, i) => i + 1));
+      for (const h of p.history as { restaurantId?: string }[]) if (h.restaurantId) expect(ids.has(h.restaurantId)).toBe(true);
+    }
+  });
+
   it("keeps meeting areas inside NYC", () => {
     for (const a of MEETING_AREAS) {
       expect(a.lat).toBeGreaterThan(40.49);

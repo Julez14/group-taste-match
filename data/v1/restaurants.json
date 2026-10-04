@@ -2812,6 +2812,2779 @@
           "note": "Nominatim match: Roberta's, 261 Moore Street."
         }
       ]
+    },
+    {
+      "id": "casa-enrique-long-island-city",
+      "name": "Casa Enrique",
+      "neighborhood": "Long Island City",
+      "borough": "Queens",
+      "address": "5-48 49th Ave, Long Island City, NY 11101",
+      "cuisines": [
+        "mexican"
+      ],
+      "lat": 40.74336,
+      "lng": -73.95423,
+      "priceTier": "$$",
+      "mealEstimate": {
+        "low": 44,
+        "high": 63,
+        "currency": "USD",
+        "basis": "One taco order or main plus a shared-size starter per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+        "assumptions": [
+          "Menu prices as listed on the official menu retrieved 2026-10-04",
+          "Drinks excluded",
+          "Tip 20% of pre-tax subtotal unless a service-included policy is noted"
+        ],
+        "foodOnlyLow": 34,
+        "foodOnlyHigh": 49,
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "sampleOrders": [
+        {
+          "description": "Tacos de pastor ($16) + guacamole ($18)",
+          "foodOnlyPrice": 34,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Tacos veganos de la temporada ($18) + guacamole ($18)",
+          "foodOnlyPrice": 36,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Chile relleno ($26) + ensalada de betabel ($18)",
+          "foodOnlyPrice": 44,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Mole de Piaxtla ($29) + rajas con crema ($20)",
+          "foodOnlyPrice": 49,
+          "evidenceIds": [
+            "e1"
+          ]
+        }
+      ],
+      "menuOptions": [
+        {
+          "dietaryTag": "vegan",
+          "description": "'Tacos veganos de la temporada' (seasonal vegan tacos) named as vegan on the dinner menu",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_labeled"
+        },
+        {
+          "dietaryTag": "vegetarian",
+          "description": "Meat-free by description (not labeled): guacamole, rajas con crema, ensalada de betabel",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_inferred"
+        }
+      ],
+      "allergyPolicy": null,
+      "atmosphere": [
+        {
+          "tag": "lively",
+          "evidenceIds": [
+            "e3"
+          ]
+        },
+        {
+          "tag": "special_occasion",
+          "evidenceIds": [
+            "e3"
+          ]
+        }
+      ],
+      "hours": {
+        "timezone": "America/New_York",
+        "weekly": {
+          "sun": [
+            [
+              "11:00",
+              "22:15"
+            ]
+          ],
+          "mon": [
+            [
+              "17:00",
+              "22:15"
+            ]
+          ],
+          "tue": [
+            [
+              "17:00",
+              "22:15"
+            ]
+          ],
+          "wed": [
+            [
+              "17:00",
+              "22:15"
+            ]
+          ],
+          "thu": [
+            [
+              "17:00",
+              "22:15"
+            ]
+          ],
+          "fri": [
+            [
+              "17:00",
+              "22:30"
+            ]
+          ],
+          "sat": [
+            [
+              "11:00",
+              "22:30"
+            ]
+          ]
+        },
+        "lastSeatingNote": "Contact page hours used; the dinner menu header says 'from 5pm to 11:30pm', which conflicts, so the earlier closing time is kept.",
+        "evidenceIds": [
+          "e2",
+          "e1"
+        ]
+      },
+      "reservationPolicy": "reservations",
+      "partySizeNote": null,
+      "websiteUrl": "https://casaenriquelic.com/",
+      "menuUrl": "https://casaenriquelic.com/dinner-1",
+      "bookingUrl": "https://resy.com/cities/ny/casa-enrique",
+      "evidence": [
+        {
+          "id": "e1",
+          "url": "https://casaenriquelic.com/dinner-1",
+          "retrievedAt": "2026-10-04",
+          "field": "mealEstimate, sampleOrders, menuOptions, hours",
+          "note": "Official dinner menu ('DINNER (FROM 5PM TO 11:30PM)'): guacamole $18, ensalada de betabel $18, rajas con crema $20, tacos de pastor $16, tacos veganos de la temporada $18, chile relleno $26, mole de Piaxtla $29, carne asada $49."
+        },
+        {
+          "id": "e2",
+          "url": "https://casaenriquelic.com/contact-us",
+          "retrievedAt": "2026-10-04",
+          "field": "hours, address, bookingUrl",
+          "note": "Official contact page: Mon-Thu 5pm-10:15pm, Fri 5pm-10:30pm, Sat 11am-10:30pm, Sun 11am-10:15pm; 5-48 49th Ave; Resy reservation link."
+        },
+        {
+          "id": "e3",
+          "url": "https://www.theinfatuation.com/new-york/reviews/casa-enrique",
+          "retrievedAt": "2026-10-04",
+          "field": "atmosphere",
+          "note": "The Infatuation: Perfect For 'Birthdays', 'Impressing Out Of Towners'; the room 'stays packed'; venue status Open."
+        },
+        {
+          "id": "e4",
+          "url": "https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&q=5-48%2049th%20Avenue%2C%20Long%20Island%20City%2C%20NY%2011101",
+          "retrievedAt": "2026-10-04",
+          "field": "lat, lng",
+          "note": "Nominatim match: Casa Enrique, 5-48 49th Avenue, Hunters Point."
+        }
+      ]
+    },
+    {
+      "id": "rolos-ridgewood",
+      "name": "Rolo's",
+      "neighborhood": "Ridgewood",
+      "borough": "Queens",
+      "address": "853 Onderdonk Ave, Ridgewood, NY 11385",
+      "cuisines": [
+        "american",
+        "italian",
+        "wood-fired grill"
+      ],
+      "lat": 40.70193,
+      "lng": -73.9035,
+      "priceTier": "$$",
+      "mealEstimate": {
+        "low": 36,
+        "high": 77,
+        "currency": "USD",
+        "basis": "One pasta or large plate plus a snack/salad per person, or the burger with potatoes; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+        "assumptions": [
+          "Menu prices as listed on the official menu retrieved 2026-10-04",
+          "Drinks excluded",
+          "Tip 20% of pre-tax subtotal unless a service-included policy is noted",
+          "Double cheeseburger is limited daily and often gone early"
+        ],
+        "foodOnlyLow": 28,
+        "foodOnlyHigh": 60,
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "sampleOrders": [
+        {
+          "description": "Double cheeseburger ($20) + crispy potatoes ($8)",
+          "foodOnlyPrice": 28,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Roasted sweet corn cappelletti ($27) + leafy greens & herb salad ($15) (meat-free by description)",
+          "foodOnlyPrice": 42,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Wood-fired polenta bread with olive oil ($8) + two-sheet lasagna verde bolognese ($35)",
+          "foodOnlyPrice": 43,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Grilled swordfish ($38) + squash salad with stracciatella ($22)",
+          "foodOnlyPrice": 60,
+          "evidenceIds": [
+            "e1"
+          ]
+        }
+      ],
+      "menuOptions": [
+        {
+          "dietaryTag": "vegetarian",
+          "description": "Meat-free dishes by description (not labeled): polenta bread, tahini chickpeas, leafy greens salad, sungold tomato candele, sweet corn cappelletti, charred peppers",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_inferred"
+        }
+      ],
+      "allergyPolicy": null,
+      "atmosphere": [
+        {
+          "tag": "date_night",
+          "evidenceIds": [
+            "e3"
+          ]
+        },
+        {
+          "tag": "lively",
+          "evidenceIds": [
+            "e3"
+          ]
+        }
+      ],
+      "hours": {
+        "timezone": "America/New_York",
+        "weekly": {
+          "sun": [
+            [
+              "11:00",
+              "15:00"
+            ],
+            [
+              "17:00",
+              "22:00"
+            ]
+          ],
+          "mon": [
+            [
+              "17:00",
+              "22:00"
+            ]
+          ],
+          "tue": [
+            [
+              "17:00",
+              "22:00"
+            ]
+          ],
+          "wed": [
+            [
+              "17:00",
+              "22:00"
+            ]
+          ],
+          "thu": [
+            [
+              "17:00",
+              "22:00"
+            ]
+          ],
+          "fri": [
+            [
+              "17:00",
+              "23:00"
+            ]
+          ],
+          "sat": [
+            [
+              "11:00",
+              "15:00"
+            ],
+            [
+              "17:00",
+              "23:00"
+            ]
+          ]
+        },
+        "lastSeatingNote": "Weekend brunch 11am-3pm; Sat-Sun 3-5pm drinks only; dinner from 5pm.",
+        "evidenceIds": [
+          "e2"
+        ]
+      },
+      "reservationPolicy": "reservations",
+      "partySizeNote": "Dinner groups of 8+ book by email (bigparties@rolosnyc.com); no reservations taken via email otherwise.",
+      "websiteUrl": "https://www.rolosnyc.com/",
+      "menuUrl": "https://www.rolosnyc.com/menus/",
+      "bookingUrl": "https://resy.com/cities/new-york-ny/venues/rolos",
+      "evidence": [
+        {
+          "id": "e1",
+          "url": "https://www.rolosnyc.com/menus/",
+          "retrievedAt": "2026-10-04",
+          "field": "mealEstimate, sampleOrders, menuOptions",
+          "note": "Official menus: polenta bread $8, leafy greens $15, squash salad $22, sweet corn cappelletti $27, lasagna verde $35, swordfish $38, double cheeseburger $20 ('LIMITED'), crispy potatoes $8."
+        },
+        {
+          "id": "e2",
+          "url": "https://www.rolosnyc.com/location/rolos/",
+          "retrievedAt": "2026-10-04",
+          "field": "hours, address, partySizeNote, bookingUrl",
+          "note": "Official location page: dinner Sun-Thu 5-10pm, Fri-Sat 5-11pm; weekend brunch Sat-Sun 11am-3pm; drinks Sat-Sun 3-5pm; 8+ email bigparties@rolosnyc.com; Resy link."
+        },
+        {
+          "id": "e3",
+          "url": "https://www.theinfatuation.com/new-york/reviews/rolos",
+          "retrievedAt": "2026-10-04",
+          "field": "atmosphere",
+          "note": "The Infatuation: 'busy Ridgewood restaurant'; Perfect For 'Date Nights', 'Birthdays', 'People Watching'; venue status Open."
+        },
+        {
+          "id": "e4",
+          "url": "https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&q=853%20Onderdonk%20Avenue%2C%20Ridgewood%2C%20NY%2011385",
+          "retrievedAt": "2026-10-04",
+          "field": "lat, lng",
+          "note": "Nominatim match: Rolo's, 853 Onderdonk Avenue."
+        }
+      ]
+    },
+    {
+      "id": "bahari-estiatorio-astoria",
+      "name": "Bahari Estiatorio",
+      "neighborhood": "Astoria",
+      "borough": "Queens",
+      "address": "31-14 Broadway, Astoria, NY 11106",
+      "cuisines": [
+        "greek",
+        "mediterranean",
+        "seafood"
+      ],
+      "lat": 40.76152,
+      "lng": -73.925,
+      "priceTier": "$$",
+      "mealEstimate": {
+        "low": 35,
+        "high": 73,
+        "currency": "USD",
+        "basis": "One main or casserole dish plus a spread/salad/pie per person, up to lamb chops with a spread sampler; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+        "assumptions": [
+          "Menu prices as listed on the official menu retrieved 2026-10-04",
+          "Drinks excluded",
+          "Tip 20% of pre-tax subtotal unless a service-included policy is noted",
+          "Whole grilled fish is market price (MP) and excluded"
+        ],
+        "foodOnlyLow": 27,
+        "foodOnlyHigh": 56.75,
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "sampleOrders": [
+        {
+          "description": "Gemista, tomatoes & peppers stuffed with herbed rice ($15) + spanakopita ($12) (meat-free)",
+          "foodOnlyPrice": 27,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Pastitsio ($19) + Elliniki (Greek) salad, small ($14)",
+          "foodOnlyPrice": 33,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Kotopoulo souvlaki ($22) + tzatziki ($12)",
+          "foodOnlyPrice": 34,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Paidakia, baby lamb chops ($39.75) + krya pikilia spread assortment, small ($17)",
+          "foodOnlyPrice": 56.75,
+          "evidenceIds": [
+            "e1"
+          ]
+        }
+      ],
+      "menuOptions": [
+        {
+          "dietaryTag": "vegetarian",
+          "description": "Meat-free by description (not labeled): gigantes, briam, gemista, spanakopita, tzatziki, melitzanosalata, radikia, Greek salads",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_inferred"
+        }
+      ],
+      "allergyPolicy": null,
+      "atmosphere": [
+        {
+          "tag": "group_friendly",
+          "evidenceIds": [
+            "e3"
+          ]
+        },
+        {
+          "tag": "lively",
+          "evidenceIds": [
+            "e3"
+          ]
+        },
+        {
+          "tag": "special_occasion",
+          "evidenceIds": [
+            "e3"
+          ]
+        },
+        {
+          "tag": "cozy",
+          "evidenceIds": [
+            "e2"
+          ]
+        }
+      ],
+      "hours": {
+        "timezone": "America/New_York",
+        "weekly": {
+          "sun": [
+            [
+              "12:00",
+              "24:00"
+            ]
+          ],
+          "mon": [
+            [
+              "12:00",
+              "24:00"
+            ]
+          ],
+          "tue": [
+            [
+              "12:00",
+              "24:00"
+            ]
+          ],
+          "wed": [
+            [
+              "12:00",
+              "24:00"
+            ]
+          ],
+          "thu": [
+            [
+              "12:00",
+              "24:00"
+            ]
+          ],
+          "fri": [
+            [
+              "12:00",
+              "24:00"
+            ]
+          ],
+          "sat": [
+            [
+              "12:00",
+              "24:00"
+            ]
+          ]
+        },
+        "lastSeatingNote": "Weekday lunch specials Mon-Fri 12pm-4pm.",
+        "evidenceIds": [
+          "e2"
+        ]
+      },
+      "reservationPolicy": "unknown",
+      "partySizeNote": "Official site has a 'Parties' page for group events; no reservation link found.",
+      "websiteUrl": "https://www.bahariestiatorio.com/",
+      "menuUrl": "https://www.bahariestiatorio.com/menu",
+      "bookingUrl": null,
+      "evidence": [
+        {
+          "id": "e1",
+          "url": "https://www.bahariestiatorio.com/menu",
+          "retrievedAt": "2026-10-04",
+          "field": "mealEstimate, sampleOrders, menuOptions",
+          "note": "Official menu: spanakopita $12, tzatziki $12, krya pikilia $17/$21, Elliniki salad $14/$17.5, gemista $15, pastitsio $19, kotopoulo souvlaki $22, paidakia $39.75; whole fish MP."
+        },
+        {
+          "id": "e2",
+          "url": "https://www.bahariestiatorio.com/",
+          "retrievedAt": "2026-10-04",
+          "field": "hours, address, atmosphere",
+          "note": "Official homepage: 31-14 Broadway, Astoria; 'OPEN DAILY MONDAY - SUNDAY 12pm - 12Midnight'; lunch special weekdays 12-4pm; 'rustic, cozy and inviting'."
+        },
+        {
+          "id": "e3",
+          "url": "https://www.theinfatuation.com/new-york/reviews/bahari-estiatorio",
+          "retrievedAt": "2026-10-04",
+          "field": "atmosphere",
+          "note": "The Infatuation: 'great for big groups'; 'huge, and usually pretty busy with groups'; Perfect For 'Big Groups', 'Birthdays', 'Special Occasions'; venue status Open."
+        },
+        {
+          "id": "e4",
+          "url": "https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&q=31-14%20Broadway%2C%20Astoria%2C%20NY%2011106",
+          "retrievedAt": "2026-10-04",
+          "field": "lat, lng",
+          "note": "Nominatim building match: 31-14 Broadway, Queens 11106."
+        }
+      ]
+    },
+    {
+      "id": "jackson-diner-jackson-heights",
+      "name": "Jackson Diner",
+      "neighborhood": "Jackson Heights",
+      "borough": "Queens",
+      "address": "37-47 74th St, Queens, NY 11372",
+      "cuisines": [
+        "indian"
+      ],
+      "lat": 40.74775,
+      "lng": -73.89133,
+      "priceTier": "$$",
+      "mealEstimate": {
+        "low": 30,
+        "high": 37,
+        "currency": "USD",
+        "basis": "One curry plus garlic nan and a side (rice pulao or samosa) per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+        "assumptions": [
+          "Menu prices as listed on the official menu retrieved 2026-10-04",
+          "Drinks excluded",
+          "Tip 20% of pre-tax subtotal unless a service-included policy is noted",
+          "Official menu page footer reads (c) 2013, so listed prices may be outdated; The Infatuation (fetched today) puts dishes 'mostly in the $15-20 range', consistent with the menu"
+        ],
+        "foodOnlyLow": 23,
+        "foodOnlyHigh": 29,
+        "evidenceIds": [
+          "e1",
+          "e3"
+        ]
+      },
+      "sampleOrders": [
+        {
+          "description": "Saag paneer ($14) + garlic nan ($5) + samosa ($4)",
+          "foodOnlyPrice": 23,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Chicken curry special ($16) + garlic nan ($5) + rice pulao ($4)",
+          "foodOnlyPrice": 25,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Goat curry special ($20) + garlic nan ($5) + rice pulao ($4)",
+          "foodOnlyPrice": 29,
+          "evidenceIds": [
+            "e1"
+          ]
+        }
+      ],
+      "menuOptions": [
+        {
+          "dietaryTag": "vegetarian",
+          "description": "Dedicated 'Vegetarian Specials' section ($14): malai kofta, saag paneer/aloo/chana, kadai paneer, chana masala, dal makhani, dal tadka; tofu and vegetable curry options",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_labeled"
+        }
+      ],
+      "allergyPolicy": null,
+      "atmosphere": [
+        {
+          "tag": "group_friendly",
+          "evidenceIds": [
+            "e3"
+          ]
+        },
+        {
+          "tag": "casual",
+          "evidenceIds": [
+            "e3"
+          ]
+        },
+        {
+          "tag": "family_friendly",
+          "evidenceIds": [
+            "e3"
+          ]
+        }
+      ],
+      "hours": {
+        "timezone": "America/New_York",
+        "weekly": {
+          "sun": [
+            [
+              "11:30",
+              "21:00"
+            ]
+          ],
+          "mon": [
+            [
+              "11:30",
+              "21:00"
+            ]
+          ],
+          "tue": [
+            [
+              "11:30",
+              "21:00"
+            ]
+          ],
+          "wed": [
+            [
+              "11:30",
+              "21:00"
+            ]
+          ],
+          "thu": [
+            [
+              "11:30",
+              "21:00"
+            ]
+          ],
+          "fri": [
+            [
+              "11:30",
+              "22:00"
+            ]
+          ],
+          "sat": [
+            [
+              "11:30",
+              "22:00"
+            ]
+          ]
+        },
+        "lastSeatingNote": null,
+        "evidenceIds": [
+          "e2"
+        ]
+      },
+      "reservationPolicy": "unknown",
+      "partySizeNote": null,
+      "websiteUrl": "https://www.jacksondiner.com/",
+      "menuUrl": "https://www.jacksondiner.com/restaurant-menu.html",
+      "bookingUrl": null,
+      "evidence": [
+        {
+          "id": "e1",
+          "url": "https://www.jacksondiner.com/restaurant-menu.html",
+          "retrievedAt": "2026-10-04",
+          "field": "mealEstimate, sampleOrders, menuOptions",
+          "note": "Official menu page: curry specials tofu/vegetable $14, chicken $16, goat/lamb/fish $20; Vegetarian Specials $14; garlic nan $5; rice pulao $4; samosa $4. Page footer (c) 2013."
+        },
+        {
+          "id": "e2",
+          "url": "https://www.jacksondiner.com/contact.html",
+          "retrievedAt": "2026-10-04",
+          "field": "hours, address",
+          "note": "Official contact page: 37-47 74th Street, Queens NY 11372; Sunday-Thursday 11:30am-9:00pm, Friday-Saturday 11:30am-10:00pm."
+        },
+        {
+          "id": "e3",
+          "url": "https://www.theinfatuation.com/new-york/reviews/jackson-diner",
+          "retrievedAt": "2026-10-04",
+          "field": "atmosphere, mealEstimate",
+          "note": "The Infatuation: 'big Indian restaurant'; 'one-room space is giant, so you won't have trouble bringing a group'; dishes 'mostly in the $15-20 range'; Perfect For 'Big Groups', 'Casual Dinners', 'Kids'; venue status Open."
+        },
+        {
+          "id": "e4",
+          "url": "https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&q=37-47%2074th%20Street%2C%20Queens%2C%20NY%2011372",
+          "retrievedAt": "2026-10-04",
+          "field": "lat, lng",
+          "note": "Nominatim building match: 37-47 74th Street, Queens 11372 (query with 'Jackson Heights' returned no result)."
+        }
+      ]
+    },
+    {
+      "id": "dawas-woodside",
+      "name": "Dawa's",
+      "neighborhood": "Woodside",
+      "borough": "Queens",
+      "address": "51-18 Skillman Ave, Queens, NY 11377",
+      "cuisines": [
+        "himalayan",
+        "tibetan",
+        "nepali",
+        "american"
+      ],
+      "lat": 40.74575,
+      "lng": -73.9127,
+      "priceTier": "$$",
+      "mealEstimate": {
+        "low": 28,
+        "high": 43,
+        "currency": "USD",
+        "basis": "Two Himalayan dishes per person (e.g. momos plus a noodle or a small plate); includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+        "assumptions": [
+          "Menu prices as listed on the official menu retrieved 2026-10-04",
+          "Drinks excluded",
+          "Tip 20% of pre-tax subtotal unless a service-included policy is noted",
+          "Homepage also shows an older Valentine's Day tapas menu; only the 'Himalayan Inspired Menu' prices are used"
+        ],
+        "foodOnlyLow": 22,
+        "foodOnlyHigh": 33.5,
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "sampleOrders": [
+        {
+          "description": "Momo, beef or veg ($14) + laphing ($8)",
+          "foodOnlyPrice": 22,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Thenthuk ($16.50) + laphing ($8)",
+          "foodOnlyPrice": 24.5,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Chili cauliflower (V) ($17) + veg momo (V) ($14)",
+          "foodOnlyPrice": 31,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Chicken sekuwa ($19.50) + chicken momo ($14)",
+          "foodOnlyPrice": 33.5,
+          "evidenceIds": [
+            "e1"
+          ]
+        }
+      ],
+      "menuOptions": [
+        {
+          "dietaryTag": "vegetarian",
+          "description": "Dishes marked (V) on the menu: veg momo, pharsi (kabocha stew), tsel-baley, chili cauliflower, Nepali aloo. The page doesn't define (V); treated as vegetarian",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_labeled"
+        }
+      ],
+      "allergyPolicy": null,
+      "atmosphere": [
+        {
+          "tag": "casual",
+          "evidenceIds": [
+            "e2"
+          ]
+        },
+        {
+          "tag": "cozy",
+          "evidenceIds": [
+            "e1",
+            "e2"
+          ]
+        }
+      ],
+      "hours": {
+        "timezone": "America/New_York",
+        "weekly": {
+          "sun": [
+            [
+              "12:00",
+              "22:00"
+            ]
+          ],
+          "mon": [
+            [
+              "12:00",
+              "22:00"
+            ]
+          ],
+          "tue": [],
+          "wed": [
+            [
+              "12:00",
+              "22:00"
+            ]
+          ],
+          "thu": [
+            [
+              "12:00",
+              "22:00"
+            ]
+          ],
+          "fri": [
+            [
+              "12:00",
+              "23:00"
+            ]
+          ],
+          "sat": [
+            [
+              "12:00",
+              "23:00"
+            ]
+          ]
+        },
+        "lastSeatingNote": "Closed Tuesday.",
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "reservationPolicy": "unknown",
+      "partySizeNote": null,
+      "websiteUrl": "https://www.dawasnyc.com/",
+      "menuUrl": "https://www.dawasnyc.com/#menu-section",
+      "bookingUrl": null,
+      "evidence": [
+        {
+          "id": "e1",
+          "url": "https://www.dawasnyc.com/",
+          "retrievedAt": "2026-10-04",
+          "field": "mealEstimate, sampleOrders, menuOptions, hours, address, atmosphere",
+          "note": "Official homepage: 51-18 Skillman Avenue; Sun, Mon, Wed, Thu 12pm-10pm, Fri & Sat 12pm-11pm, closed Tue; 'warm and relaxing setting'; Himalayan menu: laphing $8, momo $14, thenthuk $16.50, chili cauliflower (V) $17, chicken sekuwa $19.50."
+        },
+        {
+          "id": "e2",
+          "url": "https://www.theinfatuation.com/new-york/reviews/dawas",
+          "retrievedAt": "2026-10-04",
+          "field": "atmosphere",
+          "note": "The Infatuation: 'friendly neighborhood spot' with 'mismatched furniture, flowers on the tables'; 'go-to spots for a casual weeknight meal'; Perfect For 'Casual Dinners'; venue status Open."
+        },
+        {
+          "id": "e3",
+          "url": "https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&q=51-18%20Skillman%20Avenue%2C%20Woodside%2C%20NY%2011377",
+          "retrievedAt": "2026-10-04",
+          "field": "lat, lng",
+          "note": "Nominatim building match: 51-18 Skillman Avenue, Sunnyside Gardens, Woodside."
+        }
+      ]
+    },
+    {
+      "id": "hometown-bar-b-que-red-hook",
+      "name": "Hometown Bar-B-Que",
+      "neighborhood": "Red Hook",
+      "borough": "Brooklyn",
+      "address": "454 Van Brunt St, Brooklyn, NY 11231",
+      "cuisines": [
+        "barbecue",
+        "american"
+      ],
+      "lat": 40.67492,
+      "lng": -74.01613,
+      "priceTier": "$$",
+      "mealEstimate": {
+        "low": 31,
+        "high": 55,
+        "currency": "USD",
+        "basis": "A sandwich with a side, up to a half pound of brisket plus ribs and a side per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+        "assumptions": [
+          "Menu prices as listed on the official menu retrieved 2026-10-04",
+          "Drinks excluded",
+          "Tip 20% of pre-tax subtotal unless a service-included policy is noted",
+          "Counter service; tip assumed 20% for consistency (conservative)",
+          "Items sell out daily"
+        ],
+        "foodOnlyLow": 24,
+        "foodOnlyHigh": 43,
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "sampleOrders": [
+        {
+          "description": "Pulled pork sandwich ($17) + mac & cheese, small ($7)",
+          "foodOnlyPrice": 24,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Brisket, 1/2 lb ($20) + mac & cheese, small ($7) + Texas-style pinto beans, small ($7)",
+          "foodOnlyPrice": 34,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Brisket, 1/2 lb ($20) + spare ribs, 1/2 lb ($16) + mac & cheese, small ($7)",
+          "foodOnlyPrice": 43,
+          "evidenceIds": [
+            "e1"
+          ]
+        }
+      ],
+      "menuOptions": [],
+      "allergyPolicy": null,
+      "atmosphere": [
+        {
+          "tag": "casual",
+          "evidenceIds": [
+            "e2"
+          ]
+        },
+        {
+          "tag": "lively",
+          "evidenceIds": [
+            "e2"
+          ]
+        },
+        {
+          "tag": "group_friendly",
+          "evidenceIds": [
+            "e3"
+          ]
+        },
+        {
+          "tag": "outdoor_seating",
+          "evidenceIds": [
+            "e3"
+          ]
+        }
+      ],
+      "hours": {
+        "timezone": "America/New_York",
+        "weekly": {
+          "sun": [
+            [
+              "12:00",
+              "21:00"
+            ]
+          ],
+          "mon": null,
+          "tue": [
+            [
+              "12:00",
+              "21:00"
+            ]
+          ],
+          "wed": [
+            [
+              "12:00",
+              "21:00"
+            ]
+          ],
+          "thu": [
+            [
+              "12:00",
+              "21:00"
+            ]
+          ],
+          "fri": [
+            [
+              "12:00",
+              "22:00"
+            ]
+          ],
+          "sat": [
+            [
+              "12:00",
+              "22:00"
+            ]
+          ]
+        },
+        "lastSeatingNote": "Monday isn't listed on the official hours (likely closed, unverified). Counter service until the day's meat sells out.",
+        "evidenceIds": [
+          "e2"
+        ]
+      },
+      "reservationPolicy": "walk_in_only",
+      "partySizeNote": "Walk-up counter service, first-come first-served.",
+      "websiteUrl": "https://hometownbbq.com/",
+      "menuUrl": "https://hometownbbq.com/menu-rh",
+      "bookingUrl": null,
+      "evidence": [
+        {
+          "id": "e1",
+          "url": "https://hometownbbq.com/menu-rh",
+          "retrievedAt": "2026-10-04",
+          "field": "mealEstimate, sampleOrders",
+          "note": "Official Red Hook menu: brisket $20 / pulled pork $17 / spare ribs $16 per half pound; pulled pork sandwich $17; mac+cheese $7/$12; pinto beans $7/$12."
+        },
+        {
+          "id": "e2",
+          "url": "https://hometownbbq.com/",
+          "retrievedAt": "2026-10-04",
+          "field": "hours, address, reservationPolicy, atmosphere",
+          "note": "Official homepage: 454 Van Brunt St; Sun, Tue, Wed, Thu noon-9pm, Fri-Sat noon-10pm; 'walk-up service to our counter on a first-come, first-served basis'; butcher-paper trays; live music on weekend nights."
+        },
+        {
+          "id": "e3",
+          "url": "https://www.theinfatuation.com/new-york/reviews/hometown-bar-b-que",
+          "retrievedAt": "2026-10-04",
+          "field": "atmosphere",
+          "note": "The Infatuation: Perfect For 'Big Groups', 'Birthdays', 'Sitting Outside'; venue status Open."
+        },
+        {
+          "id": "e4",
+          "url": "https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&q=454%20Van%20Brunt%20Street%2C%20Brooklyn%2C%20NY%2011231",
+          "retrievedAt": "2026-10-04",
+          "field": "lat, lng",
+          "note": "Nominatim building match: 454 Van Brunt Street, Red Hook."
+        }
+      ]
+    },
+    {
+      "id": "scarrs-pizza-lower-east-side",
+      "name": "Scarr's Pizza",
+      "neighborhood": "Lower East Side",
+      "borough": "Manhattan",
+      "address": "35 Orchard St, New York, NY 10002",
+      "cuisines": [
+        "pizza",
+        "italian-american"
+      ],
+      "lat": 40.71574,
+      "lng": -73.99157,
+      "priceTier": "$",
+      "mealEstimate": {
+        "low": 14,
+        "high": 35,
+        "currency": "USD",
+        "basis": "Two slices to go, up to half a shared 12-inch pie plus half a side, or a parm plate with garlic knots; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+        "assumptions": [
+          "Menu prices as listed on the official menu retrieved 2026-10-04",
+          "Drinks excluded",
+          "Tip 20% of pre-tax subtotal unless a service-included policy is noted",
+          "Listed prices are credit-card prices that already include a 3% surcharge (cash/debit is cheaper)",
+          "Slices are to go only; dine-in is 12-inch pies",
+          "20% service charge for parties of 6+"
+        ],
+        "foodOnlyLow": 11,
+        "foodOnlyHigh": 27,
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "sampleOrders": [
+        {
+          "description": "Original slice ($4.50) + Margherita slice ($6.50), to go",
+          "foodOnlyPrice": 11,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Half a 12-inch Hotboi pie ($34) + half an order of vegan garlic knots ($8)",
+          "foodOnlyPrice": 21,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Half a 12-inch Vegan pie ($28) + half a small vegan Caesar ($15)",
+          "foodOnlyPrice": 21.5,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Chicken parm (GF) ($19) + vegan garlic knots ($8)",
+          "foodOnlyPrice": 27,
+          "evidenceIds": [
+            "e1"
+          ]
+        }
+      ],
+      "menuOptions": [
+        {
+          "dietaryTag": "vegan",
+          "description": "Items named vegan: Vegan pie (NUMU vegan cheese), vegan garlic knots, vegan Caesar, vegan cheese calzone, vegan soft-serve",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_labeled"
+        },
+        {
+          "dietaryTag": "gluten_free",
+          "description": "Gluten-free 10x12 Sicilian pies (whole pie only); eggplant and chicken parm marked (GF)",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_labeled"
+        },
+        {
+          "dietaryTag": "vegetarian",
+          "description": "Meat-free by description: Margherita, cheese slices and pies, eggplant parm (menu notes the cheese is made with cow rennet)",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_inferred"
+        }
+      ],
+      "allergyPolicy": {
+        "statement": "\"*Please inform your server if any person in your party has a food allergy*\"",
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "atmosphere": [
+        {
+          "tag": "casual",
+          "evidenceIds": [
+            "e3"
+          ]
+        },
+        {
+          "tag": "lively",
+          "evidenceIds": [
+            "e3"
+          ]
+        },
+        {
+          "tag": "late_night",
+          "evidenceIds": [
+            "e2"
+          ]
+        }
+      ],
+      "hours": {
+        "timezone": "America/New_York",
+        "weekly": {
+          "sun": [
+            [
+              "11:30",
+              "23:00"
+            ]
+          ],
+          "mon": [
+            [
+              "11:30",
+              "23:00"
+            ]
+          ],
+          "tue": [
+            [
+              "11:30",
+              "23:00"
+            ]
+          ],
+          "wed": [
+            [
+              "11:30",
+              "23:00"
+            ]
+          ],
+          "thu": [
+            [
+              "11:30",
+              "24:00"
+            ]
+          ],
+          "fri": [
+            [
+              "11:30",
+              "26:00"
+            ]
+          ],
+          "sat": [
+            [
+              "11:30",
+              "26:00"
+            ]
+          ]
+        },
+        "lastSeatingNote": null,
+        "evidenceIds": [
+          "e2"
+        ]
+      },
+      "reservationPolicy": "reservations_and_walk_ins",
+      "partySizeNote": "20% service charge for parties of 6 or more. Slice counter is walk-up; seated pies can be booked via OpenTable.",
+      "websiteUrl": "https://www.scarrspizza.com/",
+      "menuUrl": "https://www.scarrspizza.com/menus/",
+      "bookingUrl": "https://www.opentable.com/r/scarrs-pizza-new-york",
+      "evidence": [
+        {
+          "id": "e1",
+          "url": "https://www.scarrspizza.com/menus/",
+          "retrievedAt": "2026-10-04",
+          "field": "mealEstimate, sampleOrders, menuOptions, allergyPolicy",
+          "note": "Official menus: slices $4.50-7.50 (to go only); 12-inch Margherita/Vegan $28, Hotboi $34; vegan garlic knots $8; vegan Caesar SM $15; chicken parm (GF) $19; GF Sicilians $37-38; prices include a 3% card surcharge; 20% service 6+; allergy note."
+        },
+        {
+          "id": "e2",
+          "url": "https://www.scarrspizza.com/location/scarrs-pizza/",
+          "retrievedAt": "2026-10-04",
+          "field": "hours, address, bookingUrl",
+          "note": "Official location page: 35 Orchard St; Sun-Wed 11:30am-11pm, Thu 11:30am-12am, Fri-Sat 11:30am-2am; OpenTable reservations link."
+        },
+        {
+          "id": "e3",
+          "url": "https://www.theinfatuation.com/new-york/reviews/scarrs-pizza",
+          "retrievedAt": "2026-10-04",
+          "field": "atmosphere",
+          "note": "The Infatuation: 'retro slice shop... pretty lively scene'; more seating in back for full pies; Perfect For 'Casual Dinners'; venue status Open."
+        },
+        {
+          "id": "e4",
+          "url": "https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&q=35%20Orchard%20Street%2C%20New%20York%2C%20NY%2010002",
+          "retrievedAt": "2026-10-04",
+          "field": "lat, lng",
+          "note": "Nominatim match: Scarr's Pizza, 35 Orchard Street."
+        }
+      ]
+    },
+    {
+      "id": "veselka-east-village",
+      "name": "Veselka",
+      "neighborhood": "East Village",
+      "borough": "Manhattan",
+      "address": "144 2nd Ave, New York, NY 10003",
+      "cuisines": [
+        "ukrainian",
+        "eastern european",
+        "diner"
+      ],
+      "lat": 40.72898,
+      "lng": -73.987,
+      "priceTier": "$$",
+      "mealEstimate": {
+        "low": 32,
+        "high": 52,
+        "currency": "USD",
+        "basis": "A combo plate (includes soup or salad), pierogi with soup, or the 3-course Taste of Ukraine; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+        "assumptions": [
+          "Menu prices as listed on the official menu retrieved 2026-10-04",
+          "Drinks excluded",
+          "Tip 20% of pre-tax subtotal unless a service-included policy is noted"
+        ],
+        "foodOnlyLow": 25,
+        "foodOnlyHigh": 40,
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "sampleOrders": [
+        {
+          "description": "Vegetarian combo plate (cheese and potato pierogi, vegetarian stuffed cabbage; includes cup of soup or salad)",
+          "foodOnlyPrice": 25,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Eight handmade pierogi ($20) + cup of Ukrainian borscht ($7)",
+          "foodOnlyPrice": 27,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Beef stroganoff ($27) + cup of Ukrainian borscht ($7)",
+          "foodOnlyPrice": 34,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Taste of Ukraine 3-course meal (includes a glass of kompot)",
+          "foodOnlyPrice": 40,
+          "evidenceIds": [
+            "e1"
+          ]
+        }
+      ],
+      "menuOptions": [
+        {
+          "dietaryTag": "vegetarian",
+          "description": "Menu legend marks V (vegetarian): e.g. vegetarian combo plates, vegetarian holubtsi, vegetarian Reuben potato pancakes",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_labeled"
+        },
+        {
+          "dietaryTag": "vegan",
+          "description": "Menu legend defines VG (vegan) marks, used mostly on sides",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_labeled"
+        },
+        {
+          "dietaryTag": "gluten_free",
+          "description": "Menu legend marks GF items (e.g. Ukrainian borscht); any sandwich can be made gluten-free for $3",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_labeled"
+        }
+      ],
+      "allergyPolicy": {
+        "statement": "\"Our kitchen utilizes common allergens such as tree nuts, gluten, and other common ingredients and we cannot guarantee that cross contamination has not taken place. For more information, please ask your server.\"",
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "atmosphere": [
+        {
+          "tag": "late_night",
+          "evidenceIds": [
+            "e2",
+            "e3"
+          ]
+        },
+        {
+          "tag": "lively",
+          "evidenceIds": [
+            "e3"
+          ]
+        },
+        {
+          "tag": "outdoor_seating",
+          "evidenceIds": [
+            "e2"
+          ]
+        }
+      ],
+      "hours": {
+        "timezone": "America/New_York",
+        "weekly": {
+          "sun": [
+            [
+              "00:00",
+              "23:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "24:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "24:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "24:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "24:00"
+            ]
+          ],
+          "fri": [
+            [
+              "09:00",
+              "24:00"
+            ]
+          ],
+          "sat": [
+            [
+              "00:00",
+              "24:00"
+            ]
+          ]
+        },
+        "lastSeatingNote": "Open overnight from Friday 9am through Sunday 11pm (24 hours on Saturday).",
+        "evidenceIds": [
+          "e2"
+        ]
+      },
+      "reservationPolicy": "reservations_and_walk_ins",
+      "partySizeNote": "Mostly first-come first-served with limited reservations; groups of 8+ email info@veselka.com.",
+      "websiteUrl": "https://veselka.com/",
+      "menuUrl": "https://cdn.shopify.com/s/files/1/0713/3331/4847/files/VES_9.23_MenuUpdate_260922_2ndAve_V3_17x11_PRINT.pdf?v=1790274052",
+      "bookingUrl": "https://resy.com/cities/new-york-ny/venues/veselka-east-village",
+      "evidence": [
+        {
+          "id": "e1",
+          "url": "https://cdn.shopify.com/s/files/1/0713/3331/4847/files/VES_9.23_MenuUpdate_260922_2ndAve_V3_17x11_PRINT.pdf?v=1790274052",
+          "retrievedAt": "2026-10-04",
+          "field": "mealEstimate, sampleOrders, menuOptions, allergyPolicy",
+          "note": "Official 2nd Ave menu PDF (file dated 9/22/26): eight pierogi $20, soups cup $7, vegetarian plate $25, beef stroganoff $27, Taste of Ukraine $40; GF/V/VG legend; cross-contamination statement."
+        },
+        {
+          "id": "e2",
+          "url": "https://veselka.com/pages/locations",
+          "retrievedAt": "2026-10-04",
+          "field": "hours, address, reservationPolicy, partySizeNote, atmosphere, bookingUrl",
+          "note": "Official locations page: 144 2nd Avenue; Mon-Thu 9am-12am, Fri 9am-open overnight, Sat open 24hrs, Sun 11pm close; indoor and outdoor dining; 'first come first served basis, but do take limited reservations'; 8+ email; Resy link."
+        },
+        {
+          "id": "e3",
+          "url": "https://www.theinfatuation.com/new-york/reviews/veselka",
+          "retrievedAt": "2026-10-04",
+          "field": "atmosphere",
+          "note": "The Infatuation: 24-hour policy back on weekends; dining room 'at its bustling best during brunch'; Perfect For 'Classic Establishment', 'Late Nights'; venue status Open."
+        },
+        {
+          "id": "e4",
+          "url": "https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&q=144%202nd%20Avenue%2C%20New%20York%2C%20NY%2010003",
+          "retrievedAt": "2026-10-04",
+          "field": "lat, lng",
+          "note": "Nominatim match: Veselka, 144 2nd Avenue."
+        }
+      ]
+    },
+    {
+      "id": "hanoi-house-east-village",
+      "name": "Hanoi House",
+      "neighborhood": "East Village",
+      "borough": "Manhattan",
+      "address": "119 St Marks Pl, New York, NY 10009",
+      "cuisines": [
+        "vietnamese"
+      ],
+      "lat": 40.7271,
+      "lng": -73.98348,
+      "priceTier": "$$",
+      "mealEstimate": {
+        "low": 41,
+        "high": 71,
+        "currency": "USD",
+        "basis": "A bowl of pho or an entree plus an appetizer per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+        "assumptions": [
+          "Menu prices as listed on the official menu retrieved 2026-10-04",
+          "Drinks excluded",
+          "Tip 20% of pre-tax subtotal unless a service-included policy is noted"
+        ],
+        "foodOnlyLow": 32,
+        "foodOnlyHigh": 55,
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "sampleOrders": [
+        {
+          "description": "Vegetarian pho chay ($19) + tofu summer rolls ($13)",
+          "foodOnlyPrice": 32,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Pho bac with two meats ($20) + summer rolls ($13)",
+          "foodOnlyPrice": 33,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Bun cha Ha Noi ($26) + crispy spring rolls ($12)",
+          "foodOnlyPrice": 38,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Shaking beef ($36) + papaya & pig ear salad ($19)",
+          "foodOnlyPrice": 55,
+          "evidenceIds": [
+            "e1"
+          ]
+        }
+      ],
+      "menuOptions": [
+        {
+          "dietaryTag": "vegetarian",
+          "description": "'Vegetarian - Pho Chay' (mushroom & ginger broth, tofu) and a vegetarian pho broth option are labeled; tofu summer rolls by description",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_labeled"
+        }
+      ],
+      "allergyPolicy": {
+        "statement": "\"If you have a food allergy, please notify your server! We have a small kitchen with shared work surfaces so we cannot guarantee that any dish is 100% allergen free. However we will do our absolute best to accommodate you.\"",
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "atmosphere": [
+        {
+          "tag": "date_night",
+          "evidenceIds": [
+            "e3"
+          ]
+        },
+        {
+          "tag": "casual",
+          "evidenceIds": [
+            "e3"
+          ]
+        },
+        {
+          "tag": "outdoor_seating",
+          "evidenceIds": [
+            "e3"
+          ]
+        },
+        {
+          "tag": "lively",
+          "evidenceIds": [
+            "e3"
+          ]
+        }
+      ],
+      "hours": {
+        "timezone": "America/New_York",
+        "weekly": {
+          "sun": [
+            [
+              "11:30",
+              "15:30"
+            ],
+            [
+              "17:30",
+              "21:00"
+            ]
+          ],
+          "mon": [
+            [
+              "17:30",
+              "21:30"
+            ]
+          ],
+          "tue": [
+            [
+              "17:30",
+              "21:30"
+            ]
+          ],
+          "wed": [
+            [
+              "17:30",
+              "21:30"
+            ]
+          ],
+          "thu": [
+            [
+              "17:30",
+              "21:30"
+            ]
+          ],
+          "fri": [
+            [
+              "17:30",
+              "22:30"
+            ]
+          ],
+          "sat": [
+            [
+              "11:30",
+              "15:30"
+            ],
+            [
+              "17:30",
+              "22:30"
+            ]
+          ]
+        },
+        "lastSeatingNote": "Weekend brunch until 3:30pm, closed 3:30-5:30pm; happy hour Mon-Fri 5:30-7pm.",
+        "evidenceIds": [
+          "e2"
+        ]
+      },
+      "reservationPolicy": "reservations",
+      "partySizeNote": "Reservations through a form on the official site (booking provider not exposed).",
+      "websiteUrl": "https://www.hanoihousenyc.com/",
+      "menuUrl": "https://www.hanoihousenyc.com/menu-hanoi-house/",
+      "bookingUrl": null,
+      "evidence": [
+        {
+          "id": "e1",
+          "url": "https://www.hanoihousenyc.com/menu-hanoi-house/",
+          "retrievedAt": "2026-10-04",
+          "field": "mealEstimate, sampleOrders, menuOptions, allergyPolicy",
+          "note": "Official dinner menu: summer rolls (pork sausage or tofu) $13, crispy spring rolls $12, papaya salad $19, pho bac two meats $20, pho chay (vegetarian) $19, bun cha $26, shaking beef $36; allergy statement."
+        },
+        {
+          "id": "e2",
+          "url": "https://www.hanoihousenyc.com/location/hanoi-house-119-st/",
+          "retrievedAt": "2026-10-04",
+          "field": "hours, address, reservationPolicy",
+          "note": "Official Hours & Location: Mon-Thu 5:30-9:30pm, Fri 5:30-10:30pm, Sat 11:30am-3:30pm | 5:30-10:30pm, Sun 11:30am-3:30pm | 5:30-9pm; reservation form on site."
+        },
+        {
+          "id": "e3",
+          "url": "https://www.theinfatuation.com/new-york/reviews/ha-noi-house",
+          "retrievedAt": "2026-10-04",
+          "field": "atmosphere, reservationPolicy",
+          "note": "The Infatuation: 'reserve a table... inside or outside on the sidewalk patio that always feels like a pho-powered St. Marks party'; Perfect For 'Brunch', 'Casual Dinners', 'Date Nights'; venue status Open."
+        },
+        {
+          "id": "e4",
+          "url": "https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&q=119%20Saint%20Marks%20Place%2C%20New%20York%2C%20NY%2010009",
+          "retrievedAt": "2026-10-04",
+          "field": "lat, lng",
+          "note": "Nominatim building match: 119 Saint Marks Place, East Village."
+        }
+      ]
+    },
+    {
+      "id": "tonchin-midtown",
+      "name": "Tonchin",
+      "neighborhood": "Midtown",
+      "borough": "Manhattan",
+      "address": "13 W 36th St, New York, NY 10018",
+      "cuisines": [
+        "japanese",
+        "ramen"
+      ],
+      "lat": 40.75032,
+      "lng": -73.98448,
+      "priceTier": "$$",
+      "mealEstimate": {
+        "low": 28,
+        "high": 53,
+        "currency": "USD",
+        "basis": "One bowl of ramen, optionally with a bite or gyoza, up to tsukemen with gyoza; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+        "assumptions": [
+          "Menu prices as listed on the official menu retrieved 2026-10-04",
+          "Drinks excluded",
+          "Tip 20% of pre-tax subtotal unless a service-included policy is noted",
+          "No substitutions or modifications per the menu"
+        ],
+        "foodOnlyLow": 22,
+        "foodOnlyHigh": 41,
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "sampleOrders": [
+        {
+          "description": "Tonchin classic Tokyo tonkotsu ramen",
+          "foodOnlyPrice": 22,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Miso ginger ramen with vegan noodles and broth ($22) + one bite, e.g. kyuri (V & GF) ($9)",
+          "foodOnlyPrice": 31,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Spicy tan tan ramen ($23) + one bite ($9)",
+          "foodOnlyPrice": 32,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Original tsukemen ($25) + gyoza ($16)",
+          "foodOnlyPrice": 41,
+          "evidenceIds": [
+            "e1"
+          ]
+        }
+      ],
+      "menuOptions": [
+        {
+          "dietaryTag": "vegan",
+          "description": "Menu legend 'V = VEGAN': edamame, kyuri, kimchi mushrooms marked (V); shishito 'can be made vegan'; miso ginger ramen uses vegan noodles and vegan miso broth; ban ban kinoko uses a vegan sauce",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_labeled"
+        },
+        {
+          "dietaryTag": "vegetarian",
+          "description": "Menu legend 'VG = VEGETARIAN': e.g. Tonchin salad (VG)",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_labeled"
+        },
+        {
+          "dietaryTag": "gluten_free",
+          "description": "Menu legend 'GF = GLUTEN FREE': e.g. kyuri (V & GF), potato & crab salad (GF), spicy maguro (GF)",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_labeled"
+        }
+      ],
+      "allergyPolicy": {
+        "statement": "\"* No substitutions. No modifications. Please notify your server of any allergies*\"",
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "atmosphere": [
+        {
+          "tag": "casual",
+          "evidenceIds": [
+            "e3"
+          ]
+        },
+        {
+          "tag": "solo_friendly",
+          "evidenceIds": [
+            "e3"
+          ]
+        }
+      ],
+      "hours": {
+        "timezone": "America/New_York",
+        "weekly": {
+          "sun": [
+            [
+              "11:30",
+              "22:00"
+            ]
+          ],
+          "mon": [
+            [
+              "11:30",
+              "22:00"
+            ]
+          ],
+          "tue": [
+            [
+              "11:30",
+              "22:00"
+            ]
+          ],
+          "wed": [
+            [
+              "11:30",
+              "22:00"
+            ]
+          ],
+          "thu": [
+            [
+              "11:30",
+              "22:00"
+            ]
+          ],
+          "fri": [
+            [
+              "11:30",
+              "22:00"
+            ]
+          ],
+          "sat": [
+            [
+              "11:30",
+              "22:00"
+            ]
+          ]
+        },
+        "lastSeatingNote": null,
+        "evidenceIds": [
+          "e2"
+        ]
+      },
+      "reservationPolicy": "reservations",
+      "partySizeNote": null,
+      "websiteUrl": "https://www.tonchinus.com/",
+      "menuUrl": "https://www.tonchinus.com/new-york-menu",
+      "bookingUrl": "https://resy.com/cities/new-york-ny/venues/tonchin-new-york",
+      "evidence": [
+        {
+          "id": "e1",
+          "url": "https://www.tonchinus.com/new-york-menu",
+          "retrievedAt": "2026-10-04",
+          "field": "mealEstimate, sampleOrders, menuOptions, allergyPolicy",
+          "note": "Official New York menu: bites sampler pick 1 $9; gyoza $16; Tokyo tonkotsu $22, spicy tan tan $23, miso ginger $22, tsukemen $25; legend GF/VG/V; allergy note."
+        },
+        {
+          "id": "e2",
+          "url": "https://www.tonchinus.com/locations",
+          "retrievedAt": "2026-10-04",
+          "field": "hours, address",
+          "note": "Official locations page: Midtown Manhattan flagship, 13 W 36th Street; 'Every day: 11:30am - 10:00pm'."
+        },
+        {
+          "id": "e3",
+          "url": "https://www.theinfatuation.com/new-york/reviews/tonchin",
+          "retrievedAt": "2026-10-04",
+          "field": "atmosphere",
+          "note": "The Infatuation: 'cool ramen place near Penn Station'; Perfect For 'Casual Dinners', 'Dining Solo', 'Eating At The Bar'; venue status Open."
+        },
+        {
+          "id": "e4",
+          "url": "https://www.tonchinus.com/reservations",
+          "retrievedAt": "2026-10-04",
+          "field": "bookingUrl",
+          "note": "Official reservations page: 'book on resy' link for Tonchin New York."
+        },
+        {
+          "id": "e5",
+          "url": "https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&q=13%20West%2036th%20Street%2C%20New%20York%2C%20NY%2010018",
+          "retrievedAt": "2026-10-04",
+          "field": "lat, lng",
+          "note": "Nominatim building match: 13 West 36th Street, Midtown South."
+        }
+      ]
+    },
+    {
+      "id": "miss-ada-fort-greene",
+      "name": "Miss Ada",
+      "neighborhood": "Fort Greene",
+      "borough": "Brooklyn",
+      "address": "184 DeKalb Ave, Brooklyn, NY 11205",
+      "cuisines": [
+        "mediterranean",
+        "israeli",
+        "middle eastern"
+      ],
+      "lat": 40.68944,
+      "lng": -73.97238,
+      "priceTier": "$$",
+      "mealEstimate": {
+        "low": 41,
+        "high": 66,
+        "currency": "USD",
+        "basis": "One mezze or crudo plus a hummus masabaha, vegetable plate or entree per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+        "assumptions": [
+          "Menu prices as listed on the official menu retrieved 2026-10-04",
+          "Drinks excluded",
+          "Tip 20% of pre-tax subtotal unless a service-included policy is noted",
+          "Whole branzino is market price (MP) and excluded"
+        ],
+        "foodOnlyLow": 32,
+        "foodOnlyHigh": 51,
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "sampleOrders": [
+        {
+          "description": "Sweet potato hummus (GF, DF, V) ($14) + chicken shawarma hummus masabaha ($18)",
+          "foodOnlyPrice": 32,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Muhammara (GF, DF, V) ($14) + grilled radicchio (GF, DF, V) ($26)",
+          "foodOnlyPrice": 40,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Babaganoush ($13) + half brick chicken ($30)",
+          "foodOnlyPrice": 43,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Hiramasa crudo ($19) + hanger steak ($32)",
+          "foodOnlyPrice": 51,
+          "evidenceIds": [
+            "e1"
+          ]
+        }
+      ],
+      "menuOptions": [
+        {
+          "dietaryTag": "vegan",
+          "description": "Legend 'V = Can be served Vegan': muhammara, sweet potato hummus, olives, fall salad, market and kale salads, crispy cauliflower, grilled radicchio",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_labeled"
+        },
+        {
+          "dietaryTag": "gluten_free",
+          "description": "Legend 'GF = Can be served Gluten Free' on most dishes (crudo, mezze, masabaha, skewers, entrees)",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_labeled"
+        },
+        {
+          "dietaryTag": "dairy_free",
+          "description": "Legend 'DF = Can be served Dairy Free' (e.g. babaganoush, shawarma masabaha, chicken thigh, salmon)",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_labeled"
+        }
+      ],
+      "allergyPolicy": {
+        "statement": "\"Here at Miss Ada we take food allergies very seriously... We are happy to provide guidance on avoiding allergens, but cannot guarantee menu items are free of cross contamination. As a restaurant that uses nuts, gluten, dairy, sesame, and eggs heavily, there will always be some risk of cross contamination...\"",
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "atmosphere": [
+        {
+          "tag": "outdoor_seating",
+          "evidenceIds": [
+            "e1",
+            "e2"
+          ]
+        },
+        {
+          "tag": "date_night",
+          "evidenceIds": [
+            "e2"
+          ]
+        },
+        {
+          "tag": "casual",
+          "evidenceIds": [
+            "e2"
+          ]
+        },
+        {
+          "tag": "cozy",
+          "evidenceIds": [
+            "e2"
+          ]
+        }
+      ],
+      "hours": {
+        "timezone": "America/New_York",
+        "weekly": {
+          "sun": [
+            [
+              "11:00",
+              "14:30"
+            ],
+            [
+              "17:00",
+              "21:00"
+            ]
+          ],
+          "mon": null,
+          "tue": [
+            [
+              "17:30",
+              "22:00"
+            ]
+          ],
+          "wed": [
+            [
+              "17:30",
+              "22:00"
+            ]
+          ],
+          "thu": [
+            [
+              "17:30",
+              "22:00"
+            ]
+          ],
+          "fri": [
+            [
+              "17:00",
+              "22:00"
+            ]
+          ],
+          "sat": [
+            [
+              "11:00",
+              "14:30"
+            ],
+            [
+              "17:00",
+              "22:00"
+            ]
+          ]
+        },
+        "lastSeatingNote": "Monday isn't listed on the official hours (likely closed, unverified). Weekend brunch 11am-2:30pm.",
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "reservationPolicy": "reservations",
+      "partySizeNote": null,
+      "websiteUrl": "https://www.missadanyc.com/",
+      "menuUrl": "https://www.missadanyc.com/#menu-section",
+      "bookingUrl": "https://resy.com/cities/ny/miss-ada",
+      "evidence": [
+        {
+          "id": "e1",
+          "url": "https://www.missadanyc.com/",
+          "retrievedAt": "2026-10-04",
+          "field": "mealEstimate, sampleOrders, menuOptions, allergyPolicy, hours, address, bookingUrl, atmosphere",
+          "note": "Official homepage/menu: 184 DeKalb Ave; Tue-Thu 5:30-10pm, Fri-Sat 5-10pm, Sun 5-9pm, Sat & Sun brunch 11am-2:30pm; DF/GF/V 'can be served' legend; allergy statement; backyard garden; Resy link; mezze $12-14, masabaha $18-20, entrees $26-32."
+        },
+        {
+          "id": "e2",
+          "url": "https://www.theinfatuation.com/new-york/reviews/miss-ada",
+          "retrievedAt": "2026-10-04",
+          "field": "atmosphere",
+          "note": "The Infatuation: 'small, comfortable spot in Fort Greene... with an outdoor garden in the back'; Perfect For 'Casual Dinners', 'Date Nights', 'Eating At The Bar', 'Sitting Outside'; venue status Open."
+        },
+        {
+          "id": "e3",
+          "url": "https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&q=184%20DeKalb%20Avenue%2C%20Brooklyn%2C%20NY%2011205",
+          "retrievedAt": "2026-10-04",
+          "field": "lat, lng",
+          "note": "Nominatim building match: 184 DeKalb Avenue, Fort Greene."
+        }
+      ]
+    },
+    {
+      "id": "sushi-katsuei-park-slope",
+      "name": "Sushi Katsuei",
+      "neighborhood": "Park Slope",
+      "borough": "Brooklyn",
+      "address": "210 7th Ave, Brooklyn, NY 11215",
+      "cuisines": [
+        "japanese",
+        "sushi",
+        "omakase"
+      ],
+      "lat": 40.67076,
+      "lng": -73.97855,
+      "priceTier": "$$$",
+      "mealEstimate": {
+        "low": 70,
+        "high": 103,
+        "currency": "USD",
+        "basis": "Ten a la carte nigiri pieces, the Omasu sushi set, or the Omakon sushi + sashimi set per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+        "assumptions": [
+          "Menu prices as listed on the official menu retrieved 2026-10-04",
+          "Drinks excluded",
+          "Tip 20% of pre-tax subtotal unless a service-included policy is noted",
+          "Menu images on the official Park Slope menu page were uploaded 2024-02; prices may have changed",
+          "Open-style omakase (suggested $130-200) excluded from the range"
+        ],
+        "foodOnlyLow": 54,
+        "foodOnlyHigh": 80,
+        "evidenceIds": [
+          "e1",
+          "e2"
+        ]
+      },
+      "sampleOrders": [
+        {
+          "description": "A la carte nigiri, 2 pieces each: maguro ($6), hamachi ($6), nama sake ($4.50), hotate ($5.50), unagi ($5)",
+          "foodOnlyPrice": 54,
+          "evidenceIds": [
+            "e2"
+          ]
+        },
+        {
+          "description": "Omasu: 9 chef-selected nigiri + 1 hand roll",
+          "foodOnlyPrice": 60,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Omakon: 5 kinds of sashimi + 6 nigiri + 1 hand roll",
+          "foodOnlyPrice": 80,
+          "evidenceIds": [
+            "e1"
+          ]
+        }
+      ],
+      "menuOptions": [
+        {
+          "dietaryTag": "kosher",
+          "description": "Omakase menu states '*Kosher Option Available'",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_labeled"
+        }
+      ],
+      "allergyPolicy": {
+        "statement": "\"Kindly inform your server of any food allergies before placing your order.\"",
+        "evidenceIds": [
+          "e1",
+          "e2"
+        ]
+      },
+      "atmosphere": [
+        {
+          "tag": "date_night",
+          "evidenceIds": [
+            "e4"
+          ]
+        },
+        {
+          "tag": "counter_seating",
+          "evidenceIds": [
+            "e3"
+          ]
+        }
+      ],
+      "hours": {
+        "timezone": "America/New_York",
+        "weekly": {
+          "sun": [
+            [
+              "15:30",
+              "21:30"
+            ]
+          ],
+          "mon": [
+            [
+              "15:30",
+              "21:30"
+            ]
+          ],
+          "tue": [],
+          "wed": [
+            [
+              "15:30",
+              "21:30"
+            ]
+          ],
+          "thu": [
+            [
+              "15:30",
+              "21:30"
+            ]
+          ],
+          "fri": [
+            [
+              "15:30",
+              "21:30"
+            ]
+          ],
+          "sat": [
+            [
+              "15:30",
+              "21:30"
+            ]
+          ]
+        },
+        "lastSeatingNote": "Tuesday listed as 'Closed (Temporary)'.",
+        "evidenceIds": [
+          "e5"
+        ]
+      },
+      "reservationPolicy": "reservations_and_walk_ins",
+      "partySizeNote": "Dining-room tables on Resy; sushi-bar omakase reservations by phone (718-788-5338) only. Walk-ins welcome.",
+      "websiteUrl": "https://www.sushikatsuei.com/parkslope-brooklyn-ny/",
+      "menuUrl": "https://www.sushikatsuei.com/parkslope-brooklyn-ny/menu/",
+      "bookingUrl": "https://resy.com/cities/new-york-ny/venues/sushi-katsuei-brooklyn",
+      "evidence": [
+        {
+          "id": "e1",
+          "url": "https://www.sushikatsuei.com/wp-content/uploads/2024/02/2-2-omakase.png",
+          "retrievedAt": "2026-10-04",
+          "field": "mealEstimate, sampleOrders, menuOptions, allergyPolicy",
+          "note": "Official omakase menu image (Park Slope menu page): Omasu $60 (9 nigiri + hand roll), Omakon $80 (5 sashimi + 6 nigiri + hand roll), open-style omakase suggested 130-200, kosher option; allergy notice."
+        },
+        {
+          "id": "e2",
+          "url": "https://www.sushikatsuei.com/wp-content/uploads/2024/02/2-2-SASHIMI-SUSHI-ALACARTE.png",
+          "retrievedAt": "2026-10-04",
+          "field": "mealEstimate, sampleOrders, allergyPolicy",
+          "note": "Official a la carte sushi/sashimi image: priced per piece (maguro 6, hamachi 6, nama sake 4.5, hotate 5.5, unagi 5); prices subject to change."
+        },
+        {
+          "id": "e3",
+          "url": "https://www.sushikatsuei.com/parkslope-brooklyn-ny/reservation/",
+          "retrievedAt": "2026-10-04",
+          "field": "reservationPolicy, partySizeNote, bookingUrl, address, atmosphere",
+          "note": "Official reservation page: dining room on Resy; omakase at the sushi bar counter by phone; 'We also welcome walk-in guests'; 210 7th Ave."
+        },
+        {
+          "id": "e4",
+          "url": "https://www.theinfatuation.com/new-york/reviews/sushi-katsuei",
+          "retrievedAt": "2026-10-04",
+          "field": "atmosphere",
+          "note": "The Infatuation: 'Brooklyn's best sushi restaurant'; Perfect For 'Date Nights'; venue (210 7th Ave.) status Open."
+        },
+        {
+          "id": "e5",
+          "url": "https://www.sushikatsuei.com/parkslope-brooklyn-ny/",
+          "retrievedAt": "2026-10-04",
+          "field": "hours",
+          "note": "Official Park Slope page: Monday 3:30-9:30pm; Tuesday Closed (Temporary); Wednesday-Sunday 3:30-9:30pm."
+        },
+        {
+          "id": "e6",
+          "url": "https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&q=210%207th%20Avenue%2C%20Brooklyn%2C%20NY%2011215",
+          "retrievedAt": "2026-10-04",
+          "field": "lat, lng",
+          "note": "Nominatim match: Katsuei, 210 7th Avenue, Park Slope."
+        }
+      ]
+    },
+    {
+      "id": "birds-of-a-feather-williamsburg",
+      "name": "Birds of a Feather",
+      "neighborhood": "Williamsburg",
+      "borough": "Brooklyn",
+      "address": "191 Grand St, Brooklyn, NY 11211",
+      "cuisines": [
+        "chinese",
+        "sichuan"
+      ],
+      "lat": 40.71431,
+      "lng": -73.96053,
+      "priceTier": "$$",
+      "mealEstimate": {
+        "low": 34,
+        "high": 59,
+        "currency": "USD",
+        "basis": "One noodle/entree plus a dim sum or cold appetizer per person (family-style sharing works the same per head); includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+        "assumptions": [
+          "Menu prices as listed on the official menu retrieved 2026-10-04",
+          "Drinks excluded",
+          "Tip 20% of pre-tax subtotal unless a service-included policy is noted"
+        ],
+        "foodOnlyLow": 26,
+        "foodOnlyHigh": 46,
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "sampleOrders": [
+        {
+          "description": "Dan dan noodles ($14) + steamed soup buns ($12)",
+          "foodOnlyPrice": 26,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Ma po tofu ($20) + scallion pancakes (V) ($10)",
+          "foodOnlyPrice": 30,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Fried eggplant accordions (V) ($18) + vegetable potstickers (V) ($12) + purple rice ($3)",
+          "foodOnlyPrice": 33,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Spicy cumin lamb ($32) + seared baby cucumbers (V GF) ($14)",
+          "foodOnlyPrice": 46,
+          "evidenceIds": [
+            "e1"
+          ]
+        }
+      ],
+      "menuOptions": [
+        {
+          "dietaryTag": "vegetarian",
+          "description": "Dishes marked V (e.g. wood ears with pickled peppers, Sichuan cold noodles, vegetable potstickers, fried eggplant, snow pea shoots). V marks include an egg dish (thousand-year egg tofu rolls), so V means vegetarian, not vegan",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_labeled"
+        },
+        {
+          "dietaryTag": "gluten_free",
+          "description": "Dishes marked GF (e.g. okra with Sichuan pepper sauce, string beans in ginger sauce, shrimp dumplings, celtuce, mustard-green fried rice)",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_labeled"
+        }
+      ],
+      "allergyPolicy": null,
+      "atmosphere": [
+        {
+          "tag": "group_friendly",
+          "evidenceIds": [
+            "e3"
+          ]
+        },
+        {
+          "tag": "casual",
+          "evidenceIds": [
+            "e3"
+          ]
+        }
+      ],
+      "hours": {
+        "timezone": "America/New_York",
+        "weekly": {
+          "sun": [
+            [
+              "11:00",
+              "22:00"
+            ]
+          ],
+          "mon": [
+            [
+              "12:00",
+              "22:00"
+            ]
+          ],
+          "tue": [
+            [
+              "12:00",
+              "22:00"
+            ]
+          ],
+          "wed": [
+            [
+              "12:00",
+              "22:00"
+            ]
+          ],
+          "thu": [
+            [
+              "12:00",
+              "22:00"
+            ]
+          ],
+          "fri": [
+            [
+              "12:00",
+              "22:30"
+            ]
+          ],
+          "sat": [
+            [
+              "11:00",
+              "22:30"
+            ]
+          ]
+        },
+        "lastSeatingNote": "Lunch until 4:30pm then dinner from 4:30pm; last seating 9:30pm Sun-Thu, 10pm Fri-Sat.",
+        "evidenceIds": [
+          "e2"
+        ]
+      },
+      "reservationPolicy": "reservations",
+      "partySizeNote": "Corkage $40 per 750ml bottle; outside dessert $3 per person (max $30 per party).",
+      "websiteUrl": "https://birdsofafeatherny.com/",
+      "menuUrl": "https://birdsofafeatherny.com/menu",
+      "bookingUrl": "https://resy.com/cities/ny/birds-of-a-feather",
+      "evidence": [
+        {
+          "id": "e1",
+          "url": "https://birdsofafeatherny.com/menu",
+          "retrievedAt": "2026-10-04",
+          "field": "mealEstimate, sampleOrders, menuOptions",
+          "note": "Official menu: V/GF marks; dan dan noodles $14, soup buns $12, scallion pancakes (V) $10, vegetable potstickers (V) $12, ma po tofu $20, fried eggplant (V) $18, spicy cumin lamb $32, baby cucumbers (V GF) $14, purple rice $3."
+        },
+        {
+          "id": "e2",
+          "url": "https://birdsofafeatherny.com/",
+          "retrievedAt": "2026-10-04",
+          "field": "hours, address, partySizeNote, bookingUrl",
+          "note": "Official homepage: lunch Mon-Fri 12-4:30, Sat-Sun 11-4:30; dinner Sun-Thu 4:30-10 (last seating 9:30), Fri-Sat 4:30-10:30 (last seating 10); 191 Grand St; Resy reservation link; corkage/cake fees."
+        },
+        {
+          "id": "e3",
+          "url": "https://www.theinfatuation.com/new-york/reviews/birds-of-a-feather",
+          "retrievedAt": "2026-10-04",
+          "field": "atmosphere",
+          "note": "The Infatuation: 'Szechuan spot in Williamsburg that's great for small groups'; Perfect For 'Casual Dinners'; venue status Open."
+        },
+        {
+          "id": "e4",
+          "url": "https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&q=191%20Grand%20Street%2C%20Brooklyn%2C%20NY%2011211",
+          "retrievedAt": "2026-10-04",
+          "field": "lat, lng",
+          "note": "Nominatim match: Birds of a Feather, 191 Grand Street, Williamsburg."
+        }
+      ]
+    },
+    {
+      "id": "june-wine-bar-cobble-hill",
+      "name": "June",
+      "neighborhood": "Cobble Hill",
+      "borough": "Brooklyn",
+      "address": "231 Court St, Brooklyn, NY 11201",
+      "cuisines": [
+        "wine bar",
+        "new american"
+      ],
+      "lat": 40.68606,
+      "lng": -73.99387,
+      "priceTier": "$$",
+      "mealEstimate": {
+        "low": 44,
+        "high": 80,
+        "currency": "USD",
+        "basis": "A snack plate with bread, up to a starter plus a main per person; wine not included; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+        "assumptions": [
+          "Menu prices as listed on the official menu retrieved 2026-10-04",
+          "Drinks excluded",
+          "Tip 20% of pre-tax subtotal unless a service-included policy is noted"
+        ],
+        "foodOnlyLow": 34,
+        "foodOnlyHigh": 62,
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "sampleOrders": [
+        {
+          "description": "Cheese plate ($25) + bread & butter ($9)",
+          "foodOnlyPrice": 34,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Beet hummus with crudite ($18) + June burger with fries ($28)",
+          "foodOnlyPrice": 46,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Heirloom tomato ($18) + half chicken ($36)",
+          "foodOnlyPrice": 54,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Hamachi crudo ($21) + striped bass ($41)",
+          "foodOnlyPrice": 62,
+          "evidenceIds": [
+            "e1"
+          ]
+        }
+      ],
+      "menuOptions": [
+        {
+          "dietaryTag": "vegetarian",
+          "description": "Meat-free by description (not labeled): heirloom tomato, burrata, beet hummus, fennel salad, cheese plate",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_inferred"
+        }
+      ],
+      "allergyPolicy": {
+        "statement": "\"*Please let your server know if you have any allergies or dietary restrictions\"",
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "atmosphere": [
+        {
+          "tag": "cozy",
+          "evidenceIds": [
+            "e3"
+          ]
+        },
+        {
+          "tag": "date_night",
+          "evidenceIds": [
+            "e3"
+          ]
+        },
+        {
+          "tag": "outdoor_seating",
+          "evidenceIds": [
+            "e3"
+          ]
+        }
+      ],
+      "hours": {
+        "timezone": "America/New_York",
+        "weekly": {
+          "sun": [
+            [
+              "10:00",
+              "23:00"
+            ]
+          ],
+          "mon": [
+            [
+              "16:00",
+              "24:00"
+            ]
+          ],
+          "tue": [
+            [
+              "16:00",
+              "24:00"
+            ]
+          ],
+          "wed": [
+            [
+              "16:00",
+              "24:00"
+            ]
+          ],
+          "thu": [
+            [
+              "16:00",
+              "24:00"
+            ]
+          ],
+          "fri": [
+            [
+              "16:00",
+              "25:00"
+            ]
+          ],
+          "sat": [
+            [
+              "10:00",
+              "25:00"
+            ]
+          ]
+        },
+        "lastSeatingNote": null,
+        "evidenceIds": [
+          "e2"
+        ]
+      },
+      "reservationPolicy": "reservations",
+      "partySizeNote": null,
+      "websiteUrl": "https://www.junebk.com/",
+      "menuUrl": "https://www.junebk.com/s/Dinner-6.pdf",
+      "bookingUrl": "https://resy.com/cities/ny/june-wine-bar",
+      "evidence": [
+        {
+          "id": "e1",
+          "url": "https://www.junebk.com/s/Dinner-6.pdf",
+          "retrievedAt": "2026-10-04",
+          "field": "mealEstimate, sampleOrders, menuOptions, allergyPolicy",
+          "note": "Official dinner menu PDF: bread & butter 9, cheese plate 25, heirloom tomato 18, hamachi crudo 21, beet hummus 18, June burger 28, half chicken 36, striped bass 41; allergy/dietary note."
+        },
+        {
+          "id": "e2",
+          "url": "https://www.junebk.com/",
+          "retrievedAt": "2026-10-04",
+          "field": "hours, address, bookingUrl",
+          "note": "Official homepage: natural wine bar & restaurant, 231 Court Street; Mon-Thu 4pm-12am, Fri 4pm-1am, Sat 10am-1am, Sun 10am-11pm; 'Book Now on Resy'."
+        },
+        {
+          "id": "e3",
+          "url": "https://www.theinfatuation.com/new-york/reviews/june-wine-bar",
+          "retrievedAt": "2026-10-04",
+          "field": "atmosphere",
+          "note": "The Infatuation: 'dark, cozy wine bar/date spot in Cobble Hill with a nice back patio'; Perfect For 'Date Nights', 'Drinking Great Wine', 'Sitting Outside'; venue status Open."
+        },
+        {
+          "id": "e4",
+          "url": "https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&q=231%20Court%20Street%2C%20Brooklyn%2C%20NY%2011201",
+          "retrievedAt": "2026-10-04",
+          "field": "lat, lng",
+          "note": "Nominatim building match: 231 Court Street, Cobble Hill."
+        }
+      ]
+    },
+    {
+      "id": "emily-clinton-hill",
+      "name": "Emily",
+      "neighborhood": "Clinton Hill",
+      "borough": "Brooklyn",
+      "address": "919 Fulton St, Brooklyn, NY 11238",
+      "cuisines": [
+        "pizza",
+        "american",
+        "burgers"
+      ],
+      "lat": 40.68356,
+      "lng": -73.96642,
+      "priceTier": "$$",
+      "mealEstimate": {
+        "low": 26,
+        "high": 57,
+        "currency": "USD",
+        "basis": "One pizza per person, the Emmy burger, or a pizza plus a salad; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+        "assumptions": [
+          "Menu prices as listed on the official menu retrieved 2026-10-04",
+          "Drinks excluded",
+          "Tip 20% of pre-tax subtotal unless a service-included policy is noted",
+          "Emmy Burger has limited availability per night and no modifications"
+        ],
+        "foodOnlyLow": 20,
+        "foodOnlyHigh": 44,
+        "evidenceIds": [
+          "e1"
+        ]
+      },
+      "sampleOrders": [
+        {
+          "description": "Red Planet pizza (meat-free by description)",
+          "foodOnlyPrice": 20,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Famous Original Dan's vodka pizza",
+          "foodOnlyPrice": 22,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Emmy Burger with fries",
+          "foodOnlyPrice": 31,
+          "evidenceIds": [
+            "e1"
+          ]
+        },
+        {
+          "description": "Emily pizza ($26) + heirloom tomato salad ($18)",
+          "foodOnlyPrice": 44,
+          "evidenceIds": [
+            "e1"
+          ]
+        }
+      ],
+      "menuOptions": [
+        {
+          "dietaryTag": "vegetarian",
+          "description": "Meat-free pizzas and plates by description (not labeled): The Classic, Red Planet, Modern, Vivrant Thing, Famous Original Dan's, Quinn, Lady Pizza Girl, Emerald, raw broccoli salad",
+          "evidenceIds": [
+            "e1"
+          ],
+          "verificationStatus": "menu_inferred"
+        }
+      ],
+      "allergyPolicy": null,
+      "atmosphere": [
+        {
+          "tag": "date_night",
+          "evidenceIds": [
+            "e3"
+          ]
+        },
+        {
+          "tag": "group_friendly",
+          "evidenceIds": [
+            "e3"
+          ]
+        },
+        {
+          "tag": "casual",
+          "evidenceIds": [
+            "e3"
+          ]
+        }
+      ],
+      "hours": {
+        "timezone": "America/New_York",
+        "weekly": {
+          "sun": [
+            [
+              "12:00",
+              "15:30"
+            ],
+            [
+              "17:00",
+              "21:00"
+            ]
+          ],
+          "mon": [
+            [
+              "17:00",
+              "21:00"
+            ]
+          ],
+          "tue": [
+            [
+              "17:00",
+              "21:00"
+            ]
+          ],
+          "wed": [
+            [
+              "17:00",
+              "21:00"
+            ]
+          ],
+          "thu": [
+            [
+              "17:00",
+              "21:00"
+            ]
+          ],
+          "fri": [
+            [
+              "17:00",
+              "21:30"
+            ]
+          ],
+          "sat": [
+            [
+              "12:00",
+              "15:30"
+            ],
+            [
+              "17:00",
+              "21:30"
+            ]
+          ]
+        },
+        "lastSeatingNote": "Weekday dinner only; weekend lunch 12-3:30pm.",
+        "evidenceIds": [
+          "e2"
+        ]
+      },
+      "reservationPolicy": "reservations",
+      "partySizeNote": null,
+      "websiteUrl": "https://www.pizzalovesemily.com/",
+      "menuUrl": "https://www.pizzalovesemily.com/menus-brooklyn/",
+      "bookingUrl": "https://resy.com/cities/ny/emily",
+      "evidence": [
+        {
+          "id": "e1",
+          "url": "https://www.pizzalovesemily.com/menus-brooklyn/",
+          "retrievedAt": "2026-10-04",
+          "field": "mealEstimate, sampleOrders, menuOptions, bookingUrl",
+          "note": "Official Brooklyn menu: Red Planet $20, The Classic $22, Famous Original Dan's $22, Emily $26, heirloom tomatoes $18, Emmy Burger $31 (limited); Resy link."
+        },
+        {
+          "id": "e2",
+          "url": "https://www.pizzalovesemily.com/location/brooklyn/",
+          "retrievedAt": "2026-10-04",
+          "field": "hours, address",
+          "note": "Official Hours & Location: 919 Fulton Street; Mon-Thu dinner 5-9pm, Fri 5-9:30pm, Sat lunch 12-3:30pm & dinner 5-9:30pm, Sun lunch 12-3:30pm & dinner 5-9pm."
+        },
+        {
+          "id": "e3",
+          "url": "https://www.theinfatuation.com/new-york/reviews/emily",
+          "retrievedAt": "2026-10-04",
+          "field": "atmosphere",
+          "note": "The Infatuation (updated Oct 2021): 'still a great place for a group dinner or a casual weeknight meal at the bar'; Perfect For 'First Dates'; venue status Open."
+        },
+        {
+          "id": "e4",
+          "url": "https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&q=919%20Fulton%20Street%2C%20Brooklyn%2C%20NY%2011238",
+          "retrievedAt": "2026-10-04",
+          "field": "lat, lng",
+          "note": "Nominatim building match: 919 Fulton Street, Brooklyn 11238."
+        }
+      ]
     }
   ]
 }

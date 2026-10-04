@@ -67,7 +67,7 @@ const QuestionsSchema = z.object({
   questions: z.array(z.object({ participantId: z.string(), topicId: z.string(), question: z.string().max(300) })),
 });
 
-export const QUESTION_RULES = `Write ONE short private question (under 25 words) for each listed diner about their own words only. Neutral and friendly. Make it easy to answer quickly (offer the two readings). Never mention other diners, the group's conflict, or restaurants. Don't suggest they relax a requirement.`;
+export const QUESTION_RULES = `Write ONE short private question (under 25 words) for each listed diner about their own words only. Neutral and friendly. Make it easy to answer quickly (offer the two readings). Never mention other diners, the group's conflict, or restaurants. Don't suggest they relax a requirement. Travel in this app means walking or subway in NYC, not driving.`;
 
 export async function writeClarifyQuestions(
   ai: AiClient,

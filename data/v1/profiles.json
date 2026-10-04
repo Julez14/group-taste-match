@@ -1,15 +1,134 @@
 {
-  "version": "2026-10-04.1",
+  "version": "2026-10-04.2",
   "synthetic": true,
-  "note": "Synthetic demo taste profiles. Not real Beli users or Beli data. Histories are filled in by the grounded-data step.",
+  "note": "Synthetic demo taste profiles. Not real Beli users or Beli data. Each history is an invented, ordered list of real NYC restaurants (rank 1 = that persona's favorite); ranks are only comparable within one profile. restaurantId links entries that are also in the restaurant snapshot.",
   "profiles": [
-    { "id": "noodle-regular", "label": "Noodle Regular", "blurb": "Ramen, hand-pulled noodles, pho. Usually under $30.", "history": [] },
-    { "id": "plant-forward", "label": "Plant-Forward", "blurb": "Vegetarian most nights; loves creative vegetables.", "history": [] },
-    { "id": "occasion-splurger", "label": "Occasion Splurger", "blurb": "Tasting menus, wine bars, a nice room for a reason to celebrate.", "history": [] },
-    { "id": "spice-seeker", "label": "Spice Seeker", "blurb": "Sichuan, Thai, Indian — the hotter the better.", "history": [] },
-    { "id": "cozy-classics", "label": "Cozy Classics", "blurb": "Pasta, pizza, neighborhood spots with candles.", "history": [] },
-    { "id": "seafood-lover", "label": "Seafood Lover", "blurb": "Sushi counters, oysters, whole fish.", "history": [] },
-    { "id": "budget-explorer", "label": "Budget Explorer", "blurb": "Cheap eats across the boroughs; happy to travel for a deal.", "history": [] },
-    { "id": "new-spot-hunter", "label": "New-Spot Hunter", "blurb": "Always wants somewhere they haven't been.", "history": [] }
+    {
+      "id": "noodle-regular",
+      "label": "Noodle Regular",
+      "blurb": "Ramen, hand-pulled noodles, pho. Usually under $30.",
+      "history": [
+        { "rank": 1, "name": "Tonchin", "neighborhood": "Midtown", "cuisines": ["japanese", "ramen"], "restaurantId": "tonchin-midtown", "note": "Tonkotsu and the crispy wings" },
+        { "rank": 2, "name": "Ippudo NY", "neighborhood": "East Village", "cuisines": ["japanese", "ramen"] },
+        { "rank": 3, "name": "Xi'an Famous Foods", "neighborhood": "Chinatown", "cuisines": ["chinese", "noodles"], "note": "Spicy cumin lamb noodles" },
+        { "rank": 4, "name": "Hanoi House", "neighborhood": "East Village", "cuisines": ["vietnamese"], "restaurantId": "hanoi-house-east-village", "note": "Pho on cold nights" },
+        { "rank": 5, "name": "Nom Wah Tea Parlor", "neighborhood": "Chinatown", "cuisines": ["chinese", "dim sum"], "restaurantId": "nom-wah-tea-parlor-chinatown" },
+        { "rank": 6, "name": "Momofuku Noodle Bar", "neighborhood": "East Village", "cuisines": ["japanese", "ramen"] },
+        { "rank": 7, "name": "Dawa's", "neighborhood": "Woodside", "cuisines": ["himalayan", "tibetan"], "restaurantId": "dawas-woodside", "note": "Momos" },
+        { "rank": 8, "name": "Los Tacos No. 1", "neighborhood": "Chelsea", "cuisines": ["mexican", "tacos"], "restaurantId": "los-tacos-no-1-chelsea-market" },
+        { "rank": 9, "name": "Katz's Delicatessen", "neighborhood": "Lower East Side", "cuisines": ["deli"], "restaurantId": "katzs-delicatessen-lower-east-side", "note": "Too pricey for a weeknight" }
+      ]
+    },
+    {
+      "id": "plant-forward",
+      "label": "Plant-Forward",
+      "blurb": "Vegetarian most nights; loves creative vegetables.",
+      "history": [
+        { "rank": 1, "name": "Dirt Candy", "neighborhood": "Lower East Side", "cuisines": ["vegetarian"], "restaurantId": "dirt-candy-lower-east-side", "note": "Birthday tasting menu" },
+        { "rank": 2, "name": "Hangawi", "neighborhood": "Koreatown", "cuisines": ["korean", "vegan"], "restaurantId": "hangawi-koreatown" },
+        { "rank": 3, "name": "Superiority Burger", "neighborhood": "East Village", "cuisines": ["vegetarian", "american"] },
+        { "rank": 4, "name": "abcV", "neighborhood": "Flatiron", "cuisines": ["vegetarian"] },
+        { "rank": 5, "name": "Miss Ada", "neighborhood": "Fort Greene", "cuisines": ["mediterranean", "israeli"], "restaurantId": "miss-ada-fort-greene", "note": "Mezze for the table" },
+        { "rank": 6, "name": "Jackson Diner", "neighborhood": "Jackson Heights", "cuisines": ["indian"], "restaurantId": "jackson-diner-jackson-heights" },
+        { "rank": 7, "name": "Taïm", "neighborhood": "West Village", "cuisines": ["israeli", "falafel"] },
+        { "rank": 8, "name": "Via Carota", "neighborhood": "West Village", "cuisines": ["italian"], "restaurantId": "via-carota-west-village", "note": "The vegetable sides" },
+        { "rank": 9, "name": "Katz's Delicatessen", "neighborhood": "Lower East Side", "cuisines": ["deli"], "restaurantId": "katzs-delicatessen-lower-east-side", "note": "Went for a friend; not much for me" }
+      ]
+    },
+    {
+      "id": "occasion-splurger",
+      "label": "Occasion Splurger",
+      "blurb": "Tasting menus, wine bars, a nice room for a reason to celebrate.",
+      "history": [
+        { "rank": 1, "name": "Gramercy Tavern", "neighborhood": "Flatiron", "cuisines": ["new american"], "restaurantId": "gramercy-tavern-flatiron" },
+        { "rank": 2, "name": "Le Bernardin", "neighborhood": "Midtown", "cuisines": ["french", "seafood"] },
+        { "rank": 3, "name": "Cote", "neighborhood": "Flatiron", "cuisines": ["korean", "steakhouse"], "restaurantId": "cote-korean-steakhouse-flatiron" },
+        { "rank": 4, "name": "Gage & Tollner", "neighborhood": "Downtown Brooklyn", "cuisines": ["american", "steakhouse"], "restaurantId": "gage-and-tollner-downtown-brooklyn" },
+        { "rank": 5, "name": "Balthazar", "neighborhood": "SoHo", "cuisines": ["french", "brasserie"], "restaurantId": "balthazar-soho" },
+        { "rank": 6, "name": "Sushi Katsuei", "neighborhood": "Park Slope", "cuisines": ["japanese", "sushi"], "restaurantId": "sushi-katsuei-park-slope", "note": "Omakase" },
+        { "rank": 7, "name": "Estela", "neighborhood": "Nolita", "cuisines": ["new american"] },
+        { "rank": 8, "name": "June Wine Bar", "neighborhood": "Cobble Hill", "cuisines": ["wine bar"], "restaurantId": "june-wine-bar-cobble-hill" },
+        { "rank": 9, "name": "Peter Luger", "neighborhood": "Williamsburg", "cuisines": ["steakhouse"] },
+        { "rank": 10, "name": "Scarr's Pizza", "neighborhood": "Lower East Side", "cuisines": ["pizza"], "restaurantId": "scarrs-pizza-lower-east-side", "note": "Fine late at night, not an occasion" }
+      ]
+    },
+    {
+      "id": "spice-seeker",
+      "label": "Spice Seeker",
+      "blurb": "Sichuan, Thai, Indian — the hotter the better.",
+      "history": [
+        { "rank": 1, "name": "Birds of a Feather", "neighborhood": "Williamsburg", "cuisines": ["chinese", "sichuan"], "restaurantId": "birds-of-a-feather-williamsburg", "note": "Mapo tofu, extra numbing" },
+        { "rank": 2, "name": "Dhamaka", "neighborhood": "Lower East Side", "cuisines": ["indian"] },
+        { "rank": 3, "name": "Thai Diner", "neighborhood": "Nolita", "cuisines": ["thai"], "restaurantId": "thai-diner-nolita" },
+        { "rank": 4, "name": "Spicy Village", "neighborhood": "Chinatown", "cuisines": ["chinese", "henan"] },
+        { "rank": 5, "name": "Jackson Diner", "neighborhood": "Jackson Heights", "cuisines": ["indian"], "restaurantId": "jackson-diner-jackson-heights" },
+        { "rank": 6, "name": "Ugly Baby", "neighborhood": "Carroll Gardens", "cuisines": ["thai"] },
+        { "rank": 7, "name": "Dawa's", "neighborhood": "Woodside", "cuisines": ["himalayan"], "restaurantId": "dawas-woodside" },
+        { "rank": 8, "name": "Casa Enrique", "neighborhood": "Long Island City", "cuisines": ["mexican"], "restaurantId": "casa-enrique-long-island-city" },
+        { "rank": 9, "name": "Balthazar", "neighborhood": "SoHo", "cuisines": ["french"], "restaurantId": "balthazar-soho", "note": "Nice, but too mild for me" }
+      ]
+    },
+    {
+      "id": "cozy-classics",
+      "label": "Cozy Classics",
+      "blurb": "Pasta, pizza, neighborhood spots with candles.",
+      "history": [
+        { "rank": 1, "name": "Al Di La Trattoria", "neighborhood": "Park Slope", "cuisines": ["italian"], "restaurantId": "al-di-la-trattoria-park-slope", "note": "Malfatti" },
+        { "rank": 2, "name": "Lucali", "neighborhood": "Carroll Gardens", "cuisines": ["pizza"] },
+        { "rank": 3, "name": "Via Carota", "neighborhood": "West Village", "cuisines": ["italian"], "restaurantId": "via-carota-west-village" },
+        { "rank": 4, "name": "Rolo's", "neighborhood": "Ridgewood", "cuisines": ["american", "italian"], "restaurantId": "rolos-ridgewood" },
+        { "rank": 5, "name": "Emily", "neighborhood": "Clinton Hill", "cuisines": ["pizza"], "restaurantId": "emily-clinton-hill" },
+        { "rank": 6, "name": "Roberta's", "neighborhood": "Bushwick", "cuisines": ["pizza"], "restaurantId": "robertas-bushwick" },
+        { "rank": 7, "name": "Joe's Pizza", "neighborhood": "Greenwich Village", "cuisines": ["pizza"] },
+        { "rank": 8, "name": "Veselka", "neighborhood": "East Village", "cuisines": ["ukrainian"], "restaurantId": "veselka-east-village", "note": "Pierogi after a late movie" },
+        { "rank": 9, "name": "Cote", "neighborhood": "Flatiron", "cuisines": ["korean", "steakhouse"], "restaurantId": "cote-korean-steakhouse-flatiron", "note": "Too loud and fancy for my taste" }
+      ]
+    },
+    {
+      "id": "seafood-lover",
+      "label": "Seafood Lover",
+      "blurb": "Sushi counters, oysters, whole fish.",
+      "history": [
+        { "rank": 1, "name": "Sushi Katsuei", "neighborhood": "Park Slope", "cuisines": ["japanese", "sushi"], "restaurantId": "sushi-katsuei-park-slope" },
+        { "rank": 2, "name": "Bahari Estiatorio", "neighborhood": "Astoria", "cuisines": ["greek"], "restaurantId": "bahari-estiatorio-astoria", "note": "Grilled whole fish" },
+        { "rank": 3, "name": "Grand Central Oyster Bar", "neighborhood": "Midtown", "cuisines": ["seafood"] },
+        { "rank": 4, "name": "Le Bernardin", "neighborhood": "Midtown", "cuisines": ["french", "seafood"] },
+        { "rank": 5, "name": "Taverna Kyclades", "neighborhood": "Astoria", "cuisines": ["greek", "seafood"] },
+        { "rank": 6, "name": "Balthazar", "neighborhood": "SoHo", "cuisines": ["french"], "restaurantId": "balthazar-soho", "note": "The raw bar" },
+        { "rank": 7, "name": "Sushi Nakazawa", "neighborhood": "West Village", "cuisines": ["japanese", "sushi"] },
+        { "rank": 8, "name": "Hometown Bar-B-Que", "neighborhood": "Red Hook", "cuisines": ["barbecue"], "restaurantId": "hometown-bar-b-que-red-hook", "note": "Not really my thing" }
+      ]
+    },
+    {
+      "id": "budget-explorer",
+      "label": "Budget Explorer",
+      "blurb": "Cheap eats across the boroughs; happy to travel for a deal.",
+      "history": [
+        { "rank": 1, "name": "Los Tacos No. 1", "neighborhood": "Chelsea", "cuisines": ["mexican", "tacos"], "restaurantId": "los-tacos-no-1-chelsea-market" },
+        { "rank": 2, "name": "Scarr's Pizza", "neighborhood": "Lower East Side", "cuisines": ["pizza"], "restaurantId": "scarrs-pizza-lower-east-side" },
+        { "rank": 3, "name": "Dawa's", "neighborhood": "Woodside", "cuisines": ["himalayan"], "restaurantId": "dawas-woodside" },
+        { "rank": 4, "name": "Xi'an Famous Foods", "neighborhood": "Chinatown", "cuisines": ["chinese", "noodles"] },
+        { "rank": 5, "name": "Jackson Diner", "neighborhood": "Jackson Heights", "cuisines": ["indian"], "restaurantId": "jackson-diner-jackson-heights", "note": "Lunch buffet days" },
+        { "rank": 6, "name": "Nom Wah Tea Parlor", "neighborhood": "Chinatown", "cuisines": ["chinese", "dim sum"], "restaurantId": "nom-wah-tea-parlor-chinatown" },
+        { "rank": 7, "name": "Mamoun's Falafel", "neighborhood": "Greenwich Village", "cuisines": ["middle eastern"] },
+        { "rank": 8, "name": "Di Fara Pizza", "neighborhood": "Midwood", "cuisines": ["pizza"] },
+        { "rank": 9, "name": "Gramercy Tavern", "neighborhood": "Flatiron", "cuisines": ["new american"], "restaurantId": "gramercy-tavern-flatiron", "note": "Great, but a once-a-year price" }
+      ]
+    },
+    {
+      "id": "new-spot-hunter",
+      "label": "New-Spot Hunter",
+      "blurb": "Always wants somewhere they haven't been.",
+      "history": [
+        { "rank": 1, "name": "Rolo's", "neighborhood": "Ridgewood", "cuisines": ["american", "italian"], "restaurantId": "rolos-ridgewood" },
+        { "rank": 2, "name": "Thai Diner", "neighborhood": "Nolita", "cuisines": ["thai"], "restaurantId": "thai-diner-nolita" },
+        { "rank": 3, "name": "Dhamaka", "neighborhood": "Lower East Side", "cuisines": ["indian"] },
+        { "rank": 4, "name": "Gage & Tollner", "neighborhood": "Downtown Brooklyn", "cuisines": ["american"], "restaurantId": "gage-and-tollner-downtown-brooklyn" },
+        { "rank": 5, "name": "June Wine Bar", "neighborhood": "Cobble Hill", "cuisines": ["wine bar"], "restaurantId": "june-wine-bar-cobble-hill" },
+        { "rank": 6, "name": "Estela", "neighborhood": "Nolita", "cuisines": ["new american"] },
+        { "rank": 7, "name": "Birds of a Feather", "neighborhood": "Williamsburg", "cuisines": ["sichuan"], "restaurantId": "birds-of-a-feather-williamsburg" },
+        { "rank": 8, "name": "Katz's Delicatessen", "neighborhood": "Lower East Side", "cuisines": ["deli"], "restaurantId": "katzs-delicatessen-lower-east-side", "note": "Classic, but been too many times" }
+      ]
+    }
   ]
 }
