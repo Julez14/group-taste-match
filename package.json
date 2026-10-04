@@ -19,7 +19,8 @@
     "exp:labels": "tsx experiment/scripts/labels.ts",
     "exp:freeze": "tsx experiment/scripts/freeze-inputs.ts",
     "exp:run": "tsx experiment/scripts/run.ts",
-    "exp:judge": "tsx experiment/scripts/judge.ts"
+    "exp:judge": "tsx experiment/scripts/judge.ts",
+    "exp:analyze": "tsx experiment/scripts/analyze.ts"
   },
   "dependencies": {
     "@fontsource/playfair-display": "^5.3.0",

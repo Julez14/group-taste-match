@@ -12,7 +12,8 @@ type Manifest = { scenarios: { id: string; availability: Record<string, unknown>
 
 const a = args();
 const split = (a.split ?? "dev") as "dev" | "test";
-const runsFile = split === "test" ? p("results", "runs.jsonl") : p("results", "dev", "runs.jsonl");
+const tag = a.tag ? `.${a.tag}` : "";
+const runsFile = split === "test" ? p("results", "runs.jsonl") : p("results", "dev", `runs${tag}.jsonl`);
 const out = split === "test" ? p("results", "judgments.jsonl") : p("results", "dev", "judgments.jsonl");
 const manifest = readJson<Manifest>(p("dataset_manifest.json"));
 const scenarios = new Map(loadScenarios().map((s) => [s.id, s]));

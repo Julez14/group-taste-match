@@ -75,7 +75,7 @@ export async function judge(ai: AiClient, s: Scenario, r: Restaurant, availabili
     },
     purpose: "judge",
     settings: JUDGE_SETTINGS,
-    timeoutMs: 180_000,
+    timeoutMs: 300_000,
   });
   const scores = Object.fromEntries(value.scores.map((x) => [x.dinerId, { score: x.score, reason: x.reason }]));
   for (const d of s.diners) if (!scores[d.id]) throw new Error(`judge omitted diner ${d.id}`);

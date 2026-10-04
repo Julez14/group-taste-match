@@ -21,7 +21,8 @@ const concurrency = Number(a.concurrency ?? 4);
 const only = a.scenarios ? new Set(a.scenarios.split(",")) : null;
 const methods: DecisionMethod[] = (a.methods ?? "clef,llm_baseline").split(",") as DecisionMethod[];
 
-const out = split === "test" ? p("results", "runs.jsonl") : p("results", "dev", "runs.jsonl");
+const tag = a.tag ? `.${a.tag}` : "";
+const out = split === "test" ? p("results", "runs.jsonl") : p("results", "dev", `runs${tag}.jsonl`);
 const done = new Set(readJsonl<RunRecord>(out).map((r) => r.runId));
 const manifest = readJson<Manifest>(p("dataset_manifest.json"));
 const frozenInputs: Record<string, NormalizedGroup> = track === "fixed" ? readJson(p("frozen", `fixed_state_inputs.${split}.json`)) : {};

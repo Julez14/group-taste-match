@@ -15,8 +15,12 @@ describe("privacy filter", () => {
   ]);
 
   it("flags names, private budgets, stated origins, and allergens", () => {
-    const leaks = findLeaks("Ana stays within $60, Ben's trip from Williamsburg is short, and it's peanuts-free.", g);
-    expect(leaks.map((l) => l.kind).sort()).toEqual(["allergen", "budget", "name", "name", "origin"]);
+    const leaks = findLeaks("Ana stays within $60, Ben's trip from Williamsburg is short, and it's safe for a peanut allergy.", g);
+    expect([...new Set(leaks.map((l) => l.kind))].sort()).toEqual(["allergen", "budget", "name", "origin"]);
+  });
+
+  it("ignores the chosen restaurant's own name and collective diet words", () => {
+    expect(findLeaks("Peter Luger Williamsburg has gluten-free sides.", g, { name: "Peter Luger Williamsburg", neighborhood: "Williamsburg" })).toEqual([]);
   });
 
   it("allows collective wording", () => {

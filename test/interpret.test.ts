@@ -125,6 +125,10 @@ describe("budget basis safeguard", () => {
     expect(r.ambiguities).toEqual([expect.objectContaining({ kind: "budget_basis", relatesTo: "h1" })]);
   });
 
+  it("upgrades to all-in when the diner clearly includes tip or tax", () => {
+    expect(enforceBudgetBasis(withBudget("unspecified"), "Max $60 including tip.").hard[0]).toMatchObject({ basis: "all_in" });
+  });
+
   it("keeps a basis the diner actually stated", () => {
     expect(enforceBudgetBasis(withBudget("all_in"), "max $60 including tip").hard[0]).toMatchObject({ basis: "all_in" });
     expect(enforceBudgetBasis(withBudget("food_only"), "$60 before tax and tip").hard[0]).toMatchObject({ basis: "food_only" });
@@ -205,5 +209,17 @@ describe("dietary grounding", () => {
     expect(soft.interp.soft[0]).toMatchObject({ kind: "dietary" });
     const dup = groundHardConstraints({ ...base, hard: [v, { ...v, id: "h2" }] }, "I'm vegetarian.");
     expect(dup.interp.hard).toHaveLength(1);
+  });
+});
+
+describe("cuisine exclusion grounding", () => {
+  const src0 = { text: "x", status: "stated" as const, from: "initial" as const };
+  const base = { soft: [], ambiguities: [], missing: [], noveltyRequested: false, originAreaId: null, ignoredInstructions: [] };
+  it("keeps only exclusions the diner actually negated", () => {
+    const words = "I'm so tired of ramen. Vegetarian Italian tonight, please.";
+    const ramen = groundHardConstraints({ ...base, hard: [{ id: "h1", type: "exclude_cuisine", cuisine: "ramen", source: src0 }] }, words);
+    const italian = groundHardConstraints({ ...base, hard: [{ id: "h1", type: "exclude_cuisine", cuisine: "italian", source: src0 }] }, words);
+    expect(ramen.interp.hard).toHaveLength(1);
+    expect(italian.interp.hard).toHaveLength(0);
   });
 });

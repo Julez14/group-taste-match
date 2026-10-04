@@ -99,7 +99,10 @@ export function fromFlat(flat: z.infer<typeof FlatInterpretation>): Interpretati
         break;
       case "dietary":
         if (h.tag || h.value) hard.push({ ...base, type: "dietary", tag: h.tag, allergen: h.value, severity: h.severity ?? "preference" });
-        else dropped.push(`dietary without tag: ${h.quote}`);
+        else if (h.severity === "allergy" || h.severity === "medical" || h.severity === "religious") {
+          // Never drop a safety or religious need for lack of a label; keep the quote as the allergen.
+          hard.push({ ...base, type: "dietary", tag: null, allergen: h.quote.slice(0, 40), severity: h.severity });
+        } else dropped.push(`dietary without tag: ${h.quote}`);
         break;
       case "exclude_cuisine":
         if (h.value) hard.push({ ...base, type: "exclude_cuisine", cuisine: h.value.toLowerCase() });

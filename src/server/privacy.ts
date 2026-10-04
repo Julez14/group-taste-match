@@ -9,9 +9,11 @@ const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
  * diner names, stated budget amounts, non-default starting points, and
  * allergens. Deterministic and applied identically to every method.
  */
-export function findLeaks(text: string, group: NormalizedGroup): Leak[] {
+export function findLeaks(text: string, group: NormalizedGroup, chosen?: { name: string; neighborhood: string }): Leak[] {
   const leaks: Leak[] = [];
-  const lower = text.toLowerCase();
+  let lower = text.toLowerCase();
+  // The chosen restaurant's own name and neighborhood are public facts, not origins.
+  if (chosen) for (const s of [chosen.name, chosen.neighborhood]) lower = lower.split(s.toLowerCase()).join(" ");
   for (const d of group.diners) {
     if (d.name.length >= 2 && new RegExp(`\\b${escape(d.name.toLowerCase())}\\b`).test(lower)) leaks.push({ kind: "name", term: d.name });
     for (const h of d.hard) {
@@ -20,8 +22,10 @@ export function findLeaks(text: string, group: NormalizedGroup): Leak[] {
         if (new RegExp(`\\$\\s?${n}\\b|\\b${n}\\s?(dollars|bucks)\\b`).test(lower)) leaks.push({ kind: "budget", term: `$${n}` });
       }
       if (h.type === "dietary" && (h.severity === "allergy" || h.severity === "medical")) {
-        const word = (h.allergen ?? h.tag ?? "").replace("_free", "").replace("_", " ");
-        if (word.length >= 3 && lower.includes(word.toLowerCase())) leaks.push({ kind: "allergen", term: word });
+        // Collective diet words ("gluten-free options") are fine; allergy/medical specifics are not.
+        if (/\ballerg|\bceliac|\bcoeliac|anaphyla|epipen/.test(lower)) leaks.push({ kind: "allergen", term: "allergy/medical detail" });
+        const allergen = h.allergen?.toLowerCase();
+        if (allergen && allergen.length >= 3 && !h.tag && lower.includes(allergen)) leaks.push({ kind: "allergen", term: allergen });
       }
     }
     for (const s of d.soft) {
@@ -38,10 +42,10 @@ export function findLeaks(text: string, group: NormalizedGroup): Leak[] {
 }
 
 /** Keep only sentences without leaks. */
-export function scrubList(items: string[], group: NormalizedGroup): { kept: string[]; leaks: Leak[] } {
+export function scrubList(items: string[], group: NormalizedGroup, chosen?: { name: string; neighborhood: string }): { kept: string[]; leaks: Leak[] } {
   const leaks: Leak[] = [];
   const kept = items.filter((s) => {
-    const l = findLeaks(s, group);
+    const l = findLeaks(s, group, chosen);
     leaks.push(...l);
     return l.length === 0;
   });

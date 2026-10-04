@@ -36,8 +36,9 @@ export function finalize(
       });
       if (!g.ok) return { rejected: g.reason };
       const restaurant = restaurantFor(input, proposal.restaurantId);
-      const explanationLeaks = findLeaks(proposal.explanation, input.group);
-      const scrubbed = scrubList(proposal.assumptions, input.group);
+      const chosen = { name: restaurant.name, neighborhood: restaurant.neighborhood };
+      const explanationLeaks = findLeaks(proposal.explanation, input.group, chosen);
+      const scrubbed = scrubList(proposal.assumptions, input.group, chosen);
       const explanation = explanationLeaks.length ? safeExplanation(restaurant) : proposal.explanation;
       const card = buildCard({ restaurant, facts: g.facts, group: input.group, explanation, extraAssumptions: scrubbed.kept });
       return { outcome: { kind: "result", card }, privacyLeaks: [...explanationLeaks, ...scrubbed.leaks] };

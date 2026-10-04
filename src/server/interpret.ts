@@ -7,7 +7,7 @@ import { type AppliedChange, applyPatch, PATCH_JSON_SCHEMA, type Patch, PatchSch
 import { INTERPRETATION_JSON_SCHEMA, InterpretationFromFlat } from "./interpret-schema";
 import { chatJson } from "./llm";
 
-export const INTERPRET_PROMPT_VERSION = "interpret-v6";
+export const INTERPRET_PROMPT_VERSION = "interpret-v7";
 
 export const INTERPRET_SYSTEM = `You turn ONE diner's spoken or typed dinner request into structured data for a group restaurant picker in New York City.
 
@@ -90,7 +90,7 @@ function ownIds(pid: string, interp: Interpretation): Interpretation {
   return { ...interp, hard, soft, ambiguities };
 }
 
-const ALL_IN_CUES = /\b(tip|tips|tax|taxes|all[- ]?in|everything|total|out the door|including)\b/i;
+const ALL_IN_CUES = /\b(tip|tips|tax|taxes|all[- ]?in|everything|total|out the door)\b/i;
 const FOOD_ONLY_CUES = /\b(before (tax|tip)|plus (tax|tip)|food only|just (the )?food|not including|excluding|pre-?tax)\b/i;
 
 /**
@@ -104,8 +104,7 @@ export function enforceBudgetBasis(interp: Interpretation, words: string): Inter
   const ambiguities = [...interp.ambiguities];
   const hard = interp.hard.map((h): HardConstraint => {
     if (h.type !== "budget_max") return h;
-    const basis: "all_in" | "food_only" | "unspecified" =
-      h.basis === "food_only" && hasFoodOnly ? "food_only" : h.basis === "all_in" && hasAllIn ? "all_in" : "unspecified";
+    const basis: "all_in" | "food_only" | "unspecified" = hasFoodOnly ? "food_only" : hasAllIn ? "all_in" : "unspecified";
     if (basis === "unspecified" && !ambiguities.some((a) => a.kind === "budget_basis" && a.relatesTo === h.id)) {
       ambiguities.push({ topicId: `budget_basis_${h.id}`, kind: "budget_basis", term: h.source.text, relatesTo: h.id, source: h.source });
     }
@@ -158,6 +157,15 @@ export function groundHardConstraints(interp: Interpretation, words: string): { 
       continue;
     }
     let h: HardConstraint = raw;
+    if (raw.type === "exclude_cuisine") {
+      const word = raw.cuisine.toLowerCase().split(/\s+/)[0]!.replace(/[^a-z]/g, "");
+      const gap = "[^.!?;\\w]+";
+      const negated = new RegExp(`\\b(no|not|anything but|except|don'?t want|never|hate|avoid|tired of|sick of|instead of|no more)\\b(?:${gap}\\w+){0,2}${gap}${word}`, "i");
+      if (!word || !negated.test(words)) {
+        dropped.push(`exclude_cuisine ${raw.cuisine}: not negated in the diner's words`);
+        continue;
+      }
+    }
     if (raw.type === "dietary") {
       const d = dietaryFix(raw, words) as Extract<HardConstraint, { type: "dietary" }>;
       const strict = d.severity === "allergy" || d.severity === "medical" || d.severity === "religious";
