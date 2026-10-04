@@ -8,6 +8,7 @@ import { EmptyTableIllustration } from "../ui/Illustrations";
 import { JoinFlow } from "./JoinFlow";
 import { Lobby } from "./Lobby";
 import { Respond } from "./Respond";
+import { Voice } from "./Voice";
 import { NoMatchScreen, Result } from "./Result";
 import { Waiting } from "./Waiting";
 
@@ -64,7 +65,9 @@ function InRoom({ roomId, session, onLeave }: { roomId: string; session: Session
     }
   };
 
-  const voice = (_kind: "initial" | "clarify" | "host") => undefined;
+  const voice = (kind: "initial" | "clarify" | "host") => (helpers: { setDraft: (t: string) => void }) => (
+    <Voice roomId={roomId} token={session.token} kind={kind} onDraft={helpers.setDraft} refresh={() => api.view(roomId, session.token).then(apply)} />
+  );
 
   switch (view.phase) {
     case "LOBBY":

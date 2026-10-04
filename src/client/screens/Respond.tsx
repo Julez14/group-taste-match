@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect, useRef, useState } from "react";
+import { type ReactNode, useLayoutEffect, useRef, useState } from "react";
 import type { ActionBody } from "../../shared/api";
 import { MAX_TEXT_CHARS, type SubmissionKind } from "../../shared/types";
 import type { RoomView } from "../../shared/view";
@@ -32,7 +32,7 @@ export function Respond({ view, offset, kind, act, voice }: RespondProps) {
   const keyRef = useRef<{ text: string; key: string } | null>(null);
   const submitted = view.mySubmission;
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (submitted && !busy) setEditing(false);
   }, [submitted?.revision]); // eslint-disable-line react-hooks/exhaustive-deps
 
