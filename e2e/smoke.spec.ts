@@ -37,7 +37,9 @@ async function join(page: Page, link: string, name: string) {
 async function say(page: Page, text: string) {
   await page.getByRole("textbox", { name: "Your answer" }).fill(text);
   await page.getByRole("button", { name: "Send" }).click();
-  await expect(page.getByText("Sent", { exact: true })).toBeVisible();
+  // The last answer closes the phase, so the page may move straight to the next stage.
+  const nextStage = page.getByRole("heading", { name: /Finding a spot|checking a couple|Almost there|Locking in|Quick question|One last call|No spot fits/ });
+  await expect(page.getByText("Sent", { exact: true }).or(nextStage).or(page.getByText("Your group's pick")).first()).toBeVisible();
 }
 
 const TERMINAL = /Your group's pick|No spot fits everyone/i;
