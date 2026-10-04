@@ -290,7 +290,7 @@ export class Room extends DurableObject<Env> {
     const ai = bindingClient(this.env, { roomId: snapshot.id, method: snapshot.method });
     const started = Date.now();
     try {
-      const outcome = await selectPipeline(this.env)({
+      const outcome = await selectPipeline(this.env, snapshot.method)({
         state: snapshot,
         now: started,
         ai,

@@ -8,7 +8,7 @@ import type { DecisionPipeline } from "./pipeline";
  * steer it: #clarify, #host, #nomatch, #error. Fixture outputs are never
  * benchmark results.
  */
-export function fixturePipeline(pickResult: (state: RoomState) => Outcome): DecisionPipeline {
+export function fixturePipeline(pickResult: (state: RoomState) => Outcome | Promise<Outcome>): DecisionPipeline {
   return async ({ state, trace }) => {
     const texts = Object.entries(state.submissions).flatMap(([pid, subs]) =>
       Object.values(subs).map((s) => ({ pid, text: s.text.toLowerCase() })),
