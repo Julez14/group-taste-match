@@ -86,6 +86,14 @@ describe("travel, hours, reservations", () => {
     expect(facts([], {}, "2026-10-10T19:30:00-04:00").feasible).toBe(false); // Saturday unknown
   });
 
+  it("allows an open restaurant with an unknown table policy, with a call-ahead caveat, unless a reservation is required", () => {
+    const unknown = facts([], { reservationPolicy: "unknown" });
+    expect(unknown.feasible).toBe(true);
+    expect(unknown.assumptions.join(" ")).toMatch(/call ahead/);
+    const need: HardConstraint = { id: "r1", type: "reservation_required", source: src("need a reservation") };
+    expect(facts([need], { reservationPolicy: "unknown" }).feasible).toBe(false);
+  });
+
   it("requires a simulated reservable slot when a diner needs a reservation", () => {
     const need: HardConstraint = { id: "r1", type: "reservation_required", source: src("we need a reservation") };
     const walkIn = facts([need], { reservationPolicy: "walk_in_only" });

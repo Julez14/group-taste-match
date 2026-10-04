@@ -141,12 +141,22 @@ export function evaluateCandidate(r: Restaurant, ctx: FeasibilityContext): Candi
     result: open.status === "open" ? "pass" : open.status === "closed" ? "fail" : "unverified",
     note: open.status,
   });
+  // Rooms allow walk-ins by default, so an open restaurant with an unknown
+  // table policy is usable with a disclosed caveat; a diner who needs a
+  // reservation still fails their reservation_required check.
+  const policyUnknown = availability.status === "unknown" && availability.reason === "policy_unknown";
+  if (policyUnknown) assumptions.add("We couldn't confirm how this place handles tables — call ahead before you go.");
   checks.push({
     scope: "group",
     participantId: null,
     constraintId: null,
     type: "availability",
-    result: availability.status === "reservable" || availability.status === "walk_in" ? "pass" : availability.status === "unavailable" ? "fail" : "unverified",
+    result:
+      availability.status === "reservable" || availability.status === "walk_in" || policyUnknown
+        ? "pass"
+        : availability.status === "unavailable"
+          ? "fail"
+          : "unverified",
     note: `${availability.status} (${availability.reason})`,
   });
 
