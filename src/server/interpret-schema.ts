@@ -98,7 +98,7 @@ export function fromFlat(flat: z.infer<typeof FlatInterpretation>): Interpretati
         else dropped.push(`budget_max without amount: ${h.quote}`);
         break;
       case "dietary":
-        if (h.tag || h.value) hard.push({ ...base, type: "dietary", tag: h.tag, allergen: h.tag ? null : h.value, severity: h.severity ?? "preference" });
+        if (h.tag || h.value) hard.push({ ...base, type: "dietary", tag: h.tag, allergen: h.value, severity: h.severity ?? "preference" });
         else dropped.push(`dietary without tag: ${h.quote}`);
         break;
       case "exclude_cuisine":

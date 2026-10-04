@@ -22,7 +22,9 @@ export async function devRoute(req: Request, env: Env, action: string): Promise<
     frozenAvailability?: Record<string, Availability>;
     restaurantId?: string;
   };
-  const scenario = ScenarioSchema.parse(body.scenario);
+  const parsed = ScenarioSchema.safeParse(body.scenario);
+  if (!parsed.success) return Response.json({ error: "invalid scenario" }, { status: 400 });
+  const scenario = parsed.data;
   const ai = bindingClient(env, { experiment: "v1", scenario: scenario.id, action });
   const all = restaurants();
   const frozen = body.frozenAvailability ?? {};

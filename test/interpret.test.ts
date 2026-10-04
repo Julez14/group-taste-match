@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { z } from "zod";
 import type { AiClient } from "../src/server/ai";
 import { applyPatch } from "../src/server/clarify-patch";
-import { type Clarifier, enforceBudgetBasis, fixtureClarifier, fixtureInterpreter, normalizeGroup } from "../src/server/interpret";
+import { type Clarifier, enforceBudgetBasis, groundHardConstraints, fixtureClarifier, fixtureInterpreter, normalizeGroup } from "../src/server/interpret";
 import { chatJson, SchemaError } from "../src/server/llm";
 import { createRoom, join, start, submit } from "../src/shared/room-machine";
 import { DEFAULT_TIMERS, type RoomState } from "../src/shared/types";
@@ -159,5 +159,51 @@ describe("clarification patches", () => {
     const r = applyPatch(base, { resolved: true, changes: [{ ...change, op: "budget_to_soft", quote: "it's flexible" }] }, null);
     expect(r.interp.hard).toEqual([]);
     expect(r.interp.soft.find((s) => s.kind === "price")?.source.from).toBe("clarification");
+  });
+});
+
+describe("hard-constraint grounding", () => {
+  const src0 = { text: "x", status: "stated" as const, from: "initial" as const };
+  const interp = (hard: Parameters<typeof groundHardConstraints>[0]["hard"]) => ({
+    hard,
+    soft: [],
+    ambiguities: [],
+    missing: [],
+    noveltyRequested: false,
+    originAreaId: null,
+    ignoredInstructions: [],
+  });
+
+  it("drops a reservation requirement the diner never mentioned", () => {
+    const r = groundHardConstraints(interp([{ id: "h1", type: "reservation_required", source: src0 }]), "Somewhere nicer, it's my birthday.");
+    expect(r.interp.hard).toEqual([]);
+    expect(r.dropped).toHaveLength(1);
+  });
+
+  it("keeps constraints the diner actually stated", () => {
+    const hard = [
+      { id: "h1", type: "reservation_required" as const, source: src0 },
+      { id: "h2", type: "travel_max_minutes" as const, minutes: 30, source: src0 },
+    ];
+    expect(groundHardConstraints(interp(hard), "We need a reservation, and nothing over 30 minutes away.").interp.hard).toHaveLength(2);
+  });
+});
+
+describe("dietary grounding", () => {
+  const src0 = { text: "severe peanut allergy", status: "stated" as const, from: "initial" as const };
+  const base = { soft: [], ambiguities: [], missing: [], noveltyRequested: false, originAreaId: null, ignoredInstructions: [] };
+
+  it("clears a dietary tag the diner never named but keeps the allergen", () => {
+    const r = groundHardConstraints({ ...base, hard: [{ id: "h1", type: "dietary", tag: "pescatarian", allergen: "peanuts", severity: "allergy", source: src0 }] }, "I have a severe peanut allergy.");
+    expect(r.interp.hard[0]).toMatchObject({ tag: null, allergen: "peanuts", severity: "allergy" });
+  });
+
+  it("treats 'vegetarian-friendly' as a soft want and dedupes repeats", () => {
+    const v = { id: "h1", type: "dietary" as const, tag: "vegetarian" as const, allergen: null, severity: "preference" as const, source: src0 };
+    const soft = groundHardConstraints({ ...base, hard: [v] }, "Vegetarian-friendly Mediterranean.");
+    expect(soft.interp.hard).toEqual([]);
+    expect(soft.interp.soft[0]).toMatchObject({ kind: "dietary" });
+    const dup = groundHardConstraints({ ...base, hard: [v, { ...v, id: "h2" }] }, "I'm vegetarian.");
+    expect(dup.interp.hard).toHaveLength(1);
   });
 });

@@ -48,6 +48,17 @@ export const PatchSchema = z.object({
 });
 export type Patch = z.infer<typeof PatchSchema>;
 
+const OP_RESOLVES: Record<(typeof PATCH_OPS)[number], string> = {
+  set_budget_basis: "budget_basis",
+  set_budget_amount: "budget_basis",
+  budget_to_hard: "budget_firmness",
+  budget_to_soft: "budget_firmness",
+  set_dietary_severity: "dietary_severity",
+  dietary_to_soft: "dietary_severity",
+  add_travel_limit: "travel_limit",
+  travel_to_soft: "travel_limit",
+};
+
 export type AppliedChange = { op: string; targetId: string | null; quote: string; applied: boolean; note: string };
 
 /**
@@ -133,6 +144,10 @@ export function applyPatch(interp: Interpretation, patch: Patch, topicId: string
     }
     log.push(entry);
   }
-  const ambiguities = patch.resolved && topicId ? interp.ambiguities.filter((a) => a.topicId !== topicId) : interp.ambiguities;
+  // An applied change resolves open ambiguities of the matching kind, plus the asked topic.
+  const resolvedKinds = new Set(log.filter((l) => l.applied).map((l) => OP_RESOLVES[l.op as (typeof PATCH_OPS)[number]]));
+  const ambiguities = interp.ambiguities.filter(
+    (a) => !resolvedKinds.has(a.kind) && !(patch.resolved && topicId !== null && a.topicId === topicId),
+  );
   return { interp: { ...interp, hard, soft, ambiguities }, log };
 }
