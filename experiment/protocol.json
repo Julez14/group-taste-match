@@ -1,0 +1,155 @@
+{
+  "experimentVersion": "exp-v1",
+  "frozenAt": "2026-10-04T11:05:18.490Z",
+  "codeCommit": "6470ba25364a981d84efa3554c98a1395fd7edf4",
+  "workingTreeDirtyForFrozenPaths": false,
+  "purpose": "Compare the Clef pipeline with a simple general-purpose LLM baseline for single-restaurant group decisions (PRD + experiment plan v1.0).",
+  "dataset": {
+    "manifest": "experiment/dataset_manifest.json",
+    "manifestSha256": "6720ea09b7644171e78be4c0d6409af927d4a8ba0192126256fc8f828caeed6b",
+    "scenarios": "experiment/scenarios/v1.json",
+    "split": {
+      "dev": 20,
+      "test": 40
+    },
+    "tuningPolicy": "Prompts, rubric, safeguards, and thresholds were tuned only on the 20 development scenarios. The held-out test set is run once under this protocol; any later change is a new experiment version."
+  },
+  "sharedPipeline": {
+    "interpretation": {
+      "model": "@cf/openai/gpt-oss-120b",
+      "settings": {
+        "model": "@cf/openai/gpt-oss-120b",
+        "reasoningEffort": "low",
+        "maxTokens": 4000,
+        "temperature": 0
+      },
+      "promptVersion": "interpret-v9",
+      "promptSha256": "0f9320d4a47563b29e7f0f2bf277809602ed723a3e2c9c77f1499040479faa46",
+      "clarificationPatchPromptSha256": "d5077df90e57694b2bf70615d972b944d06b0f77f3cc84fa8b5f3ecb2dfdfdc5",
+      "safeguards": [
+        "groundHardConstraints",
+        "backstopHardConstraints",
+        "enforceBudgetBasis"
+      ]
+    },
+    "speechToText": "@cf/deepgram/nova-3",
+    "feasibilityGuard": "src/server/feasibility.ts (hours, simulated availability, budget basis, dietary verification, travel, reservations); applied before selection and again before delivery",
+    "privacyFilter": "src/server/privacy.ts (names, stated budget amounts, non-default origins, allergy/medical details); leaking explanations replaced by a neutral template, counted per method",
+    "gateway": "group-taste-match (caching off)"
+  },
+  "methods": {
+    "clef": {
+      "model": "@cf/cloudflare/clef",
+      "rubricVersion": "fit-rubric-v1",
+      "rubric": [
+        "Poor fit: substantially misses important stated preferences",
+        "Weak fit: a consequential preference is poorly served",
+        "Acceptable fit: needs met with an understandable compromise",
+        "Good fit: matches most important preferences",
+        "Excellent fit: particularly strong for this diner's request"
+      ],
+      "maxQuestionsPerCall": 64,
+      "policy": {
+        "version": "fair-v2",
+        "shortlistDelta": 0.15,
+        "acceptableFit": 1.25,
+        "materialSpread": 2.5,
+        "hostBand": 0.5
+      },
+      "clarifyPolicy": {
+        "version": "clarify-v1",
+        "enoughOptions": 4,
+        "materialShrink": 0.3
+      },
+      "wordingModel": "@cf/openai/gpt-oss-120b",
+      "explainPromptVersion": "explain-v2",
+      "explanationRulesSha256": "092d451919417161ba223f319dc08f0c70797823ea0ec801291815d0cdab69e0",
+      "questionRulesSha256": "99896858c5cc06e400b81861a5ab99d1afdd822f8b684f64c4ba1f815ef2ab3c"
+    },
+    "llm_baseline": {
+      "model": "@cf/openai/gpt-oss-120b",
+      "settings": {
+        "model": "@cf/openai/gpt-oss-120b",
+        "reasoningEffort": "medium",
+        "maxTokens": 12000,
+        "temperature": 0
+      },
+      "promptVersion": "baseline-v3",
+      "promptSha256": "a0e212b99978d39e3acd707206c1eeb188beb3b55f79f67a3c21a8ce4ea7e527"
+    }
+  },
+  "retryPolicy": {
+    "schemaRepair": "one bounded repair per LLM call (both methods)",
+    "guardRecovery": "one re-proposal with the rejection reason (both methods)",
+    "crossMethodFallback": "never; failures count against the originating method",
+    "operationalRetries": "none inside the harness; failed runs stay in denominators"
+  },
+  "tracks": {
+    "fixedState": {
+      "scenarios": 40,
+      "repeatsPerMethod": 3,
+      "totalRuns": 240,
+      "clarificationAndHostDisabled": true,
+      "permutations": "seeded candidate and diner order per scenario × repeat, identical for both methods",
+      "executionOrder": "alternating method order by scenario index + repeat"
+    },
+    "completeFlow": {
+      "scenarios": 40,
+      "sessionsPerMethod": 1,
+      "totalSessions": 80,
+      "simulator": "answers only from prewritten facts; anything else times out; host answers from the scenario's true soft priority"
+    }
+  },
+  "evaluation": {
+    "hardConstraints": "deterministic, against prelabeled ground truth for each run's effective requirements (fixed-state: all clarifications supplied; flow: explicit + actually-answered clarifications; unclarified budget basis judged as all-in)",
+    "subjectiveFit": {
+      "model": "@cf/moonshotai/kimi-k2.6",
+      "settings": {
+        "model": "@cf/moonshotai/kimi-k2.6",
+        "reasoningEffort": "none",
+        "maxTokens": 2500,
+        "temperature": 0
+      },
+      "promptVersion": "judge-v2",
+      "blinded": true,
+      "label": "model-judged",
+      "cache": "one judgment per scenario × restaurant"
+    },
+    "human": {
+      "reviewers": 1,
+      "disclosure": "single human reviewer, who is also the developer",
+      "material": "experiment/review/blinded_review_packet.md (first pre-scheduled fixed-state run, randomized A/B)",
+      "role": "decides the shipped method (per project owner); the model-judged scorer is secondary and disagreements are reported"
+    }
+  },
+  "metrics": {
+    "primary": "acceptable group rate: among feasible scenarios, share of runs returning a valid restaurant with model-judged fit ≥2/4 for every diner; abstention or failure counts as failure",
+    "secondary": [
+      "raw and delivered hard-constraint violations by type",
+      "weakest-diner fit (failures = 0) and mean fit",
+      "correct no-match and false no-match",
+      "evidence grounding (unknown ids, privacy leaks caught)",
+      "clarification burden and host-call rate (flow)",
+      "reliability (valid outcomes, errors, schema repairs, guard rejections)",
+      "p50/p95 latency",
+      "estimated cost (decision-only and total; judge separate)",
+      "repeat agreement"
+    ],
+    "statistics": {
+      "ci": "95% percentile bootstrap, paired, resampling whole scenarios (repeats kept together)",
+      "iterations": 10000,
+      "seed": 20261004
+    }
+  },
+  "selectionRule": {
+    "safetyGate": "any delivered hard-constraint violation or invented restaurant requires diagnosis before a method is declared demo-ready",
+    "practicalDifference": 0.05,
+    "rule": "prefer a method for quality when its paired acceptable-rate advantage is ≥5 points with a 95% CI excluding zero and no material regression in correct no-match; otherwise prefer the simpler/cheaper/faster method on operational evidence; complete-flow results can veto for burden or failures; automated-only evidence is provisional",
+    "humanOverride": "per the project owner, the blinded human A/B review on the 40 held-out scenarios decides the shipped method; the report explains any disagreement with the automated rule"
+  },
+  "budget": {
+    "capUsd": 10,
+    "scope": "held-out serving runs (fixed + flow) and model judging; development spend tracked separately",
+    "stopRule": "stop and report actual sample if estimated spend reaches the cap"
+  }
+}
