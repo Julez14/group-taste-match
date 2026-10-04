@@ -34,7 +34,7 @@ describe("interpretation cache", () => {
   const empty: Interpretation = { hard: [], soft: [], ambiguities: [], missing: [], noveltyRequested: false, originAreaId: null, ignoredInstructions: [] };
 
   it("reuses work for unchanged inputs and recomputes after an edit", async () => {
-    const store = new Map<string, Interpretation>();
+    const store = new Map<string, unknown>();
     const cache: InterpretCache = { get: (k) => store.get(k) ?? null, put: (k, v) => void store.set(k, v) };
     let calls = 0;
     const inner: Interpreter = async () => {
@@ -42,13 +42,13 @@ describe("interpretation cache", () => {
       return empty;
     };
     const interp = cachedInterpreter(inner, cache);
-    const args = { text: "ramen", clarification: null, meetingAreaName: "SoHo", diningAt: "2026-10-06T19:30:00-04:00" };
+    const args = { text: "ramen", meetingAreaName: "SoHo", diningAt: "2026-10-06T19:30:00-04:00" };
     await Promise.all([interp(args), interp(args)]);
     await interp(args);
     expect(calls).toBe(1);
     await interp({ ...args, text: "actually tacos" });
     expect(calls).toBe(2);
-    await interp({ ...args, clarification: { question: "q", answer: "a" } });
+    await interp({ ...args, meetingAreaName: "Astoria" });
     expect(calls).toBe(3);
   });
 });

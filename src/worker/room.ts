@@ -29,8 +29,8 @@ import {
 } from "../shared/types";
 import { type RoomView, toView } from "../shared/view";
 import { bindingClient } from "../server/ai";
-import { cachedInterpreter, type InterpretCache, interpreterArgsFor, llmInterpreter } from "../server/interpret";
-import type { Interpretation } from "../shared/normalized";
+import { baseArgsFor, clarificationFor, type InterpretCache } from "../server/interpret";
+import { liveInterpreters } from "../server/live-pipeline";
 import { selectPipeline } from "../server/select-pipeline";
 import { FIXTURE_TRANSCRIPT, MAX_AUDIO_BYTES, transcribe } from "../server/transcribe";
 import { hashToken, newToken, randomId } from "./tokens";
@@ -65,9 +65,10 @@ export class Room extends DurableObject<Env> {
   }
 
   private readonly interpretCache: InterpretCache = {
+    inflight: new Map(),
     get: (key) => {
       const row = this.ctx.storage.sql.exec<{ value: string }>("SELECT value FROM interp_cache WHERE key = ?", key).toArray()[0];
-      return row ? (JSON.parse(row.value) as Interpretation) : null;
+      return row ? (JSON.parse(row.value) as unknown) : null;
     },
     put: (key, value) => {
       this.ctx.storage.sql.exec("INSERT OR REPLACE INTO interp_cache (key, value) VALUES (?, ?)", key, JSON.stringify(value));
@@ -81,11 +82,13 @@ export class Room extends DurableObject<Env> {
    */
   private prewarm(pid: string) {
     if (this.env.PROVIDER_MODE !== "live" || !this.room) return;
-    const args = interpreterArgsFor(this.room, pid);
+    const args = baseArgsFor(this.room, pid);
     if (!args) return;
+    const c = clarificationFor(this.room, pid);
     const ai = bindingClient(this.env, { roomId: this.room.id, purpose: "prewarm" });
-    const interpret = cachedInterpreter(llmInterpreter(ai), this.interpretCache);
+    const { interpret, clarify } = liveInterpreters(ai, this.interpretCache);
     void interpret(args)
+      .then((base) => (c ? clarify({ base, text: args.text, question: c.question, answer: c.answer }) : null))
       .catch((e) => this.trace("prewarm_failed", { pid, error: (e as Error).message }))
       .finally(() => ai.calls.length && this.trace("ai_calls", ai.calls));
   }

@@ -76,7 +76,7 @@ async function createRoom(req: Request, env: Env): Promise<Response> {
       roomId,
       host: body.host,
       config: { diningAt, meetingAreaId: body.config.meetingAreaId, timers: body.config.timers },
-      method: decisionMethod(env),
+      method: body.debugMethod && (env as { EXPOSE_TRACES?: string }).EXPOSE_TRACES === "on" ? body.debugMethod : decisionMethod(env),
     });
     if (r.ok) return json({ roomId, ...r.value }, 201);
     if (r.code !== "exists") return fromRpc(r);

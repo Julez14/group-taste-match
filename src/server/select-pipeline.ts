@@ -2,7 +2,7 @@ import type { Outcome } from "../shared/room-machine";
 import type { RoomState } from "../shared/types";
 import { buildCard, noMatchFromFacts } from "./card";
 import { evaluateAll } from "./feasibility";
-import { fixtureInterpreter, normalizeGroup } from "./interpret";
+import { fixtureClarifier, fixtureInterpreter, normalizeGroup } from "./interpret";
 import { fixturePipeline } from "./fixture-pipeline";
 import { livePipeline } from "./live-pipeline";
 import type { DecisionPipeline } from "./pipeline";
@@ -14,7 +14,7 @@ export function selectPipeline(env: Pick<Env, "PROVIDER_MODE">, method: RoomStat
 
 /** Fixture result: first feasible snapshot restaurant under the regex interpreter. */
 async function fixtureResult(state: RoomState): Promise<Outcome> {
-  const group = await normalizeGroup(state, fixtureInterpreter);
+  const group = await normalizeGroup(state, { interpret: fixtureInterpreter, clarify: fixtureClarifier });
   const all = restaurants();
   const facts = evaluateAll({ group, restaurants: all, availabilitySeed: state.id });
   const pick = facts.find((f) => f.feasible);

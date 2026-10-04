@@ -19,13 +19,26 @@ const ExplanationSchema = z.object({
   assumptions: z.array(z.string().max(240)).max(4),
 });
 
-function groupNeeds(input: DecisionInput) {
-  // Anonymized and aggregated: what people asked for, without owners.
-  return {
-    requests: input.group.diners.filter((d) => !d.noResponse).map((d) => d.originalText),
-    notResponded: input.group.diners.filter((d) => d.noResponse).length,
-    meetingArea: input.group.meetingArea.name,
-  };
+/**
+ * Anonymized, number-free summary of what the group asked for, so the
+ * explanation writer never sees anyone's budget amount, origin, or name.
+ */
+export function groupNeeds(input: DecisionInput) {
+  const needs = new Set<string>();
+  for (const d of input.group.diners) {
+    for (const h of d.hard) {
+      if (h.type === "budget_max") needs.add("budget limits");
+      else if (h.type === "dietary") needs.add(h.severity === "allergy" || h.severity === "medical" ? "a dietary restriction" : `${(h.tag ?? "dietary").replace("_", "-")} options`);
+      else if (h.type === "travel_max_minutes") needs.add("a manageable trip");
+      else if (h.type === "reservation_required") needs.add("a reservable table");
+    }
+    for (const s of d.soft) {
+      if (s.kind === "price" || s.kind === "travel") continue;
+      needs.add(`${s.direction === "avoid" ? "avoid " : ""}${s.value.replace(/\$?\d+/g, "").trim()}`);
+    }
+    if (d.noveltyRequested) needs.add("somewhere new");
+  }
+  return { needs: [...needs].slice(0, 12), meetingArea: input.group.meetingArea.name };
 }
 
 export async function writeExplanation(
@@ -38,7 +51,7 @@ export async function writeExplanation(
     system: `You explain a group's restaurant pick.\n${EXPLANATION_RULES}\nAlso return up to 3 short natural "assumptions" sentences only if consequential (e.g. a budget treated as including tip). Return JSON {"explanation": string, "assumptions": string[]}.`,
     user: JSON.stringify({
       restaurant: candidateView(input, chosen),
-      groupRequests: groupNeeds(input),
+      group: groupNeeds(input),
       knownAssumptions: chosen.assumptions,
       ...extra,
     }),

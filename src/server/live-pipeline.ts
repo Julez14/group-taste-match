@@ -2,7 +2,8 @@ import type { DecisionMethod, RoomState } from "../shared/types";
 import { decideWithGuard } from "./decide";
 import type { DecisionInput } from "./decision-context";
 import { evaluateAll } from "./feasibility";
-import { cachedInterpreter, llmInterpreter, normalizeGroup } from "./interpret";
+import { cachedClarifier, cachedInterpreter, type InterpretCache, type Interpreters, llmClarifier, llmInterpreter, normalizeGroup } from "./interpret";
+import type { AiClient } from "./ai";
 import { baselineMethod } from "./methods/baseline-method";
 import { clefMethod } from "./methods/clef-method";
 import type { DecisionMethodImpl } from "./methods/types";
@@ -27,12 +28,16 @@ export function decisionInputFor(state: RoomState, group: DecisionInput["group"]
   };
 }
 
+export function liveInterpreters(ai: AiClient, cache?: InterpretCache): Interpreters {
+  if (!cache) return { interpret: llmInterpreter(ai), clarify: llmClarifier(ai) };
+  return { interpret: cachedInterpreter(llmInterpreter(ai), cache), clarify: cachedClarifier(llmClarifier(ai), cache) };
+}
+
 /** Live decision pipeline: shared interpretation → shared feasibility → method → shared guard. */
 export function livePipeline(method: DecisionMethod): DecisionPipeline {
   return async ({ state, ai, trace, interpretCache }) => {
     const t0 = Date.now();
-    const interpreter = interpretCache ? cachedInterpreter(llmInterpreter(ai), interpretCache) : llmInterpreter(ai);
-    const group = await normalizeGroup(state, interpreter);
+    const group = await normalizeGroup(state, liveInterpreters(ai, interpretCache));
     trace("normalized", { ms: Date.now() - t0, group });
     const input = decisionInputFor(state, group);
     trace("feasibility", {

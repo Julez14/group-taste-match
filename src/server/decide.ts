@@ -59,7 +59,8 @@ export function finalize(
 
 /** Neutral fallback when a method's explanation reveals private details. */
 function safeExplanation(r: { name: string; cuisines: string[]; neighborhood: string }): string {
-  return `I picked ${r.name} in ${r.neighborhood} — ${r.cuisines.join(" and ")} that fits everyone's must-haves for tonight.`;
+  const cuisine = r.cuisines.slice(0, 2).join(" and ");
+  return `I picked ${r.name} in ${r.neighborhood}: ${cuisine} food that meets everyone's must-haves for tonight.`;
 }
 
 /**

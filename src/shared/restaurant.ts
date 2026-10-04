@@ -19,6 +19,7 @@ export const ATMOSPHERE_TAGS = [
   "family_friendly",
   "special_occasion",
   "late_night",
+  "solo_friendly",
 ] as const;
 export type AtmosphereTag = (typeof ATMOSPHERE_TAGS)[number];
 
