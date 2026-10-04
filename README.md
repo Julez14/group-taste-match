@@ -1,2 +1,91 @@
 # group-taste-match
-Proof of concept for a new Beli Feature that helps groups decide where to eat.
+
+Group Taste-Match is a concept prototype of a Beli-style feature that helps 2–6 diners in New York City agree on **one** restaurant. A host creates a room and shares the link. Everyone says (or types) what they're in the mood for. The system asks at most one private clarification per affected diner and, only if it would help, one final question to the host. Then everyone sees the same single restaurant card.
+
+This is an independent concept prototype. It is not an official Beli product or integration, it doesn't use Beli systems or data, and the taste profiles are synthetic.
+
+- Live prototype: https://group-taste-match.juelzlax.workers.dev
+- Product spec: [Beli_Group_Taste_Match_Explore_PRD.md](Beli_Group_Taste_Match_Explore_PRD.md)
+- Experiment plan: [Beli_Group_Explore_Experiment_Plan.md](Beli_Group_Explore_Experiment_Plan.md)
+- Results report: [Beli_Group_Explore_Experiment_Report.md](Beli_Group_Explore_Experiment_Report.md) (and `.pdf`)
+
+## Architecture
+
+One Cloudflare Worker serves the React + Vite client (`@cloudflare/vite-plugin`) and the API. Each room is one Durable Object with SQLite storage, alarms (deadlines, transcription grace, evaluation, 24-hour expiry), and hibernatable WebSockets. AI calls go through Workers AI via the `group-taste-match` AI Gateway (caching off, logs on).
+
+| Concern | Where |
+| --- | --- |
+| Room rules (pure state machine) | `src/shared/room-machine.ts` |
+| Room Durable Object + API | `src/worker/room.ts`, `src/worker/index.ts` |
+| Shared interpretation (gpt-oss-120b, grounded) | `src/server/interpret*.ts`, `src/server/clarify-patch.ts` |
+| Hard-constraint guard (hours, availability, budget, dietary, travel) | `src/server/feasibility.ts` |
+| Clef pipeline | `src/server/methods/clef-method.ts`, `src/server/clef.ts`, `src/server/policy.ts`, `src/server/clarify.ts` |
+| LLM baseline | `src/server/methods/baseline-method.ts` |
+| Shared enforcement, privacy filter, result card | `src/server/decide.ts`, `src/server/privacy.ts`, `src/server/card.ts` |
+| Client (Beli-style mobile web) | `src/client/` |
+| Experiment harness | `src/experiment/`, `experiment/` |
+
+Both decision methods implement the same interface and receive identical inputs. The server picks one with `DECISION_METHOD=clef|llm_baseline`; the participant UI never exposes the choice.
+
+Models: `@cf/cloudflare/clef` (fit scoring and bounded choices), `@cf/openai/gpt-oss-120b` (interpretation, wording, and the baseline), `@cf/deepgram/nova-3` (speech-to-text), and `@cf/moonshotai/kimi-k2.6` (experiment judge only).
+
+## Setup
+
+Requires Node 22+, pnpm, and a Cloudflare account with Workers AI. Durable Objects with SQLite work on the free plan; the Kimi judge needs Workers Paid.
+
+```sh
+pnpm install
+npx wrangler login
+cp .dev.vars.example .dev.vars   # then fill in values (names only are committed)
+pnpm dev                          # http://localhost:5173 (any port works)
+```
+
+`.dev.vars` settings:
+
+| Name | Values |
+| --- | --- |
+| `PROVIDER_MODE` | `live` calls Workers AI. `fixture` gives canned outcomes for offline UI work, steered by `#clarify`, `#host`, `#nomatch`, `#error` in a diner's text. Fixture results are never benchmark results. |
+| `DECISION_METHOD` | `clef` or `llm_baseline` |
+| `AI_GATEWAY_ID` | `group-taste-match` |
+| `DEV_ROUTES` | `on` enables local-only experiment and trace routes. Never set it in deployed config. |
+
+Commands:
+
+```sh
+pnpm test        # Vitest in the Workers runtime (@cloudflare/vitest-plugin), always fixture mode
+pnpm typecheck
+pnpm e2e         # Playwright: two sessions + six diners on a 360 px viewport
+pnpm run deploy  # build + wrangler deploy
+```
+
+## Data and provenance
+
+- `data/v1/restaurants.json` holds 30 real, currently operating NYC restaurants (16 Manhattan, 9 Brooklyn, 5 Queens). Facts come from official sites and menus, retrieved 2026-10-04, with field-level evidence records; coordinates come from OpenStreetMap Nominatim. Unknowns stay `null`. Atmosphere tags are evidence-backed editorial judgments. "No match" means no match in this list, not in all of NYC.
+- `data/v1/profiles.json` holds 8 synthetic taste profiles, each an invented ranked history of real restaurants. They are not real Beli users or Beli data.
+- `data/v1/meeting-areas.json` lists approximate neighborhood reference points.
+- Availability is simulated and deterministic. It is seeded per restaurant, local date, 15-minute window, party size, and seed, and it never offers a table at a restaurant known to be closed. The UI labels it "Simulated availability — prototype."
+- Travel times are documented geographic estimates (haversine distance × 1.3, then a walking or subway speed range), not live transit routing.
+
+## Privacy and retention
+
+Raw audio is never stored. Transcripts, decision traces, and interpretation caches live in the room's Durable Object and are deleted when the room expires after 24 hours. Shared views never show another diner's input, who was asked to clarify, or the host's question. A deterministic filter removes names, private budget amounts, starting points, and allergy details from group-facing text.
+
+## Experiment
+
+The experiment follows the plan, with 60 synthetic scenarios: 20 for development and 40 held out. The fixed-state track runs 3 repeats per method on the held-out set (240 runs), and the complete-flow track runs once per method (80 sessions). An independent deterministic checker evaluates runs against ground truth, and Kimi K2.6 gives a separate model-judged per-diner fit score. A blinded A/B review by the developer decides the shipped method.
+
+The experiment endpoints run inside the local dev Worker, so calls use the Workers AI binding and AI Gateway and no API tokens are handled by scripts. Start `pnpm dev` with `PROVIDER_MODE=live` and `DEV_ROUTES=on`, then:
+
+```sh
+pnpm exp:labels                               # truth labels + dataset manifest (no model calls)
+pnpm exp:freeze --split=test                  # fixed-state inputs
+pnpm exp:run --split=test --track=fixed --repeats=3
+pnpm exp:run --split=test --track=flow
+pnpm exp:judge --split=test                   # kimi-k2.6, model-judged
+pnpm exp:analyze --split=test                 # metrics.csv, summary.json
+pnpm exp:packet && pnpm review                # blinded A/B review at http://localhost:5300
+pnpm exp:human                                # unblind responses after review
+pnpm exp:report                               # report Markdown + PDF
+```
+
+Outputs: `experiment/protocol.json`, `experiment/dataset_manifest.json`, `experiment/results/runs.jsonl`, `experiment/results/metrics.csv`, and `experiment/review/blinded_review_packet.md`.

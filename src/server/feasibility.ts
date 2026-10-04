@@ -82,7 +82,9 @@ function checkDietary(c: Extract<HardConstraint, { type: "dietary" }>, r: Restau
   const strict = c.severity === "allergy" || c.severity === "medical";
   if (strict) {
     if (!r.allergyPolicy) return { result: "unverified", note: "No published allergy policy; can't verify safe preparation" };
-    if (c.tag) {
+    // Diet-defining tags (vegan, gluten-free, …) also need labeled options; for nut allergies the
+    // published allergy policy is the relevant evidence.
+    if (c.tag && c.tag !== "nut_free") {
       const opt = r.menuOptions.find((o) => o.dietaryTag === c.tag && o.verificationStatus !== "menu_inferred");
       if (!opt) return { result: "unverified", note: `No labeled ${c.tag} options` };
     }

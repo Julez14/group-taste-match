@@ -12,8 +12,9 @@ import { meetingArea } from "../shared/data";
 import type { Scenario } from "./scenario";
 
 export const JUDGE_MODEL = "@cf/moonshotai/kimi-k2.6";
-export const JUDGE_PROMPT_VERSION = "judge-v1";
-export const JUDGE_SETTINGS = { model: JUDGE_MODEL, reasoningEffort: "high" as const, maxTokens: 6000, temperature: 0 };
+export const JUDGE_PROMPT_VERSION = "judge-v2";
+/** Reasoning off: high-effort reasoning timed out or exhausted tokens on development items. */
+export const JUDGE_SETTINGS = { model: JUDGE_MODEL, reasoningEffort: "none" as const, maxTokens: 2500, temperature: 0 };
 
 const SYSTEM = `You are an independent evaluator for a group restaurant picker. For ONE proposed restaurant, rate how well it fits EACH diner, separately, on this 0–4 rubric:
 ${FIT_CRITERIA.map((c, i) => `${i} = ${c}`).join("\n")}
@@ -75,7 +76,7 @@ export async function judge(ai: AiClient, s: Scenario, r: Restaurant, availabili
     },
     purpose: "judge",
     settings: JUDGE_SETTINGS,
-    timeoutMs: 300_000,
+    timeoutMs: 120_000,
   });
   const scores = Object.fromEntries(value.scores.map((x) => [x.dinerId, { score: x.score, reason: x.reason }]));
   for (const d of s.diners) if (!scores[d.id]) throw new Error(`judge omitted diner ${d.id}`);

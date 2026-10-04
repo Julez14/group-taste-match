@@ -4,13 +4,17 @@
  * experiment version.
  */
 export const POLICY = {
-  version: "fair-v1",
+  version: "fair-v2",
   /** Shortlist candidates within this distance of the best weakest-diner fit (0–4 scale). */
   shortlistDelta: 0.15,
-  /** Below this weakest-diner expected fit, a host call may help ("acceptable" = 2). */
-  acceptableFit: 2.0,
+  /**
+   * Below this weakest-diner expected fit, a host call may help. Calibrated on
+   * development scenarios: Clef's expected scores cluster low (best weakest
+   * fit mostly 0.4–1.7), so 2.0 asked the host in 40% of sessions.
+   */
+  acceptableFit: 1.25,
   /** A spread at least this large between a diner's fit levels may justify a host call. */
-  materialSpread: 2.0,
+  materialSpread: 2.5,
   /** Candidates this close to the best weakest fit may be swapped by the host's priority. */
   hostBand: 0.5,
 } as const;

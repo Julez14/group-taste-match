@@ -6,9 +6,9 @@ import { chatJson } from "../llm";
 import { HOST_OPTIONS, POLICY } from "../policy";
 import type { DecisionMethodImpl } from "./types";
 
-export const BASELINE_PROMPT_VERSION = "baseline-v2";
+export const BASELINE_PROMPT_VERSION = "baseline-v3";
 
-export const BASELINE_SETTINGS = { reasoningEffort: "medium" as const, maxTokens: 6000 };
+export const BASELINE_SETTINGS = { reasoningEffort: "medium" as const, maxTokens: 12000 };
 
 export const BASELINE_SYSTEM = `You are the decision maker for a group dinner picker in New York City. 2–6 diners each described what they want. Your job in this step is to pick exactly ONE restaurant for the whole group from the eligible list, or take the single allowed non-result action.
 
@@ -84,7 +84,7 @@ export const baselineMethod: DecisionMethodImpl = {
       jsonSchema: { name: "decision", schema: DECISION_JSON_SCHEMA },
       purpose: deps.feedback ? "baseline:decide:recovery" : "baseline:decide",
       settings: BASELINE_SETTINGS,
-      timeoutMs: 90_000,
+      timeoutMs: 120_000,
     });
     return { proposal: value, trace: { schemaRepaired: repaired } };
   },

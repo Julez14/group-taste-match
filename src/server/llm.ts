@@ -6,7 +6,7 @@ export const LLM_MODEL = "@cf/openai/gpt-oss-120b";
 
 export type ChatSettings = {
   model: string;
-  reasoningEffort: "low" | "medium" | "high";
+  reasoningEffort: "none" | "low" | "medium" | "high";
   maxTokens: number;
   temperature: number;
 };

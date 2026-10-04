@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { z } from "zod";
 import type { AiClient } from "../src/server/ai";
 import { applyPatch } from "../src/server/clarify-patch";
-import { type Clarifier, enforceBudgetBasis, groundHardConstraints, fixtureClarifier, fixtureInterpreter, normalizeGroup } from "../src/server/interpret";
+import { backstopHardConstraints, type Clarifier, enforceBudgetBasis, groundHardConstraints, fixtureClarifier, fixtureInterpreter, normalizeGroup } from "../src/server/interpret";
 import { chatJson, SchemaError } from "../src/server/llm";
 import { createRoom, join, start, submit } from "../src/shared/room-machine";
 import { DEFAULT_TIMERS, type RoomState } from "../src/shared/types";
@@ -221,5 +221,27 @@ describe("cuisine exclusion grounding", () => {
     const italian = groundHardConstraints({ ...base, hard: [{ id: "h1", type: "exclude_cuisine", cuisine: "italian", source: src0 }] }, words);
     expect(ramen.interp.hard).toHaveLength(1);
     expect(italian.interp.hard).toHaveLength(0);
+  });
+});
+
+describe("hard-constraint backstop", () => {
+  const empty = { hard: [], soft: [], ambiguities: [], missing: [], noveltyRequested: false, originAreaId: null, ignoredInstructions: [] };
+  const types = (words: string) => backstopHardConstraints(empty, words).interp.hard.map((h) => h.type);
+
+  it("adds clearly stated must-haves the model omitted", () => {
+    expect(types("We need a reservation — there are six of us.")).toEqual(["reservation_required"]);
+    expect(backstopHardConstraints(empty, "I have a severe peanut allergy.").interp.hard[0]).toMatchObject({ tag: "nut_free", severity: "allergy" });
+    expect(types("I'm celiac, strictly gluten-free.")).toEqual(["dietary"]);
+    expect(types("I keep halal")).toEqual(["dietary"]);
+    expect(types("I'm, um, fully vegan.")).toEqual(["dietary"]);
+    expect(backstopHardConstraints(empty, "Max fifty bucks with tip.").interp.hard[0]).toMatchObject({ type: "budget_max", amount: 50 });
+    expect(backstopHardConstraints(empty, "Nothing more than 10 minutes from here.").interp.hard[0]).toMatchObject({ type: "travel_max_minutes", minutes: 10 });
+  });
+
+  it("leaves soft or vague wording alone", () => {
+    expect(types("Somewhere nicer, it's my birthday.")).toEqual([]);
+    expect(types("Around $40 would be great.")).toEqual([]);
+    expect(types("Vegetarian-friendly Mediterranean.")).toEqual([]);
+    expect(types("Not too far.")).toEqual([]);
   });
 });

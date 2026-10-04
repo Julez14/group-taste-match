@@ -45,7 +45,7 @@ describe("host-call gating", () => {
   });
 
   it("asks only when a weak choice could change with the host's priority", () => {
-    const fits = { near: { a: 1.8, b: 1.6 }, apt: { a: 1.7, b: 2.4 } };
+    const fits = { near: { a: 1.1, b: 1.0 }, apt: { a: 1.05, b: 2.0 } };
     const travel = { near: 15, apt: 45 };
     const sel = selectFair(fits, travel)!;
     const g = hostCallUseful(sel, fits);
@@ -55,7 +55,7 @@ describe("host-call gating", () => {
   });
 
   it("does not ask when both priorities lead to the same restaurant", () => {
-    const fits = { p: { a: 1.5, b: 1.4 }, q: { a: 0.5, b: 0.6 } };
+    const fits = { p: { a: 1.0, b: 0.9 }, q: { a: 0.2, b: 0.3 } };
     const sel = selectFair(fits, { p: 10, q: 50 })!;
     expect(hostCallUseful(sel, fits)).toMatchObject({ useful: false, reason: "answer_would_not_change_choice" });
   });

@@ -7,7 +7,7 @@ import { type AppliedChange, applyPatch, PATCH_JSON_SCHEMA, type Patch, PatchSch
 import { INTERPRETATION_JSON_SCHEMA, InterpretationFromFlat } from "./interpret-schema";
 import { chatJson } from "./llm";
 
-export const INTERPRET_PROMPT_VERSION = "interpret-v7";
+export const INTERPRET_PROMPT_VERSION = "interpret-v8";
 
 export const INTERPRET_SYSTEM = `You turn ONE diner's spoken or typed dinner request into structured data for a group restaurant picker in New York City.
 
@@ -186,6 +186,61 @@ export function groundHardConstraints(interp: Interpretation, words: string): { 
   return { interp: { ...interp, hard, soft, ambiguities }, dropped };
 }
 
+const WORD_NUM: Record<string, number> = { twenty: 20, thirty: 30, forty: 40, fifty: 50, sixty: 60, seventy: 70, eighty: 80, ninety: 90, hundred: 100 };
+
+/**
+ * Deterministic backstop for unambiguous must-haves the model omitted
+ * (interpretation is stochastic and a dropped constraint can't be recovered
+ * downstream). Only clear phrasings trigger it; additions are logged.
+ */
+export function backstopHardConstraints(interp: Interpretation, words: string): { interp: Interpretation; added: string[] } {
+  const hard = [...interp.hard];
+  const added: string[] = [];
+  const src = (m: RegExpExecArray) => ({ text: m[0].slice(0, 120), status: "stated" as const, from: "initial" as const });
+  const has = (pred: (h: HardConstraint) => boolean) => hard.some(pred);
+  const push = (h: HardConstraint, why: string) => {
+    hard.push(h);
+    added.push(why);
+  };
+  let m: RegExpExecArray | null;
+
+  if (!has((h) => h.type === "reservation_required") && (m = /\b(need|needs|must|have to|has to|require|requires|want)\b[^.!?]{0,25}\b(reservation|reserve|booking|book)\b/i.exec(words))) {
+    push({ id: "b-res", type: "reservation_required", source: src(m) }, "reservation_required");
+  }
+  if ((m = /\b(?:allergic to|allergy to|allergies to)\s+([a-z ]{3,20})|\b(peanut|tree[- ]nut|nut|shellfish|sesame|dairy|egg|soy|fish|gluten)\s+allerg/i.exec(words))) {
+    const what = (m[1] ?? m[2] ?? "").trim().toLowerCase();
+    if (!has((h) => h.type === "dietary" && (h.severity === "allergy" || h.severity === "medical"))) {
+      const tag = /nut|peanut/.test(what) ? "nut_free" : /gluten/.test(what) ? "gluten_free" : /dairy|milk|lactose/.test(what) ? "dairy_free" : null;
+      push({ id: "b-allergy", type: "dietary", tag, allergen: what || null, severity: "allergy", source: src(m) }, `allergy:${what}`);
+    }
+  }
+  if ((m = /\b(celiac|coeliac)\b/i.exec(words)) && !has((h) => h.type === "dietary" && h.tag === "gluten_free")) {
+    push({ id: "b-celiac", type: "dietary", tag: "gluten_free", allergen: null, severity: "medical", source: src(m) }, "celiac");
+  }
+  for (const [tag, re] of [
+    ["halal", /\bhalal\b/i],
+    ["kosher", /\bkosher\b/i],
+  ] as const) {
+    if ((m = re.exec(words)) && !has((h) => h.type === "dietary" && h.tag === tag)) {
+      push({ id: `b-${tag}`, type: "dietary", tag, allergen: null, severity: "religious", source: src(m) }, tag);
+    }
+  }
+  for (const tag of ["vegan", "vegetarian"] as const) {
+    if ((m = new RegExp(`\\b(i'?m|i am|we'?re)[\\s,]+(?:(?:a|fully|strictly|strict|um|uh|like|so)[\\s,?—-]+){0,3}${tag}\\b`, "i").exec(words)) && !has((h) => h.type === "dietary" && (h.tag === tag || (tag === "vegetarian" && h.tag === "vegan")))) {
+      push({ id: `b-${tag}`, type: "dietary", tag, allergen: null, severity: "ethical", source: src(m) }, tag);
+    }
+  }
+  if (!has((h) => h.type === "budget_max") && (m = /\b(max(?:imum)?|no more than|under|up to|at most|can'?t (?:spend|do) (?:more than|over)|budget (?:is|of))\s*\$?\s*(\d{2,3}|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred)\b/i.exec(words))) {
+    const raw = m[2]!.toLowerCase();
+    const amount = WORD_NUM[raw] ?? Number(raw);
+    if (amount >= 5) push({ id: "b-budget", type: "budget_max", amount, basis: "unspecified", source: src(m) }, `budget:${amount}`);
+  }
+  if (!has((h) => h.type === "travel_max_minutes") && (m = /\b(no more than|max(?:imum)?|under|within|nothing (?:over|more than)|less than|at most|can'?t do more than)\s*(\d{1,3})\s*(?:min|mins|minutes)\b/i.exec(words))) {
+    push({ id: "b-travel", type: "travel_max_minutes", minutes: Number(m[2]), source: src(m) }, `travel:${m[2]}`);
+  }
+  return { interp: { ...interp, hard }, added };
+}
+
 export type InterpretCache = {
   get(key: string): unknown | null;
   put(key: string, value: unknown): void;
@@ -235,7 +290,8 @@ export function llmInterpreter(ai: AiClient): Interpreter {
       settings: { maxTokens: 3000 },
     });
     const { dropped: _dropped, ...interp } = value;
-    return enforceBudgetBasis(groundHardConstraints(interp, text).interp, text);
+    const grounded = groundHardConstraints(interp, text).interp;
+    return enforceBudgetBasis(backstopHardConstraints(grounded, text).interp, text);
   };
 }
 
