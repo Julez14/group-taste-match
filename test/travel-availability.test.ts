@@ -1,41 +1,9 @@
 import { describe, expect, it } from "vitest";
-import type { Restaurant } from "../src/shared/restaurant";
 import { simulateAvailability } from "../src/server/availability";
 import { openAt } from "../src/server/hours";
 import { estimateTravel, haversineKm } from "../src/server/travel";
+import { testRestaurant } from "./helpers";
 
-/** Test-only record; not part of the restaurant snapshot. */
-function testRestaurant(over: Partial<Restaurant> = {}): Restaurant {
-  return {
-    id: "test-place",
-    name: "Test Place",
-    neighborhood: "SoHo",
-    borough: "Manhattan",
-    address: "1 Test St, New York, NY 10012",
-    cuisines: ["italian"],
-    lat: 40.7233,
-    lng: -74.003,
-    priceTier: "$$",
-    mealEstimate: { low: 30, high: 45, currency: "USD", basis: "test basis text", assumptions: [], foodOnlyLow: 20, foodOnlyHigh: 30, evidenceIds: ["e1"] },
-    sampleOrders: [],
-    menuOptions: [],
-    allergyPolicy: null,
-    atmosphere: [],
-    hours: {
-      timezone: "America/New_York",
-      weekly: { sun: [["12:00", "22:00"]], mon: [], tue: [["17:00", "22:00"]], wed: [["17:00", "22:00"]], thu: [["17:00", "22:00"]], fri: [["17:00", "26:00"]], sat: null },
-      lastSeatingNote: null,
-      evidenceIds: ["e1"],
-    },
-    reservationPolicy: "reservations_and_walk_ins",
-    partySizeNote: null,
-    websiteUrl: "https://example.com",
-    menuUrl: null,
-    bookingUrl: null,
-    evidence: [{ id: "e1", url: "https://example.com", retrievedAt: "2026-10-04", field: "all", note: "test" }],
-    ...over,
-  };
-}
 
 describe("travel estimates", () => {
   it("computes plausible distances", () => {
