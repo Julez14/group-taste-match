@@ -16,9 +16,14 @@ export const FAMILIES = [
 ] as const;
 export type Family = (typeof FAMILIES)[number];
 
-/** Ground-truth hard requirement after any truthful clarification (prelabeled, not model output). */
+/**
+ * Ground-truth hard requirement after any truthful clarification (prelabeled,
+ * not model output). `requiresFact` marks parts that only become effective
+ * when that clarification was actually asked and answered in a run.
+ */
+const requiresFact = { requiresFact: z.enum(AMBIGUITY_KINDS).optional() };
 export const TrueRequirementSchema = z.discriminatedUnion("type", [
-  z.object({ type: z.literal("budget_max"), amount: z.number(), basis: z.enum(["all_in", "food_only"]) }),
+  z.object({ type: z.literal("budget_max"), amount: z.number(), basis: z.enum(["all_in", "food_only"]), ...requiresFact }),
   z.object({
     type: z.literal("dietary"),
     tag: z.enum(DIETARY_TAGS).nullable(),
@@ -26,7 +31,7 @@ export const TrueRequirementSchema = z.discriminatedUnion("type", [
     severity: z.enum(["allergy", "medical", "religious", "ethical", "preference"]),
   }),
   z.object({ type: z.literal("exclude_cuisine"), cuisine: z.string() }),
-  z.object({ type: z.literal("travel_max_minutes"), minutes: z.number() }),
+  z.object({ type: z.literal("travel_max_minutes"), minutes: z.number(), ...requiresFact }),
   z.object({ type: z.literal("reservation_required") }),
   z.object({ type: z.literal("exclude_restaurant"), restaurantId: z.string() }),
 ]);

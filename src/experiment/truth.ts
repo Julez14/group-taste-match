@@ -13,9 +13,24 @@ export function frozenAvailabilityFor(s: Scenario, restaurants: Restaurant[]): R
   );
 }
 
-function trueHard(s: Scenario, dinerId: string): HardConstraint[] {
+/** Clarification facts that were supplied/answered: "all" (fixed-state) or a set of "dinerId:kind". */
+export type FactsGiven = "all" | Set<string>;
+
+/**
+ * Effective requirements for one run: explicit requirements always count; a
+ * requirement that depends on a clarification counts only if that fact was
+ * given. An unclarified budget basis is judged conservatively as all-in.
+ */
+function trueHard(s: Scenario, dinerId: string, given: FactsGiven): HardConstraint[] {
   const d = s.diners.find((x) => x.id === dinerId)!;
-  return d.truth.hard.map((t, i) => {
+  const has = (kind: string) => given === "all" || given.has(`${dinerId}:${kind}`);
+  const effective = d.truth.hard.flatMap((t) => {
+    const fact = "requiresFact" in t ? t.requiresFact : undefined;
+    if (!fact || has(fact)) return [t];
+    if (t.type === "budget_max" && fact === "budget_basis") return [{ ...t, basis: "all_in" as const }];
+    return [];
+  });
+  return effective.map((t, i) => {
     const base = { id: `${dinerId}:truth${i}`, source: { text: "ground truth", status: "stated" as const, from: "initial" as const } };
     switch (t.type) {
       case "budget_max":
@@ -35,7 +50,7 @@ function trueHard(s: Scenario, dinerId: string): HardConstraint[] {
 }
 
 /** A group built only from prelabeled truth, independent of any model interpretation. */
-export function truthGroup(s: Scenario): NormalizedGroup {
+export function truthGroup(s: Scenario, given: FactsGiven = "all"): NormalizedGroup {
   const area = meetingArea(s.meetingAreaId)!;
   const diners: NormalizedDiner[] = s.diners.map((d) => {
     const start = d.startAreaId ? meetingArea(d.startAreaId) : undefined;
@@ -50,7 +65,7 @@ export function truthGroup(s: Scenario): NormalizedGroup {
         ? { lat: start.lat, lng: start.lng, label: start.name, source: "stated_area" }
         : { lat: area.lat, lng: area.lng, label: area.name, source: "default_meeting_area" },
       noResponse: d.text === null,
-      hard: trueHard(s, d.id),
+      hard: trueHard(s, d.id, given),
       soft: [],
       ambiguities: [],
       missing: [],
@@ -73,8 +88,8 @@ export type TruthLabels = {
   expectedNoMatch: boolean;
 };
 
-export function truthLabels(s: Scenario, restaurants: Restaurant[], frozen: Record<string, Availability>): TruthLabels {
-  const facts = evaluateAll({ group: truthGroup(s), restaurants, availabilitySeed: "unused", frozenAvailability: frozen });
+export function truthLabels(s: Scenario, restaurants: Restaurant[], frozen: Record<string, Availability>, given: FactsGiven = "all"): TruthLabels {
+  const facts = evaluateAll({ group: truthGroup(s, given), restaurants, availabilitySeed: "unused", frozenAvailability: frozen });
   const feasibleIds = facts.filter((f) => f.feasible).map((f) => f.restaurantId);
   return { feasibleIds, expectedNoMatch: feasibleIds.length === 0 };
 }
@@ -82,9 +97,14 @@ export function truthLabels(s: Scenario, restaurants: Restaurant[], frozen: Reco
 export type Violation = { type: string; participantId: string | null; result: string; note: string };
 
 /** Independent check of a selected restaurant against ground truth (not the model's reading). */
-export function truthViolations(s: Scenario, restaurant: Restaurant | undefined, frozen: Record<string, Availability>): { facts: CandidateFacts | null; violations: Violation[] } {
+export function truthViolations(
+  s: Scenario,
+  restaurant: Restaurant | undefined,
+  frozen: Record<string, Availability>,
+  given: FactsGiven = "all",
+): { facts: CandidateFacts | null; violations: Violation[] } {
   if (!restaurant) return { facts: null, violations: [{ type: "unknown_restaurant", participantId: null, result: "fail", note: "not in snapshot" }] };
-  const facts = evaluateCandidate(restaurant, { group: truthGroup(s), restaurants: [], availabilitySeed: "unused", frozenAvailability: frozen });
+  const facts = evaluateCandidate(restaurant, { group: truthGroup(s, given), restaurants: [], availabilitySeed: "unused", frozenAvailability: frozen });
   const violations = facts.checks
     .filter((c) => c.result !== "pass")
     .map((c) => ({ type: c.type, participantId: c.participantId, result: c.result, note: c.note }));
