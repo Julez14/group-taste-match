@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blinded review · Group Taste-Match</title>
+<style>
+  :root { --teal: #144f5c; --ink: #18181a; --muted: #8b8f93; --line: #e2e4e5; --field: #f3f4f4; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.4 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; color: var(--ink); background: #fafafa; }
+  header { position: sticky; top: 0; background: #fff; border-bottom: 1px solid var(--line); padding: 10px 20px; display: flex; gap: 16px; align-items: center; z-index: 2; }
+  header h1 { font: 800 22px Georgia, serif; color: var(--teal); margin: 0; }
+  main { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  .scenario { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px; margin-bottom: 24px; }
+  .scenario h2 { font: 700 20px Georgia, serif; margin: 0 0 8px; }
+  .diners { margin: 0 0 14px; padding-left: 18px; }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .card { border: 1.5px solid var(--line); border-radius: 12px; padding: 14px; }
+  .card h3 { margin: 0 0 4px; font: 700 18px Georgia, serif; }
+  .tag { color: var(--teal); font-weight: 700; font-size: 13px; }
+  .muted { color: var(--muted); font-size: 13px; }
+  .scores { display: grid; grid-template-columns: auto repeat(5, 30px); gap: 4px 6px; align-items: center; margin-top: 10px; font-size: 13px; }
+  .scores label { text-align: center; }
+  .pref { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+  .pref label { border: 1.3px solid var(--teal); border-radius: 999px; padding: 6px 14px; cursor: pointer; color: var(--teal); font-weight: 600; }
+  .pref input { display: none; }
+  .pref input:checked + span { color: #fff; }
+  .pref label:has(input:checked) { background: var(--teal); color: #fff; }
+  textarea { width: 100%; min-height: 54px; border: 1.3px solid var(--line); border-radius: 10px; padding: 8px; margin-top: 10px; font: inherit; }
+  button { background: var(--teal); color: #fff; border: 0; border-radius: 999px; padding: 10px 20px; font-weight: 600; cursor: pointer; }
+  .status { color: var(--muted); font-size: 13px; }
+  .done { border-color: #3a9a5b; }
+  select { font: inherit; }
+</style>
+</head>
+<body>
+<header>
+  <h1>beli</h1>
+  <div>Blinded review — methods hidden, A/B randomized. <span class="status" id="progress"></span></div>
+  <div style="flex:1"></div>
+  <label>Reviewer <input id="reviewer" placeholder="name" /></label>
+  <button id="save">Save</button>
+  <span class="status" id="saved"></span>
+</header>
+<main id="root"></main>
+<script>
+const $ = (s, el = document) => el.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+let state = { reviewer: null, responses: {} };
+
+function cardHtml(c) {
+  if (c.kind !== "result") return `<h3>${c.kind === "no_match" ? "No match" : "No outcome"}</h3><p>${esc(c.text)}</p>`;
+  return `<h3>${esc(c.name)}</h3>
+    <div class="tag">${esc(c.cuisines.join(" · "))}</div>
+    <div>${esc(c.price)}</div>
+    <div class="muted">${esc(c.neighborhood)} · ${esc(c.atmosphere.join(", "))}</div>
+    <div class="muted">Dietary: ${esc(c.dietary.join(", ") || "none listed")} · ${esc(c.availability)}</div>
+    <p>${esc(c.explanation)}</p>
+    ${c.assumptions?.length ? `<div class="muted">${c.assumptions.map(esc).join("<br>")}</div>` : ""}
+    <div class="muted"><a href="${esc(c.website)}" target="_blank" rel="noopener">website</a></div>`;
+}
+
+function scoreGrid(item, side) {
+  const r = state.responses[item.scenarioId] ?? {};
+  const rows = item.diners.map((d) => {
+    const cur = r.fit?.[side]?.[d.id];
+    return `<span>${esc(d.name)}</span>` + [0, 1, 2, 3, 4].map((v) => `<label><input type="radio" name="fit-${item.scenarioId}-${side}-${d.id}" value="${v}" ${cur === v ? "checked" : ""} data-fit="${side}|${d.id}">${v}</label>`).join("");
+  });
+  const eq = r.explanation?.[side] ?? "";
+  return `<div class="scores"><span class="muted">Fit 0–4</span>${[0,1,2,3,4].map((v) => `<span class="muted" style="text-align:center">${v}</span>`).join("")}${rows.join("")}</div>
+    <div style="margin-top:8px">Explanation quality <select data-expl="${side}"><option value="">–</option>${[1,2,3,4,5].map((v) => `<option ${String(eq) === String(v) ? "selected" : ""}>${v}</option>`).join("")}</select></div>`;
+}
+
+function render(packet) {
+  const root = $("#root");
+  root.innerHTML = packet.items.map((item) => {
+    const r = state.responses[item.scenarioId] ?? {};
+    return `<section class="scenario ${r.preference ? "done" : ""}" data-id="${item.scenarioId}">
+      <h2>${item.scenarioId} · ${esc(item.when)} · near ${esc(item.meetingArea)} · party of ${item.partySize}</h2>
+      <ul class="diners">${item.diners.map((d) => `<li><b>${esc(d.name)}</b> <span class="muted">(from ${esc(d.startingPoint)})</span>: “${esc(d.request)}”${d.clarifications.length ? ` <span class="muted">— clarified: “${esc(d.clarifications.join(" "))}”</span>` : ""}</li>`).join("")}</ul>
+      <div class="cards">
+        <div class="card"><div class="muted">A</div>${cardHtml(item.A)}${scoreGrid(item, "A")}</div>
+        <div class="card"><div class="muted">B</div>${cardHtml(item.B)}${scoreGrid(item, "B")}</div>
+      </div>
+      <div class="pref">${["A", "B", "tie", "neither"].map((v) => `<label><input type="radio" name="pref-${item.scenarioId}" value="${v}" ${r.preference === v ? "checked" : ""} data-pref="1"><span>${v === "neither" ? "Neither acceptable" : v === "tie" ? "Tie" : v}</span></label>`).join("")}</div>
+      <textarea placeholder="Reason" data-reason="1">${esc(r.reason ?? "")}</textarea>
+    </section>`;
+  }).join("");
+  updateProgress(packet);
+}
+
+function updateProgress(packet) {
+  const done = packet.items.filter((i) => state.responses[i.scenarioId]?.preference).length;
+  $("#progress").textContent = `${done}/${packet.items.length} preferences recorded`;
+}
+
+async function save() {
+  state.reviewer = $("#reviewer").value || null;
+  const res = await fetch("/responses.json", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(state) });
+  $("#saved").textContent = res.ok ? `Saved ${new Date().toLocaleTimeString()}` : "Save failed";
+}
+
+(async () => {
+  const [packet, saved] = await Promise.all([fetch("/packet.json").then((r) => r.json()), fetch("/responses.json").then((r) => r.json())]);
+  state = saved.responses ? saved : state;
+  $("#reviewer").value = state.reviewer ?? "";
+  render(packet);
+  $("#root").addEventListener("change", (e) => {
+    const sec = e.target.closest(".scenario");
+    if (!sec) return;
+    const id = sec.dataset.id;
+    const r = (state.responses[id] ??= {});
+    if (e.target.dataset.pref) { r.preference = e.target.value; sec.classList.add("done"); }
+    if (e.target.dataset.fit) { const [side, d] = e.target.dataset.fit.split("|"); ((r.fit ??= {})[side] ??= {})[d] = Number(e.target.value); }
+    if (e.target.dataset.expl) { (r.explanation ??= {})[e.target.dataset.expl] = Number(e.target.value) || null; }
+    updateProgress(packet);
+    clearTimeout(window.__t); window.__t = setTimeout(save, 600);
+  });
+  $("#root").addEventListener("input", (e) => {
+    if (!e.target.dataset.reason) return;
+    const id = e.target.closest(".scenario").dataset.id;
+    (state.responses[id] ??= {}).reason = e.target.value;
+    clearTimeout(window.__t); window.__t = setTimeout(save, 800);
+  });
+  $("#save").addEventListener("click", save);
+})();
+</script>
+</body>
+</html>

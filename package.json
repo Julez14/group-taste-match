@@ -20,7 +20,10 @@
     "exp:freeze": "tsx experiment/scripts/freeze-inputs.ts",
     "exp:run": "tsx experiment/scripts/run.ts",
     "exp:judge": "tsx experiment/scripts/judge.ts",
-    "exp:analyze": "tsx experiment/scripts/analyze.ts"
+    "exp:analyze": "tsx experiment/scripts/analyze.ts",
+    "exp:packet": "tsx experiment/scripts/review-packet.ts",
+    "review": "node experiment/review/server.mjs",
+    "e2e": "playwright test"
   },
   "dependencies": {
     "@fontsource/playfair-display": "^5.3.0",
