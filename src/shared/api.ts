@@ -29,7 +29,7 @@ export const CreateRoomBody = z.object({
       hostSec: oneOf(TIMER_OPTIONS.hostSec),
     }),
   }),
-  /** Honored only when the Worker runs with EXPOSE_TRACES=on (local development). */
+  /** Honored only when the Worker runs with DEV_ROUTES=on (local development). */
   debugMethod: z.enum(["clef", "llm_baseline"]).optional(),
 });
 export type CreateRoomBody = z.infer<typeof CreateRoomBody>;

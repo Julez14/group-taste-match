@@ -56,6 +56,13 @@ describe("dietary requirements", () => {
     expect(dinerCheck(withVeg)?.result).toBe("pass");
   });
 
+  it("passes ingredient preferences without a tag but keeps religious needs strict", () => {
+    const noPork: HardConstraint = { id: "p", type: "dietary", tag: null, allergen: "pork", severity: "preference", source: src("no pork for me") };
+    expect(dinerCheck(facts([noPork]))?.result).toBe("pass");
+    const religious: HardConstraint = { ...noPork, severity: "religious" };
+    expect(dinerCheck(facts([religious]))?.result).toBe("unverified");
+  });
+
   it("counts vegan options for a vegetarian", () => {
     const f = facts([veg], { menuOptions: [{ dietaryTag: "vegan", description: "Vegan bowl", evidenceIds: ["e1"], verificationStatus: "menu_labeled" }] });
     expect(dinerCheck(f)?.result).toBe("pass");

@@ -92,7 +92,14 @@ function checkDietary(c: Extract<HardConstraint, { type: "dietary" }>, r: Restau
       assumption: "Tell your server about any allergy — we can't confirm how the kitchen prepares food.",
     };
   }
-  if (!c.tag) return { result: "unverified", note: `Can't verify "${c.allergen ?? "requirement"}" from menus` };
+  if (!c.tag) {
+    // Avoiding an ingredient by preference (e.g. "no pork for me") needs no safety evidence;
+    // religious requirements without a menu tag stay unverified.
+    if (c.severity === "preference" || c.severity === "ethical") {
+      return { result: "pass", note: `Avoids ${c.allergen ?? "an ingredient"} by preference`, assumption: "Ingredient preferences are noted; check the menu for dishes without them." };
+    }
+    return { result: "unverified", note: `Can't verify "${c.allergen ?? "requirement"}" from menus` };
+  }
   const accepted = c.severity === "religious" ? ["menu_labeled", "restaurant_statement"] : ["menu_labeled", "restaurant_statement", "menu_inferred"];
   const opt = r.menuOptions.find((o) => o.dietaryTag === c.tag && accepted.includes(o.verificationStatus));
   if (opt) return { result: "pass", note: `${c.tag}: ${opt.description}` };

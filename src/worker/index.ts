@@ -3,9 +3,12 @@ import { meetingArea } from "../shared/data";
 import { nyLocalToIso } from "../shared/time";
 import type { DecisionMethod, SubmissionKind } from "../shared/types";
 import type { Room, RpcResult } from "./room";
+import { devRoute } from "./dev-routes";
 import { randomId, ROOM_ID_RE } from "./tokens";
 
 export { Room } from "./room";
+
+const devRoutesOn = (env: Env) => (env as { DEV_ROUTES?: string }).DEV_ROUTES === "on";
 
 const json = (data: unknown, status = 200) =>
   Response.json(data, { status, headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex" } });
@@ -76,7 +79,7 @@ async function createRoom(req: Request, env: Env): Promise<Response> {
       roomId,
       host: body.host,
       config: { diningAt, meetingAreaId: body.config.meetingAreaId, timers: body.config.timers },
-      method: body.debugMethod && (env as { EXPOSE_TRACES?: string }).EXPOSE_TRACES === "on" ? body.debugMethod : decisionMethod(env),
+      method: body.debugMethod && devRoutesOn(env) ? body.debugMethod : decisionMethod(env),
     });
     if (r.ok) return json({ roomId, ...r.value }, 201);
     if (r.code !== "exists") return fromRpc(r);
@@ -89,6 +92,11 @@ export default {
     const url = new URL(req.url);
     if (url.pathname === "/api/health") return json({ ok: true });
     if (url.pathname === "/api/rooms" && req.method === "POST") return createRoom(req, env);
+    const exp = /^\/api\/__exp\/([a-z]+)$/.exec(url.pathname);
+    if (exp && req.method === "POST") {
+      if (!devRoutesOn(env)) return apiError(404, "not_found", "Not found.");
+      return devRoute(req, env, exp[1]!);
+    }
 
     const m = /^\/api\/rooms\/([^/]+)(?:\/(join|action|transcribe|ws|view|traces))?$/.exec(url.pathname);
     if (!m) return apiError(404, "not_found", "Not found.");
@@ -115,8 +123,8 @@ export default {
     }
     if (route === "view" && req.method === "GET") return fromRpc(await room.view(bearer(req)));
     if (route === "traces" && req.method === "GET") {
-      // Local debugging only; never set EXPOSE_TRACES in deployed config.
-      if ((env as { EXPOSE_TRACES?: string }).EXPOSE_TRACES !== "on") return apiError(404, "not_found", "Not found.");
+      // Local debugging only; never set DEV_ROUTES in deployed config.
+      if (!devRoutesOn(env)) return apiError(404, "not_found", "Not found.");
       return json(await room.traces());
     }
     if (route === "action" && req.method === "POST") {
