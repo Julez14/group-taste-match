@@ -1,0 +1,23 @@
+{
+  "version": "2026-10-04.1",
+  "note": "Approximate neighborhood reference points used for travel estimates. Coordinates are representative public landmarks (station or park) rounded to 4 decimals, not precise boundaries.",
+  "areas": [
+    { "id": "union-square", "name": "Union Square", "borough": "Manhattan", "lat": 40.7359, "lng": -73.9906, "landmark": "Union Square Park" },
+    { "id": "midtown", "name": "Midtown (Bryant Park)", "borough": "Manhattan", "lat": 40.7536, "lng": -73.9832, "landmark": "Bryant Park" },
+    { "id": "west-village", "name": "West Village", "borough": "Manhattan", "lat": 40.7336, "lng": -74.0027, "landmark": "Christopher St–Sheridan Sq station" },
+    { "id": "east-village", "name": "East Village", "borough": "Manhattan", "lat": 40.7265, "lng": -73.9815, "landmark": "Tompkins Square Park" },
+    { "id": "lower-east-side", "name": "Lower East Side", "borough": "Manhattan", "lat": 40.7183, "lng": -73.9874, "landmark": "Delancey St–Essex St station" },
+    { "id": "soho", "name": "SoHo", "borough": "Manhattan", "lat": 40.7233, "lng": -74.0030, "landmark": "Spring St station (C/E)" },
+    { "id": "chelsea", "name": "Chelsea", "borough": "Manhattan", "lat": 40.7424, "lng": -74.0048, "landmark": "Chelsea Market" },
+    { "id": "financial-district", "name": "Financial District", "borough": "Manhattan", "lat": 40.7074, "lng": -74.0113, "landmark": "Wall St station (2/3)" },
+    { "id": "upper-west-side", "name": "Upper West Side", "borough": "Manhattan", "lat": 40.7834, "lng": -73.9790, "landmark": "79 St station (1)" },
+    { "id": "harlem", "name": "Harlem", "borough": "Manhattan", "lat": 40.8081, "lng": -73.9452, "landmark": "125 St station (2/3)" },
+    { "id": "williamsburg", "name": "Williamsburg", "borough": "Brooklyn", "lat": 40.7171, "lng": -73.9566, "landmark": "Bedford Av station (L)" },
+    { "id": "greenpoint", "name": "Greenpoint", "borough": "Brooklyn", "lat": 40.7313, "lng": -73.9545, "landmark": "Greenpoint Av station (G)" },
+    { "id": "downtown-brooklyn", "name": "Downtown Brooklyn", "borough": "Brooklyn", "lat": 40.6925, "lng": -73.9904, "landmark": "Borough Hall station" },
+    { "id": "park-slope", "name": "Park Slope", "borough": "Brooklyn", "lat": 40.6750, "lng": -73.9806, "landmark": "7 Av station (F/G)" },
+    { "id": "astoria", "name": "Astoria", "borough": "Queens", "lat": 40.7628, "lng": -73.9255, "landmark": "30 Av station (N/W)" },
+    { "id": "long-island-city", "name": "Long Island City", "borough": "Queens", "lat": 40.7471, "lng": -73.9456, "landmark": "Court Sq station" },
+    { "id": "jackson-heights", "name": "Jackson Heights", "borough": "Queens", "lat": 40.7466, "lng": -73.8914, "landmark": "74 St–Broadway station" }
+  ]
+}

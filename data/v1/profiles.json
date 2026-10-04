@@ -1,0 +1,15 @@
+{
+  "version": "2026-10-04.1",
+  "synthetic": true,
+  "note": "Synthetic demo taste profiles. Not real Beli users or Beli data. Histories are filled in by the grounded-data step.",
+  "profiles": [
+    { "id": "noodle-regular", "label": "Noodle Regular", "blurb": "Ramen, hand-pulled noodles, pho. Usually under $30.", "history": [] },
+    { "id": "plant-forward", "label": "Plant-Forward", "blurb": "Vegetarian most nights; loves creative vegetables.", "history": [] },
+    { "id": "occasion-splurger", "label": "Occasion Splurger", "blurb": "Tasting menus, wine bars, a nice room for a reason to celebrate.", "history": [] },
+    { "id": "spice-seeker", "label": "Spice Seeker", "blurb": "Sichuan, Thai, Indian — the hotter the better.", "history": [] },
+    { "id": "cozy-classics", "label": "Cozy Classics", "blurb": "Pasta, pizza, neighborhood spots with candles.", "history": [] },
+    { "id": "seafood-lover", "label": "Seafood Lover", "blurb": "Sushi counters, oysters, whole fish.", "history": [] },
+    { "id": "budget-explorer", "label": "Budget Explorer", "blurb": "Cheap eats across the boroughs; happy to travel for a deal.", "history": [] },
+    { "id": "new-spot-hunter", "label": "New-Spot Hunter", "blurb": "Always wants somewhere they haven't been.", "history": [] }
+  ]
+}

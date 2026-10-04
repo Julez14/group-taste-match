@@ -12,8 +12,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "pnpm build && wrangler deploy",
-    "typecheck": "wrangler types && tsc -b",
-    "cf-typegen": "wrangler types",
+    "typecheck": "pnpm cf-typegen && tsc -b",
+    "cf-typegen": "wrangler types --strict-vars=false",
     "test": "vitest run",
     "test:watch": "vitest"
   },

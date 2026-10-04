@@ -13,6 +13,9 @@
   },
   "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Room"] }],
   "ai": { "binding": "AI", "remote": true },
+  "ratelimits": [
+    { "name": "CREATE_LIMITER", "namespace_id": "1001", "simple": { "limit": 30, "period": 60 } }
+  ],
   "vars": {
     // "fixture" uses canned interpretation/decisions for UI work; "live" calls Workers AI.
     "PROVIDER_MODE": "fixture",
