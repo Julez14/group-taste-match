@@ -25,7 +25,9 @@
     "review": "node experiment/review/server.mjs",
     "e2e": "playwright test",
     "exp:charts": "tsx experiment/scripts/charts.ts",
-    "exp:pdf": "tsx experiment/scripts/pdf.ts"
+    "exp:pdf": "tsx experiment/scripts/pdf.ts",
+    "exp:protocol": "tsx experiment/scripts/protocol.ts",
+    "exp:human": "tsx experiment/scripts/human.ts"
   },
   "dependencies": {
     "@fontsource/playfair-display": "^5.3.0",
