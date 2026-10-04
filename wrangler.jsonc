@@ -17,8 +17,9 @@
     { "name": "CREATE_LIMITER", "namespace_id": "1001", "simple": { "limit": 30, "period": 60 } }
   ],
   "vars": {
-    // "fixture" uses canned interpretation/decisions for UI work; "live" calls Workers AI.
-    "PROVIDER_MODE": "fixture",
+    // "live" calls Workers AI; set PROVIDER_MODE=fixture in .dev.vars for offline UI work.
+    "PROVIDER_MODE": "live",
+    // Provisional until the experiment report sets it from the evidence.
     "DECISION_METHOD": "clef",
     "AI_GATEWAY_ID": "group-taste-match"
   },
