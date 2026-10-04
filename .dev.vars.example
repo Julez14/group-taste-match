@@ -1,0 +1,12 @@
+# Copy to .dev.vars for local overrides. Names only — never commit values.
+# fixture = canned decisions for UI work; live = Workers AI through AI Gateway.
+PROVIDER_MODE=
+# clef | llm_baseline
+DECISION_METHOD=
+# AI Gateway id (created: group-taste-match)
+AI_GATEWAY_ID=
+
+# Experiment runner (Node) only. If CLOUDFLARE_API_TOKEN is empty the runner
+# uses `wrangler auth token`. The token needs Workers AI read/write.
+CLOUDFLARE_ACCOUNT_ID=
+CLOUDFLARE_API_TOKEN=
