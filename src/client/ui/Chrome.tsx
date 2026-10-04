@@ -26,7 +26,7 @@ export function TopBar({
         ) : null}
       </div>
       {title ? <div className="topbar-title">{title}</div> : <div />}
-      <div style={{ width: 80, display: "flex", justifyContent: "flex-end" }}>{right}</div>
+      <div style={{ minWidth: 80, display: "flex", justifyContent: "flex-end" }}>{right}</div>
     </header>
   );
 }

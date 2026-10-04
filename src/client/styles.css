@@ -598,6 +598,7 @@ a {
   font-weight: 600;
   font-size: 14px;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 .countdown.urgent {
   background: #fdecea;
@@ -616,6 +617,50 @@ a {
   height: 1px;
   overflow: hidden;
   clip: rect(0 0 0 0);
+}
+
+/* ---------- Result hero (echoes Beli's map header) ---------- */
+.result-hero {
+  position: relative;
+  padding: 64px 20px 14px;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.7) 0 18%, transparent 19%),
+    radial-gradient(circle at 75% 20%, rgba(255, 255, 255, 0.55) 0 12%, transparent 13%),
+    linear-gradient(180deg, var(--map-green) 0%, #f3f8ee 70%, #fff 100%);
+}
+.result-hero-pin {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #6d7275;
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 8px;
+}
+.dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--teal);
+  opacity: 0.3;
+  animation: dot 1.2s infinite ease-in-out;
+}
+.dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+@keyframes dot {
+  40% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
