@@ -243,5 +243,13 @@ describe("hard-constraint backstop", () => {
     expect(types("Around $40 would be great.")).toEqual([]);
     expect(types("Vegetarian-friendly Mediterranean.")).toEqual([]);
     expect(types("Not too far.")).toEqual([]);
+    expect(types("I can't do more than 30 minutes of travel.")).toEqual(["travel_max_minutes"]);
+  });
+
+  it("reads a bare diet word and dollar-only budgets", () => {
+    expect(types("Vegetarian.")).toEqual(["dietary"]);
+    expect(types("Vegan please")).toEqual(["dietary"]);
+    expect(backstopHardConstraints(empty, "Max 35 all in.").interp.hard[0]).toMatchObject({ type: "budget_max", amount: 35 });
+    expect(backstopHardConstraints(empty, "I can do max $50.").interp.hard[0]).toMatchObject({ amount: 50 });
   });
 });

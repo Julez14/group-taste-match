@@ -20,7 +20,16 @@ console.log(`freezing ${scenarios.length} ${split} scenarios`);
 await pool(scenarios, Number(concurrency), async (s) => {
   const t = Date.now();
   const frozenAvailability = manifest.scenarios.find((m) => m.id === s.id)!.availability;
-  const res = await post<{ group: NormalizedGroup }>("freeze", { scenario: s, frozenAvailability });
+  // Freezing inputs is not a method run, so operational retries are allowed here.
+  let res: { group: NormalizedGroup } | null = null;
+  for (let attempt = 1; attempt <= 3 && !res; attempt++) {
+    try {
+      res = await post<{ group: NormalizedGroup }>("freeze", { scenario: s, frozenAvailability });
+    } catch (e) {
+      console.log(`${s.id} freeze attempt ${attempt} failed: ${(e as Error).message}`);
+    }
+  }
+  if (!res) return;
   existing[s.id] = res.group;
   writeJson(out, existing);
   console.log(`${s.id} frozen in ${Date.now() - t} ms`);

@@ -7,7 +7,7 @@ import { type AppliedChange, applyPatch, PATCH_JSON_SCHEMA, type Patch, PatchSch
 import { INTERPRETATION_JSON_SCHEMA, InterpretationFromFlat } from "./interpret-schema";
 import { chatJson } from "./llm";
 
-export const INTERPRET_PROMPT_VERSION = "interpret-v8";
+export const INTERPRET_PROMPT_VERSION = "interpret-v9";
 
 export const INTERPRET_SYSTEM = `You turn ONE diner's spoken or typed dinner request into structured data for a group restaurant picker in New York City.
 
@@ -230,10 +230,25 @@ export function backstopHardConstraints(interp: Interpretation, words: string): 
       push({ id: `b-${tag}`, type: "dietary", tag, allergen: null, severity: "ethical", source: src(m) }, tag);
     }
   }
-  if (!has((h) => h.type === "budget_max") && (m = /\b(max(?:imum)?|no more than|under|up to|at most|can'?t (?:spend|do) (?:more than|over)|budget (?:is|of))\s*\$?\s*(\d{2,3}|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred)\b/i.exec(words))) {
-    const raw = m[2]!.toLowerCase();
-    const amount = WORD_NUM[raw] ?? Number(raw);
-    if (amount >= 5) push({ id: "b-budget", type: "budget_max", amount, basis: "unspecified", source: src(m) }, `budget:${amount}`);
+  if (!has((h) => h.type === "budget_max")) {
+    // Dollar amounts only: a "$", "dollars/bucks", or an all-in/tip phrase must accompany the number.
+    const num = "(\\d{2,3}|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred)";
+    const lead = "(?:max(?:imum)?|no more than|under|up to|at most|can'?t spend (?:more than|over)|budget (?:is|of))";
+    m =
+      new RegExp(`\\b${lead}\\s*\\$\\s*${num}\\b`, "i").exec(words) ??
+      new RegExp(`\\b${num}\\s*(?:dollars|bucks)\\b`, "i").exec(words) ??
+      new RegExp(`\\b${lead}\\s*${num}\\s*(?:all[- ]?in|with tip|including tip|total)\\b`, "i").exec(words);
+    if (m) {
+      const raw = (m[1] ?? "").toLowerCase();
+      const amount = WORD_NUM[raw] ?? Number(raw);
+      if (amount >= 5) push({ id: "b-budget", type: "budget_max", amount, basis: "unspecified", source: src(m) }, `budget:${amount}`);
+    }
+  }
+  if ((m = /^\s*(?:i'?m\s+)?(vegetarian|vegan)(?:\s+please)?[.!]?\s*$/i.exec(words))) {
+    const tag = m[1]!.toLowerCase() as "vegetarian" | "vegan";
+    if (!has((h) => h.type === "dietary" && (h.tag === tag || (tag === "vegetarian" && h.tag === "vegan")))) {
+      push({ id: `b-${tag}-only`, type: "dietary", tag, allergen: null, severity: "ethical", source: src(m) }, `${tag} (whole message)`);
+    }
   }
   if (!has((h) => h.type === "travel_max_minutes") && (m = /\b(no more than|max(?:imum)?|under|within|nothing (?:over|more than)|less than|at most|can'?t do more than)\s*(\d{1,3})\s*(?:min|mins|minutes)\b/i.exec(words))) {
     push({ id: "b-travel", type: "travel_max_minutes", minutes: Number(m[2]), source: src(m) }, `travel:${m[2]}`);
