@@ -57,6 +57,7 @@ export function diner(id: string, over: Partial<NormalizedDiner> = {}): Normaliz
     ambiguities: [],
     missing: [],
     noveltyRequested: false,
+    originAreaId: null,
     ignoredInstructions: [],
     ...over,
   };

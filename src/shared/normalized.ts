@@ -59,6 +59,8 @@ export const InterpretationSchema = z.object({
   ambiguities: z.array(AmbiguitySchema).max(6),
   missing: z.array(z.enum(MISSING_KEYS)),
   noveltyRequested: z.boolean(),
+  /** Meeting-area id the diner said they're coming from, if any. */
+  originAreaId: z.string().max(40).nullable().default(null),
   /** Text that tried to change product rules or reach others' data; kept, never obeyed. */
   ignoredInstructions: z.array(z.string().max(300)).max(5),
 });
