@@ -54,7 +54,7 @@ function checkBudget(c: Extract<HardConstraint, { type: "budget_max" }>, r: Rest
       return {
         result: "pass" as const,
         note: `${label} typical order $${Math.round(orderPrice)} fits $${cap}`,
-        assumption: `Fits a $${cap} budget if you stick to a single main without extras.`,
+        assumption: "Fits everyone's budget if you stick to a single main without extras.",
       };
     }
     if (low > cap) return { result: "fail" as const, note: `${label} estimate starts at $${low}, above $${cap}` };

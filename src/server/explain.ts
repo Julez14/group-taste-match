@@ -3,9 +3,10 @@ import type { AiClient } from "./ai";
 import type { Topic } from "./clarify";
 import { candidateView, type DecisionInput } from "./decision-context";
 import type { CandidateFacts } from "./feasibility";
+import { arr, obj, str } from "./json-schema";
 import { chatJson } from "./llm";
 
-export const EXPLAIN_PROMPT_VERSION = "explain-v1";
+export const EXPLAIN_PROMPT_VERSION = "explain-v2";
 
 export const EXPLANATION_RULES = `Write for the whole group, warm and brief, like a friend who picked the spot: e.g. "I picked somewhere relaxed with several vegetarian options and a manageable trip from your meeting area."
 - At most 2 sentences, under 60 words. Collective only: never mention a person's name, private budget amount, starting location, allergy, health detail, or clarification answer. "Fits everyone's budget" is fine; "$30 for Sam" is not.
@@ -42,6 +43,7 @@ export async function writeExplanation(
       ...extra,
     }),
     schema: ExplanationSchema,
+    jsonSchema: { name: "explanation", schema: obj({ explanation: str(600), assumptions: arr(str(240), 4) }) },
     purpose: "explain",
     settings: { maxTokens: 1500 },
   });
@@ -64,6 +66,7 @@ export async function writeClarifyQuestions(
       topics.map((t) => ({ participantId: t.participantId, topicId: t.topicId, theirWords: t.dinerText, unclearTerm: t.term, alternativeReading: t.alternative })),
     ),
     schema: QuestionsSchema,
+    jsonSchema: { name: "questions", schema: obj({ questions: arr(obj({ participantId: str(40), topicId: str(80), question: str(300) }), 6) }) },
     purpose: "clarify_questions",
     settings: { maxTokens: 1500 },
   });

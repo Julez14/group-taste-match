@@ -29,6 +29,8 @@ import {
 } from "../shared/types";
 import { type RoomView, toView } from "../shared/view";
 import { bindingClient } from "../server/ai";
+import { cachedInterpreter, type InterpretCache, interpreterArgsFor, llmInterpreter } from "../server/interpret";
+import type { Interpretation } from "../shared/normalized";
 import { selectPipeline } from "../server/select-pipeline";
 import { FIXTURE_TRANSCRIPT, MAX_AUDIO_BYTES, transcribe } from "../server/transcribe";
 import { hashToken, newToken, randomId } from "./tokens";
@@ -58,7 +60,34 @@ export class Room extends DurableObject<Env> {
     ctx.storage.sql.exec(
       `CREATE TABLE IF NOT EXISTS traces (seq INTEGER PRIMARY KEY AUTOINCREMENT, at INTEGER NOT NULL, kind TEXT NOT NULL, data TEXT NOT NULL)`,
     );
+    ctx.storage.sql.exec(`CREATE TABLE IF NOT EXISTS interp_cache (key TEXT PRIMARY KEY, value TEXT NOT NULL)`);
     this.room = ctx.storage.kv.get<RoomState>("room") ?? null;
+  }
+
+  private readonly interpretCache: InterpretCache = {
+    get: (key) => {
+      const row = this.ctx.storage.sql.exec<{ value: string }>("SELECT value FROM interp_cache WHERE key = ?", key).toArray()[0];
+      return row ? (JSON.parse(row.value) as Interpretation) : null;
+    },
+    put: (key, value) => {
+      this.ctx.storage.sql.exec("INSERT OR REPLACE INTO interp_cache (key, value) VALUES (?, ?)", key, JSON.stringify(value));
+    },
+  };
+
+  /**
+   * Start interpreting a diner's input as soon as it's accepted, so the
+   * evaluation phase mostly reuses cached work. Best effort; evaluation
+   * recomputes anything missing.
+   */
+  private prewarm(pid: string) {
+    if (this.env.PROVIDER_MODE !== "live" || !this.room) return;
+    const args = interpreterArgsFor(this.room, pid);
+    if (!args) return;
+    const ai = bindingClient(this.env, { roomId: this.room.id, purpose: "prewarm" });
+    const interpret = cachedInterpreter(llmInterpreter(ai), this.interpretCache);
+    void interpret(args)
+      .catch((e) => this.trace("prewarm_failed", { pid, error: (e as Error).message }))
+      .finally(() => ai.calls.length && this.trace("ai_calls", ai.calls));
   }
 
   // ---------- RPC ----------
@@ -150,6 +179,7 @@ export class Room extends DurableObject<Env> {
             },
             now,
           );
+          if (body.kind !== "host") queueMicrotask(() => this.prewarm(pid));
           break;
         case "retry":
           next = retry(next, pid, now);
@@ -211,6 +241,7 @@ export class Room extends DurableObject<Env> {
     }
     const resolved = resolveTranscription(this.room!, pid, { id, text: transcript }, Date.now());
     this.save(resolved.state);
+    if (resolved.accepted && args.kind !== "host") this.prewarm(pid);
     return {
       ok: true,
       value: {
@@ -295,6 +326,7 @@ export class Room extends DurableObject<Env> {
         now: started,
         ai,
         trace: (kind, data) => this.trace(kind, data),
+        interpretCache: this.interpretCache,
       });
       this.trace("outcome", { phase: snapshot.phase, seq, kind: outcome.kind, ms: Date.now() - started });
       this.save(applyOutcome(this.room!, outcome, seq, Date.now()));

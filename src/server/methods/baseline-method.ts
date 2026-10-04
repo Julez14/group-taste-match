@@ -1,11 +1,12 @@
-import { type Decision, DecisionSchema } from "../../shared/decision";
+import type { Decision } from "../../shared/decision";
+import { DECISION_JSON_SCHEMA, DecisionFromFlat } from "../decision-schema";
 import { candidateView, type DecisionInput, dinerView, eligible, exclusionSummary, roomView } from "../decision-context";
 import { EXPLANATION_RULES, QUESTION_RULES } from "../explain";
 import { chatJson } from "../llm";
 import { HOST_OPTIONS, POLICY } from "../policy";
 import type { DecisionMethodImpl } from "./types";
 
-export const BASELINE_PROMPT_VERSION = "baseline-v1";
+export const BASELINE_PROMPT_VERSION = "baseline-v2";
 
 export const BASELINE_SETTINGS = { reasoningEffort: "medium" as const, maxTokens: 6000 };
 
@@ -31,7 +32,7 @@ ${EXPLANATION_RULES}
 
 If "hostAnswer" is present, the host chose a soft priority: apply it among options whose weakest-diner fit is within ${POLICY.hostBand} of the best. It never overrides a hard requirement.
 
-Return ONE JSON object for the chosen action and nothing else.`;
+OUTPUT: one JSON object matching the provided schema: set "kind" to the chosen action and fill only that action's fields (restaurantId/evidenceIds/assumptions/explanation for recommend; questions for clarify; hostTopicId/hostQuestion/hostOptions for host_final_call; reasonCodes for no_feasible_match). Use null or [] for the rest.`;
 
 function allowedActions(input: DecisionInput): Decision["kind"][] {
   const hasEligible = eligible(input).length > 0;
@@ -79,7 +80,8 @@ export const baselineMethod: DecisionMethodImpl = {
     const { value, repaired } = await chatJson(deps.ai, {
       system: BASELINE_SYSTEM,
       user: JSON.stringify(user),
-      schema: DecisionSchema,
+      schema: DecisionFromFlat,
+      jsonSchema: { name: "decision", schema: DECISION_JSON_SCHEMA },
       purpose: deps.feedback ? "baseline:decide:recovery" : "baseline:decide",
       settings: BASELINE_SETTINGS,
       timeoutMs: 90_000,

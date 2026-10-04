@@ -2,7 +2,7 @@ import type { DecisionMethod, RoomState } from "../shared/types";
 import { decideWithGuard } from "./decide";
 import type { DecisionInput } from "./decision-context";
 import { evaluateAll } from "./feasibility";
-import { llmInterpreter, normalizeGroup } from "./interpret";
+import { cachedInterpreter, llmInterpreter, normalizeGroup } from "./interpret";
 import { baselineMethod } from "./methods/baseline-method";
 import { clefMethod } from "./methods/clef-method";
 import type { DecisionMethodImpl } from "./methods/types";
@@ -29,9 +29,10 @@ export function decisionInputFor(state: RoomState, group: DecisionInput["group"]
 
 /** Live decision pipeline: shared interpretation → shared feasibility → method → shared guard. */
 export function livePipeline(method: DecisionMethod): DecisionPipeline {
-  return async ({ state, ai, trace }) => {
+  return async ({ state, ai, trace, interpretCache }) => {
     const t0 = Date.now();
-    const group = await normalizeGroup(state, llmInterpreter(ai));
+    const interpreter = interpretCache ? cachedInterpreter(llmInterpreter(ai), interpretCache) : llmInterpreter(ai);
+    const group = await normalizeGroup(state, interpreter);
     trace("normalized", { ms: Date.now() - t0, group });
     const input = decisionInputFor(state, group);
     trace("feasibility", {

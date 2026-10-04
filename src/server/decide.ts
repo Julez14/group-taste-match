@@ -4,9 +4,10 @@ import { buildCard, noMatchFromFacts } from "./card";
 import { type DecisionInput, restaurantFor } from "./decision-context";
 import { guardRecommendation } from "./feasibility";
 import { illegalReason } from "./methods/baseline-method";
+import { findLeaks, type Leak, scrubList } from "./privacy";
 import type { DecisionMethodImpl, MethodDeps } from "./methods/types";
 
-export type GuardRecord = { attempt: number; proposal: Decision; accepted: boolean; reason: string | null };
+export type GuardRecord = { attempt: number; proposal: Decision; accepted: boolean; reason: string | null; privacyLeaks?: Leak[] };
 
 export class DecisionRejected extends Error {
   constructor(
@@ -18,7 +19,11 @@ export class DecisionRejected extends Error {
 }
 
 /** Shared enforcement for every method: legality, then the independent hard-constraint guard. */
-export function finalize(input: DecisionInput, deps: Pick<MethodDeps, "availabilitySeed" | "frozenAvailability">, proposal: Decision): { outcome: Outcome } | { rejected: string } {
+export function finalize(
+  input: DecisionInput,
+  deps: Pick<MethodDeps, "availabilitySeed" | "frozenAvailability">,
+  proposal: Decision,
+): { outcome: Outcome; privacyLeaks: Leak[] } | { rejected: string } {
   const illegal = illegalReason(input, proposal);
   if (illegal) return { rejected: `illegal:${illegal}` };
   switch (proposal.kind) {
@@ -30,22 +35,31 @@ export function finalize(input: DecisionInput, deps: Pick<MethodDeps, "availabil
         ...(deps.frozenAvailability ? { frozenAvailability: deps.frozenAvailability } : {}),
       });
       if (!g.ok) return { rejected: g.reason };
-      const card = buildCard({
-        restaurant: restaurantFor(input, proposal.restaurantId),
-        facts: g.facts,
-        group: input.group,
-        explanation: proposal.explanation,
-        extraAssumptions: proposal.assumptions,
-      });
-      return { outcome: { kind: "result", card } };
+      const restaurant = restaurantFor(input, proposal.restaurantId);
+      const explanationLeaks = findLeaks(proposal.explanation, input.group);
+      const scrubbed = scrubList(proposal.assumptions, input.group);
+      const explanation = explanationLeaks.length ? safeExplanation(restaurant) : proposal.explanation;
+      const card = buildCard({ restaurant, facts: g.facts, group: input.group, explanation, extraAssumptions: scrubbed.kept });
+      return { outcome: { kind: "result", card }, privacyLeaks: [...explanationLeaks, ...scrubbed.leaks] };
     }
     case "clarify":
-      return { outcome: { kind: "clarify", questions: proposal.questions } };
-    case "host_final_call":
-      return { outcome: { kind: "host_final_call", hostCall: { topicId: proposal.topicId, question: proposal.question, options: proposal.options } } };
+      return { outcome: { kind: "clarify", questions: proposal.questions }, privacyLeaks: [] };
+    case "host_final_call": {
+      const leaks = findLeaks(proposal.question, input.group);
+      if (leaks.length) return { rejected: `privacy:host question reveals ${leaks.map((l) => l.kind).join(",")}` };
+      return {
+        outcome: { kind: "host_final_call", hostCall: { topicId: proposal.topicId, question: proposal.question, options: proposal.options } },
+        privacyLeaks: [],
+      };
+    }
     case "no_feasible_match":
-      return { outcome: { kind: "no_match", noMatch: noMatchFromFacts(input.facts, proposal.reasonCodes) } };
+      return { outcome: { kind: "no_match", noMatch: noMatchFromFacts(input.facts, proposal.reasonCodes) }, privacyLeaks: [] };
   }
+}
+
+/** Neutral fallback when a method's explanation reveals private details. */
+function safeExplanation(r: { name: string; cuisines: string[]; neighborhood: string }): string {
+  return `I picked ${r.name} in ${r.neighborhood} — ${r.cuisines.join(" and ")} that fits everyone's must-haves for tonight.`;
 }
 
 /**
@@ -65,7 +79,7 @@ export async function decideWithGuard(
     lastTrace = trace;
     const result = finalize(input, deps, proposal);
     if ("outcome" in result) {
-      records.push({ attempt, proposal, accepted: true, reason: null });
+      records.push({ attempt, proposal, accepted: true, reason: null, ...(result.privacyLeaks.length ? { privacyLeaks: result.privacyLeaks } : {}) });
       return { outcome: result.outcome, proposal, records, trace: lastTrace };
     }
     records.push({ attempt, proposal, accepted: false, reason: result.rejected });

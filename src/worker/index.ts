@@ -90,7 +90,7 @@ export default {
     if (url.pathname === "/api/health") return json({ ok: true });
     if (url.pathname === "/api/rooms" && req.method === "POST") return createRoom(req, env);
 
-    const m = /^\/api\/rooms\/([^/]+)(?:\/(join|action|transcribe|ws|view))?$/.exec(url.pathname);
+    const m = /^\/api\/rooms\/([^/]+)(?:\/(join|action|transcribe|ws|view|traces))?$/.exec(url.pathname);
     if (!m) return apiError(404, "not_found", "Not found.");
     const roomId = m[1]!;
     if (!ROOM_ID_RE.test(roomId)) return apiError(404, "not_found", "Room not found.");
@@ -114,6 +114,11 @@ export default {
       return r.ok ? json({ roomId, ...r.value }, 201) : fromRpc(r);
     }
     if (route === "view" && req.method === "GET") return fromRpc(await room.view(bearer(req)));
+    if (route === "traces" && req.method === "GET") {
+      // Local debugging only; never set EXPOSE_TRACES in deployed config.
+      if ((env as { EXPOSE_TRACES?: string }).EXPOSE_TRACES !== "on") return apiError(404, "not_found", "Not found.");
+      return json(await room.traces());
+    }
     if (route === "action" && req.method === "POST") {
       const body = await parse(req, ActionBody);
       if (!body) return apiError(400, "invalid_input", "Invalid request.");

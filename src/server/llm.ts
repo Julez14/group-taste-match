@@ -53,9 +53,14 @@ export async function chatJson<S extends z.ZodType>(
     purpose: string;
     settings?: Partial<ChatSettings>;
     timeoutMs?: number;
+    /** Strict JSON Schema for constrained decoding; falls back to json_object when absent. */
+    jsonSchema?: { name: string; schema: Record<string, unknown> };
   },
 ): Promise<{ value: z.infer<S>; raw: string; repaired: boolean }> {
   const s = { ...DEFAULT_LLM_SETTINGS, ...args.settings };
+  const responseFormat = args.jsonSchema
+    ? { type: "json_schema", json_schema: { name: args.jsonSchema.name, schema: args.jsonSchema.schema, strict: true } }
+    : { type: "json_object" };
   const call = async (messages: { role: string; content: string }[], purpose: string) => {
     const out = await ai.run<ChatOutput>(
       s.model,
@@ -64,7 +69,7 @@ export async function chatJson<S extends z.ZodType>(
         max_tokens: s.maxTokens,
         temperature: s.temperature,
         reasoning_effort: s.reasoningEffort,
-        response_format: { type: "json_object" },
+        response_format: responseFormat,
       },
       { purpose, timeoutMs: args.timeoutMs ?? 60_000 },
     );
