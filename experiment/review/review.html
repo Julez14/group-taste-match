@@ -31,6 +31,22 @@
   .status { color: var(--muted); font-size: 13px; }
   .done { border-color: #3a9a5b; }
   select { font: inherit; }
+  .linkish { background: none; border: 0; padding: 0; color: inherit; font: inherit; cursor: pointer; text-align: left; text-decoration: underline; text-decoration-color: #c9d6d8; text-underline-offset: 3px; }
+  .ghost { background: #fff; color: var(--teal); border: 1.3px solid var(--teal); }
+  .scrim { position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 5; display: none; }
+  .scrim.open { display: block; }
+  .guide { position: fixed; top: 0; right: 0; bottom: 0; width: min(560px, 100%); background: #fff; z-index: 6; transform: translateX(100%); transition: transform .2s; display: flex; flex-direction: column; box-shadow: -8px 0 24px rgba(0,0,0,.12); }
+  .guide.open { transform: none; }
+  .guide-head { padding: 14px 18px; border-bottom: 1px solid var(--line); display: flex; gap: 10px; align-items: center; }
+  .guide-head input { flex: 1; border: 1.3px solid var(--line); border-radius: 10px; padding: 8px 10px; font: inherit; }
+  .guide-body { overflow: auto; padding: 8px 18px 40px; }
+  .r { border-bottom: 1px solid var(--line); padding: 14px 0; }
+  .r.flash { background: #eef4f4; }
+  .r h3 { margin: 0 0 2px; font: 700 18px Georgia, serif; }
+  .r dl { display: grid; grid-template-columns: 110px 1fr; gap: 4px 10px; margin: 8px 0 0; font-size: 13px; }
+  .r dt { color: var(--muted); }
+  .r dd { margin: 0; }
+  .r ul { margin: 0; padding-left: 16px; }
 </style>
 </head>
 <body>
@@ -39,10 +55,16 @@
   <div>Blinded review — methods hidden, A/B randomized. <span class="status" id="progress"></span></div>
   <div style="flex:1"></div>
   <label>Reviewer <input id="reviewer" placeholder="name" /></label>
+  <button id="openGuide" class="ghost">Restaurant guide</button>
   <button id="save">Save</button>
   <span class="status" id="saved"></span>
 </header>
 <main id="root"></main>
+<div class="scrim" id="scrim"></div>
+<aside class="guide" id="guide" aria-label="Restaurant guide">
+  <div class="guide-head"><strong>Restaurant guide</strong><input id="guideSearch" placeholder="Search name, cuisine, neighborhood, diet…" /><button id="closeGuide" class="ghost">Close</button></div>
+  <div class="guide-body" id="guideBody"></div>
+</aside>
 <script>
 const $ = (s, el = document) => el.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
@@ -50,11 +72,12 @@ let state = { reviewer: null, responses: {} };
 
 function cardHtml(c) {
   if (c.kind !== "result") return `<h3>${c.kind === "no_match" ? "No match" : "No outcome"}</h3><p>${esc(c.text)}</p>`;
-  return `<h3>${esc(c.name)}</h3>
+  return `<h3><button class="linkish" data-guide="${esc(c.restaurantId)}">${esc(c.name)}</button></h3>
     <div class="tag">${esc(c.cuisines.join(" · "))}</div>
     <div>${esc(c.price)}</div>
     <div class="muted">${esc(c.neighborhood)} · ${esc(c.atmosphere.join(", "))}</div>
     <div class="muted">Dietary: ${esc(c.dietary.join(", ") || "none listed")} · ${esc(c.availability)}</div>
+    ${c.travel?.length ? `<div class="muted">${c.travel.map(esc).join("<br>")}</div>` : ""}
     <p>${esc(c.explanation)}</p>
     ${c.assumptions?.length ? `<div class="muted">${c.assumptions.map(esc).join("<br>")}</div>` : ""}
     <div class="muted"><a href="${esc(c.website)}" target="_blank" rel="noopener">website</a></div>`;
@@ -87,6 +110,43 @@ function render(packet) {
     </section>`;
   }).join("");
   updateProgress(packet);
+}
+
+function guideHtml(list) {
+  const li = (xs) => (xs.length ? `<ul>${xs.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : "—");
+  return list.map((r) => `<div class="r" id="r-${esc(r.id)}">
+    <h3>${esc(r.name)}</h3>
+    <div class="muted">${esc(r.description)}</div>
+    <dl>
+      <dt>Price</dt><dd>${esc(r.price)}<div class="muted">${esc(r.priceBasis)}</div></dd>
+      <dt>Typical orders</dt><dd>${li(r.typicalOrders)}</dd>
+      <dt>Dietary</dt><dd>${li(r.dietary)}</dd>
+      <dt>Allergy policy</dt><dd>${esc(r.allergyPolicy)}</dd>
+      <dt>Tables</dt><dd>${esc(r.tables)}${r.partySize ? ` · ${esc(r.partySize)}` : ""}</dd>
+      <dt>Hours</dt><dd>${r.hours.map(esc).join("<br>")}</dd>
+      <dt>What sources say</dt><dd>${li(r.vibeNotes)}</dd>
+      <dt>Address</dt><dd>${esc(r.address)}</dd>
+      <dt>Links</dt><dd><a href="${esc(r.website)}" target="_blank" rel="noopener">website</a>${r.menu ? ` · <a href="${esc(r.menu)}" target="_blank" rel="noopener">menu</a>` : ""}</dd>
+    </dl>
+  </div>`).join("");
+}
+
+function openGuide(packet, id) {
+  const q = $("#guideSearch").value.trim().toLowerCase();
+  const list = packet.restaurants.filter((r) => !q || JSON.stringify(r).toLowerCase().includes(q));
+  $("#guideBody").innerHTML = guideHtml(id ? packet.restaurants : list);
+  if (id) $("#guideSearch").value = "";
+  $("#guide").classList.add("open");
+  $("#scrim").classList.add("open");
+  if (id) {
+    const el = document.getElementById(`r-${id}`);
+    if (el) { el.scrollIntoView({ block: "start" }); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 1500); }
+  }
+}
+
+function closeGuide() {
+  $("#guide").classList.remove("open");
+  $("#scrim").classList.remove("open");
 }
 
 function updateProgress(packet) {
@@ -123,6 +183,15 @@ async function save() {
     clearTimeout(window.__t); window.__t = setTimeout(save, 800);
   });
   $("#save").addEventListener("click", save);
+  $("#openGuide").addEventListener("click", () => openGuide(packet));
+  $("#closeGuide").addEventListener("click", closeGuide);
+  $("#scrim").addEventListener("click", closeGuide);
+  document.addEventListener("keydown", (e) => e.key === "Escape" && closeGuide());
+  $("#guideSearch").addEventListener("input", () => openGuide(packet));
+  $("#root").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-guide]");
+    if (b) openGuide(packet, b.dataset.guide);
+  });
 })();
 </script>
 </body>

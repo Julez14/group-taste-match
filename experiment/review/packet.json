@@ -1,6 +1,6 @@
 {
   "track": "fixed",
-  "createdAt": "2026-10-04T11:29:46.396Z",
+  "createdAt": "2026-10-06T23:57:13.800Z",
   "items": [
     {
       "scenarioId": "S03",
@@ -51,7 +51,12 @@
         "assumptions": [
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.nomwah.com/chinatown"
+        "website": "https://www.nomwah.com/chinatown",
+        "restaurantId": "nom-wah-tea-parlor-chinatown",
+        "travel": [
+          "Ava: about 19–31 min by subway from Williamsburg",
+          "Ben: about 19–31 min by subway from Williamsburg"
+        ]
       }
     },
     {
@@ -109,7 +114,13 @@
           "Balthazar has a lively brasserie atmosphere",
           "Balthazar is a short walk from the SoHo meeting area"
         ],
-        "website": "https://balthazarny.com/"
+        "website": "https://balthazarny.com/",
+        "restaurantId": "balthazar-soho",
+        "travel": [
+          "Claire: about a 6–8 min walk from SoHo",
+          "Dev: about a 6–8 min walk from SoHo",
+          "Elle: about a 6–8 min walk from SoHo"
+        ]
       },
       "B": {
         "kind": "result",
@@ -135,7 +146,13 @@
           "Anyone who didn't share a starting point is assumed to be coming from SoHo.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://balthazarny.com/"
+        "website": "https://balthazarny.com/",
+        "restaurantId": "balthazar-soho",
+        "travel": [
+          "Claire: about a 6–8 min walk from SoHo",
+          "Dev: about a 6–8 min walk from SoHo",
+          "Elle: about a 6–8 min walk from SoHo"
+        ]
       }
     },
     {
@@ -206,7 +223,15 @@
           "Where no budget was given, we treated it as unknown and leaned on usual price habits.",
           "Ingredient preferences are noted; check the menu for dishes without them."
         ],
-        "website": "https://www.nomwah.com/chinatown"
+        "website": "https://www.nomwah.com/chinatown",
+        "restaurantId": "nom-wah-tea-parlor-chinatown",
+        "travel": [
+          "Kai: about 23–36 min by subway from Midtown (Bryant Park)",
+          "Lou: about 23–36 min by subway from Midtown (Bryant Park)",
+          "Mo: about 23–36 min by subway from Midtown (Bryant Park)",
+          "Nia: about 23–36 min by subway from Midtown (Bryant Park)",
+          "Oz: about 23–36 min by subway from Midtown (Bryant Park)"
+        ]
       },
       "B": {
         "kind": "result",
@@ -234,7 +259,15 @@
           "The per‑person estimate already includes tax and a 20 % tip, so the budget covers the total cost.",
           "Travel time is based on typical subway routes from Midtown (Bryant Park)."
         ],
-        "website": "https://birdsofafeatherny.com/"
+        "website": "https://birdsofafeatherny.com/",
+        "restaurantId": "birds-of-a-feather-williamsburg",
+        "travel": [
+          "Kai: about 23–37 min by subway from Midtown (Bryant Park)",
+          "Lou: about 23–37 min by subway from Midtown (Bryant Park)",
+          "Mo: about 23–37 min by subway from Midtown (Bryant Park)",
+          "Nia: about 23–37 min by subway from Midtown (Bryant Park)",
+          "Oz: about 23–37 min by subway from Midtown (Bryant Park)"
+        ]
       }
     },
     {
@@ -308,7 +341,16 @@
           "Anyone who didn't share a starting point is assumed to be coming from Chelsea.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.lostacos1.com/"
+        "website": "https://www.lostacos1.com/",
+        "restaurantId": "los-tacos-no-1-chelsea-market",
+        "travel": [
+          "Pia: about a 1–2 min walk from Chelsea",
+          "Quin: about a 1–2 min walk from Chelsea",
+          "Rae: about a 1–2 min walk from Chelsea",
+          "Sol: about a 1–2 min walk from Chelsea",
+          "Tess: about a 1–2 min walk from Chelsea",
+          "Uri: about a 1–2 min walk from Chelsea"
+        ]
       },
       "B": {
         "kind": "result",
@@ -332,7 +374,16 @@
           "Anyone who didn't share a starting point is assumed to be coming from Chelsea.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.lostacos1.com/"
+        "website": "https://www.lostacos1.com/",
+        "restaurantId": "los-tacos-no-1-chelsea-market",
+        "travel": [
+          "Pia: about a 1–2 min walk from Chelsea",
+          "Quin: about a 1–2 min walk from Chelsea",
+          "Rae: about a 1–2 min walk from Chelsea",
+          "Sol: about a 1–2 min walk from Chelsea",
+          "Tess: about a 1–2 min walk from Chelsea",
+          "Uri: about a 1–2 min walk from Chelsea"
+        ]
       }
     },
     {
@@ -386,7 +437,13 @@
           "Anyone who didn't share a starting point is assumed to be coming from East Village.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.hanoihousenyc.com/"
+        "website": "https://www.hanoihousenyc.com/",
+        "restaurantId": "hanoi-house-east-village",
+        "travel": [
+          "Dina: about a 2–3 min walk from East Village",
+          "Eli: about a 2–3 min walk from East Village",
+          "Fay: about a 2–3 min walk from East Village"
+        ]
       },
       "B": {
         "kind": "result",
@@ -412,7 +469,13 @@
           "Anyone who didn't share a starting point is assumed to be coming from East Village.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.thaidiner.com/"
+        "website": "https://www.thaidiner.com/",
+        "restaurantId": "thai-diner-nolita",
+        "travel": [
+          "Dina: about 12–21 min by subway from East Village",
+          "Eli: about 12–21 min by subway from East Village",
+          "Fay: about 12–21 min by subway from East Village"
+        ]
       }
     },
     {
@@ -473,7 +536,14 @@
           "Anyone who didn't share a starting point is assumed to be coming from Park Slope.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.junebk.com/"
+        "website": "https://www.junebk.com/",
+        "restaurantId": "june-wine-bar-cobble-hill",
+        "travel": [
+          "Gus: about 13–22 min by subway from Park Slope",
+          "Hal: about 13–22 min by subway from Park Slope",
+          "Ivy: about 13–22 min by subway from Park Slope",
+          "Jo: about 13–22 min by subway from Park Slope"
+        ]
       },
       "B": {
         "kind": "result",
@@ -498,7 +568,14 @@
           "Anyone who didn't share a starting point is assumed to be coming from Park Slope.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.aldilatrattoria.com/"
+        "website": "https://www.aldilatrattoria.com/",
+        "restaurantId": "al-di-la-trattoria-park-slope",
+        "travel": [
+          "Gus: about a 1–2 min walk from Park Slope",
+          "Hal: about a 1–2 min walk from Park Slope",
+          "Ivy: about a 1–2 min walk from Park Slope",
+          "Jo: about a 1–2 min walk from Park Slope"
+        ]
       }
     },
     {
@@ -569,7 +646,15 @@
           "Anyone who didn't share a starting point is assumed to be coming from Lower East Side.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://veselka.com/"
+        "website": "https://veselka.com/",
+        "restaurantId": "veselka-east-village",
+        "travel": [
+          "Kit: about 12–20 min by subway from Lower East Side",
+          "Lia: about 12–20 min by subway from Lower East Side",
+          "Max: about 12–20 min by subway from Lower East Side",
+          "Ned: about 12–20 min by subway from Lower East Side",
+          "Ola: about 12–20 min by subway from Lower East Side"
+        ]
       },
       "B": {
         "kind": "result",
@@ -598,7 +683,15 @@
           "Scarr's Pizza can accommodate the vegan requirement with its vegan menu items",
           "The pizza satisfies the pizza request and is acceptable for the American cuisine preference"
         ],
-        "website": "https://www.scarrspizza.com/"
+        "website": "https://www.scarrspizza.com/",
+        "restaurantId": "scarrs-pizza-lower-east-side",
+        "travel": [
+          "Kit: about a 6–8 min walk from Lower East Side",
+          "Lia: about a 6–8 min walk from Lower East Side",
+          "Max: about a 6–8 min walk from Lower East Side",
+          "Ned: about a 6–8 min walk from Lower East Side",
+          "Ola: about a 6–8 min walk from Lower East Side"
+        ]
       }
     },
     {
@@ -677,7 +770,16 @@
           "Anyone who didn't share a starting point is assumed to be coming from Harlem.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.missadanyc.com/"
+        "website": "https://www.missadanyc.com/",
+        "restaurantId": "miss-ada-fort-greene",
+        "travel": [
+          "Pat: about 52–79 min by subway from Harlem",
+          "Ray: about 52–79 min by subway from Harlem",
+          "Sia: about 52–79 min by subway from Harlem",
+          "Tao: about 52–79 min by subway from Harlem",
+          "Uma: about 52–79 min by subway from Harlem",
+          "Val: about 52–79 min by subway from Harlem"
+        ]
       },
       "B": {
         "kind": "result",
@@ -709,7 +811,16 @@
           "red-rooster-harlem offers shrimp & grits (seafood option for d5)",
           "red-rooster-harlem serves Southern comfort food (matches d1)"
         ],
-        "website": "https://www.redroosterharlem.com/"
+        "website": "https://www.redroosterharlem.com/",
+        "restaurantId": "red-rooster-harlem",
+        "travel": [
+          "Pat: about a 1–2 min walk from Harlem",
+          "Ray: about a 1–2 min walk from Harlem",
+          "Sia: about a 1–2 min walk from Harlem",
+          "Tao: about a 1–2 min walk from Harlem",
+          "Uma: about a 1–2 min walk from Harlem",
+          "Val: about a 1–2 min walk from Harlem"
+        ]
       }
     },
     {
@@ -759,7 +870,12 @@
           "Anyone who didn't share a starting point is assumed to be coming from SoHo.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.thaidiner.com/"
+        "website": "https://www.thaidiner.com/",
+        "restaurantId": "thai-diner-nolita",
+        "travel": [
+          "Eve: about a 9–13 min walk from SoHo",
+          "Finn: about a 9–13 min walk from SoHo"
+        ]
       },
       "B": {
         "kind": "result",
@@ -785,7 +901,12 @@
           "Fits everyone's budget if you stick to a single main without extras.",
           "The budget limit refers to the per‑person estimate provided."
         ],
-        "website": "https://casaenriquelic.com/"
+        "website": "https://casaenriquelic.com/",
+        "restaurantId": "casa-enrique-long-island-city",
+        "travel": [
+          "Eve: about 23–37 min by subway from SoHo",
+          "Finn: about 23–37 min by subway from SoHo"
+        ]
       }
     },
     {
@@ -847,7 +968,13 @@
           "atmosphere is nice and has a special‑occasion feel",
           "travel time is reasonable from Union Square"
         ],
-        "website": "https://www.bahariestiatorio.com/"
+        "website": "https://www.bahariestiatorio.com/",
+        "restaurantId": "bahari-estiatorio-astoria",
+        "travel": [
+          "Gia: about 28–44 min by subway from Union Square",
+          "Hugo: about 28–44 min by subway from Union Square",
+          "Iris: about 28–44 min by subway from Union Square"
+        ]
       },
       "B": {
         "kind": "result",
@@ -874,7 +1001,13 @@
           "Fits everyone's budget if you stick to a single main without extras.",
           "The per‑person estimate already includes NYC sales tax and a 20 % tip."
         ],
-        "website": "https://birdsofafeatherny.com/"
+        "website": "https://birdsofafeatherny.com/",
+        "restaurantId": "birds-of-a-feather-williamsburg",
+        "travel": [
+          "Gia: about 19–31 min by subway from Union Square",
+          "Hugo: about 19–31 min by subway from Union Square",
+          "Iris: about 19–31 min by subway from Union Square"
+        ]
       }
     },
     {
@@ -940,7 +1073,14 @@
           "Anyone who didn't share a starting point is assumed to be coming from Downtown Brooklyn.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.thaidiner.com/"
+        "website": "https://www.thaidiner.com/",
+        "restaurantId": "thai-diner-nolita",
+        "travel": [
+          "Jules: about 18–29 min by subway from Downtown Brooklyn",
+          "Kofi: about 18–29 min by subway from Downtown Brooklyn",
+          "Lux: about 18–29 min by subway from Downtown Brooklyn",
+          "Mina: about 18–29 min by subway from Downtown Brooklyn"
+        ]
       },
       "B": {
         "kind": "result",
@@ -965,7 +1105,14 @@
           "Where no budget was given, we treated it as unknown and leaned on usual price habits.",
           "The group's budget limit includes the estimated tip already factored into the per‑person cost."
         ],
-        "website": "https://casaenriquelic.com/"
+        "website": "https://casaenriquelic.com/",
+        "restaurantId": "casa-enrique-long-island-city",
+        "travel": [
+          "Jules: about 29–45 min by subway from Downtown Brooklyn",
+          "Kofi: about 29–45 min by subway from Downtown Brooklyn",
+          "Lux: about 29–45 min by subway from Downtown Brooklyn",
+          "Mina: about 29–45 min by subway from Downtown Brooklyn"
+        ]
       }
     },
     {
@@ -1045,7 +1192,16 @@
           "Where no budget was given, we treated it as unknown and leaned on usual price habits.",
           "Fits everyone's budget if you stick to a single main without extras."
         ],
-        "website": "https://www.scarrspizza.com/"
+        "website": "https://www.scarrspizza.com/",
+        "restaurantId": "scarrs-pizza-lower-east-side",
+        "travel": [
+          "Noor: about 13–21 min by subway from East Village",
+          "Otto: about 13–21 min by subway from East Village",
+          "Pax: about 13–21 min by subway from East Village",
+          "Quill: about 13–21 min by subway from East Village",
+          "Rio: about 13–21 min by subway from East Village",
+          "Sky: about 13–21 min by subway from East Village"
+        ]
       },
       "B": {
         "kind": "result",
@@ -1072,7 +1228,16 @@
           "Where no budget was given, we treated it as unknown and leaned on usual price habits.",
           "Fits everyone's budget if you stick to a single main without extras."
         ],
-        "website": "https://www.pizzalovesemily.com/"
+        "website": "https://www.pizzalovesemily.com/",
+        "restaurantId": "emily-clinton-hill",
+        "travel": [
+          "Noor: about 24–38 min by subway from East Village",
+          "Otto: about 24–38 min by subway from East Village",
+          "Pax: about 24–38 min by subway from East Village",
+          "Quill: about 24–38 min by subway from East Village",
+          "Rio: about 24–38 min by subway from East Village",
+          "Sky: about 24–38 min by subway from East Village"
+        ]
       }
     },
     {
@@ -1166,7 +1331,14 @@
           "Anyone who didn't share a starting point is assumed to be coming from Union Square.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://veselka.com/"
+        "website": "https://veselka.com/",
+        "restaurantId": "veselka-east-village",
+        "travel": [
+          "Cara: about a 11–15 min walk from Union Square",
+          "Dan: about a 11–15 min walk from Union Square",
+          "Ezra: about a 11–15 min walk from Union Square",
+          "Flo: about a 11–15 min walk from Union Square"
+        ]
       },
       "B": {
         "kind": "result",
@@ -1196,7 +1368,14 @@
           "Where no budget was given, we treated it as unknown and leaned on usual price habits.",
           "The per‑person estimate already includes tax and a 20 % tip, so the budget is considered inclusive of those costs."
         ],
-        "website": "https://www.missadanyc.com/"
+        "website": "https://www.missadanyc.com/",
+        "restaurantId": "miss-ada-fort-greene",
+        "travel": [
+          "Cara: about 26–40 min by subway from Union Square",
+          "Dan: about 26–40 min by subway from Union Square",
+          "Ezra: about 26–40 min by subway from Union Square",
+          "Flo: about 26–40 min by subway from Union Square"
+        ]
       }
     },
     {
@@ -1267,7 +1446,15 @@
           "Where no budget was given, we treated it as unknown and leaned on usual price habits.",
           "Tell your server about any allergy — we can't confirm how the kitchen prepares food."
         ],
-        "website": "https://www.scarrspizza.com/"
+        "website": "https://www.scarrspizza.com/",
+        "restaurantId": "scarrs-pizza-lower-east-side",
+        "travel": [
+          "Gil: about 16–27 min by subway from Downtown Brooklyn",
+          "Hana: about 16–27 min by subway from Downtown Brooklyn",
+          "Ian: about 16–27 min by subway from Downtown Brooklyn",
+          "Jade: about 16–27 min by subway from Downtown Brooklyn",
+          "Kip: about 16–27 min by subway from Downtown Brooklyn"
+        ]
       },
       "B": {
         "kind": "result",
@@ -1298,7 +1485,15 @@
           "Tell your server about any allergy — we can't confirm how the kitchen prepares food.",
           "The per‑person estimate already includes tax and a 20 % tip."
         ],
-        "website": "https://www.missadanyc.com/"
+        "website": "https://www.missadanyc.com/",
+        "restaurantId": "miss-ada-fort-greene",
+        "travel": [
+          "Gil: about 13–22 min by subway from Downtown Brooklyn",
+          "Hana: about 13–22 min by subway from Downtown Brooklyn",
+          "Ian: about 13–22 min by subway from Downtown Brooklyn",
+          "Jade: about 13–22 min by subway from Downtown Brooklyn",
+          "Kip: about 13–22 min by subway from Downtown Brooklyn"
+        ]
       }
     },
     {
@@ -1375,7 +1570,16 @@
           "Anyone who didn't share a starting point is assumed to be coming from East Village.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.hanoihousenyc.com/"
+        "website": "https://www.hanoihousenyc.com/",
+        "restaurantId": "hanoi-house-east-village",
+        "travel": [
+          "Lars: about a 2–3 min walk from East Village",
+          "Mae: about a 2–3 min walk from East Village",
+          "Nils: about a 2–3 min walk from East Village",
+          "Oona: about a 2–3 min walk from East Village",
+          "Per: about a 2–3 min walk from East Village",
+          "Rhea: about a 2–3 min walk from East Village"
+        ]
       },
       "B": {
         "kind": "result",
@@ -1400,7 +1604,16 @@
           "Anyone who didn't share a starting point is assumed to be coming from East Village.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.hanoihousenyc.com/"
+        "website": "https://www.hanoihousenyc.com/",
+        "restaurantId": "hanoi-house-east-village",
+        "travel": [
+          "Lars: about a 2–3 min walk from East Village",
+          "Mae: about a 2–3 min walk from East Village",
+          "Nils: about a 2–3 min walk from East Village",
+          "Oona: about a 2–3 min walk from East Village",
+          "Per: about a 2–3 min walk from East Village",
+          "Rhea: about a 2–3 min walk from East Village"
+        ]
       }
     },
     {
@@ -1501,7 +1714,14 @@
         "assumptions": [
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.scarrspizza.com/"
+        "website": "https://www.scarrspizza.com/",
+        "restaurantId": "scarrs-pizza-lower-east-side",
+        "travel": [
+          "Ema: about 20–31 min by subway from Greenpoint",
+          "Fox: about 13–21 min by subway from East Village",
+          "Gwen: about 25–39 min by subway from Long Island City",
+          "Hux: about 16–27 min by subway from Downtown Brooklyn"
+        ]
       },
       "B": {
         "kind": "result",
@@ -1527,7 +1747,14 @@
           "The per‑person estimate includes tax and a 20 % tip, but not drinks.",
           "Travel times are based on typical subway routes and may vary with service."
         ],
-        "website": "https://www.jacksondiner.com/"
+        "website": "https://www.jacksondiner.com/",
+        "restaurantId": "jackson-diner-jackson-heights",
+        "travel": [
+          "Ema: about 26–41 min by subway from Greenpoint",
+          "Fox: about 34–53 min by subway from East Village",
+          "Gwen: about 23–36 min by subway from Long Island City",
+          "Hux: about 42–65 min by subway from Downtown Brooklyn"
+        ]
       }
     },
     {
@@ -1597,7 +1824,15 @@
           "Where no budget was given, we treated it as unknown and leaned on usual price habits.",
           "We couldn't confirm how this place handles tables — call ahead before you go."
         ],
-        "website": "https://www.bahariestiatorio.com/"
+        "website": "https://www.bahariestiatorio.com/",
+        "restaurantId": "bahari-estiatorio-astoria",
+        "travel": [
+          "Ines: about 43–66 min by subway from Park Slope",
+          "Jett: about a 2–3 min walk from Astoria",
+          "Kara: about 26–41 min by subway from Harlem",
+          "Lev: about 33–52 min by subway from SoHo",
+          "Mira: about 43–66 min by subway from Park Slope"
+        ]
       },
       "B": {
         "kind": "result",
@@ -1624,7 +1859,15 @@
           "Where no budget was given, we treated it as unknown and leaned on usual price habits.",
           "We couldn't confirm how this place handles tables — call ahead before you go."
         ],
-        "website": "https://www.bahariestiatorio.com/"
+        "website": "https://www.bahariestiatorio.com/",
+        "restaurantId": "bahari-estiatorio-astoria",
+        "travel": [
+          "Ines: about 43–66 min by subway from Park Slope",
+          "Jett: about a 2–3 min walk from Astoria",
+          "Kara: about 26–41 min by subway from Harlem",
+          "Lev: about 33–52 min by subway from SoHo",
+          "Mira: about 43–66 min by subway from Park Slope"
+        ]
       }
     },
     {
@@ -1700,7 +1943,16 @@
           "Anyone who didn't share a starting point is assumed to be coming from Midtown (Bryant Park).",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.tonchinus.com/"
+        "website": "https://www.tonchinus.com/",
+        "restaurantId": "tonchin-midtown",
+        "travel": [
+          "Nate: about 13–22 min by subway from Union Square",
+          "Opal: about a 5–7 min walk from Midtown (Bryant Park)",
+          "Pip: about 20–32 min by subway from Upper West Side",
+          "Rex: about 25–39 min by subway from Astoria",
+          "Sue: about 14–23 min by subway from Chelsea",
+          "Tom: about 20–31 min by subway from Lower East Side"
+        ]
       },
       "B": {
         "kind": "result",
@@ -1728,7 +1980,16 @@
           "Anyone who didn't share a starting point is assumed to be coming from Midtown (Bryant Park).",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://hangawirestaurant.com/"
+        "website": "https://hangawirestaurant.com/",
+        "restaurantId": "hangawi-koreatown",
+        "travel": [
+          "Nate: about 12–20 min by subway from Union Square",
+          "Opal: about a 11–15 min walk from Midtown (Bryant Park)",
+          "Pip: about 21–34 min by subway from Upper West Side",
+          "Rex: about 25–40 min by subway from Astoria",
+          "Sue: about 14–23 min by subway from Chelsea",
+          "Tom: about 18–29 min by subway from Lower East Side"
+        ]
       }
     },
     {
@@ -1775,7 +2036,12 @@
           "Anyone who didn't share a starting point is assumed to be coming from Union Square.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.viacarota.com/"
+        "website": "https://www.viacarota.com/",
+        "restaurantId": "via-carota-west-village",
+        "travel": [
+          "Cyd: about 12–20 min by subway from Union Square",
+          "Dot: about 12–20 min by subway from Union Square"
+        ]
       },
       "B": {
         "kind": "result",
@@ -1803,7 +2069,12 @@
           "Where no budget was given, we treated it as unknown and leaned on usual price habits.",
           "The per‑person estimate already includes tax and a 20 % tip."
         ],
-        "website": "https://www.scarrspizza.com/"
+        "website": "https://www.scarrspizza.com/",
+        "restaurantId": "scarrs-pizza-lower-east-side",
+        "travel": [
+          "Cyd: about 15–25 min by subway from Union Square",
+          "Dot: about 15–25 min by subway from Union Square"
+        ]
       }
     },
     {
@@ -1860,7 +2131,13 @@
           "d2 prefers Italian or pizza and a cozy atmosphere",
           "d3 wants spicy Asian cuisine, especially Sichuan"
         ],
-        "website": "https://birdsofafeatherny.com/"
+        "website": "https://birdsofafeatherny.com/",
+        "restaurantId": "birds-of-a-feather-williamsburg",
+        "travel": [
+          "Ed: about 15–25 min by subway from Lower East Side",
+          "Fia: about 15–25 min by subway from Lower East Side",
+          "Gabe: about 15–25 min by subway from Lower East Side"
+        ]
       },
       "B": {
         "kind": "result",
@@ -1885,7 +2162,13 @@
           "Anyone who didn't share a starting point is assumed to be coming from Lower East Side.",
           "Not everyone answered in time, so we kept any earlier requirements and leaned on usual tastes."
         ],
-        "website": "https://birdsofafeatherny.com/"
+        "website": "https://birdsofafeatherny.com/",
+        "restaurantId": "birds-of-a-feather-williamsburg",
+        "travel": [
+          "Ed: about 15–25 min by subway from Lower East Side",
+          "Fia: about 15–25 min by subway from Lower East Side",
+          "Gabe: about 15–25 min by subway from Lower East Side"
+        ]
       }
     },
     {
@@ -1957,7 +2240,15 @@
           "Where no budget was given, we treated it as unknown and leaned on usual price habits.",
           "We couldn't confirm how this place handles tables — call ahead before you go."
         ],
-        "website": "https://www.bahariestiatorio.com/"
+        "website": "https://www.bahariestiatorio.com/",
+        "restaurantId": "bahari-estiatorio-astoria",
+        "travel": [
+          "Hope: about 43–66 min by subway from Park Slope",
+          "Ike: about 43–66 min by subway from Park Slope",
+          "Joy: about 43–66 min by subway from Park Slope",
+          "Ken: about 43–66 min by subway from Park Slope",
+          "Liv: about 43–66 min by subway from Park Slope"
+        ]
       },
       "B": {
         "kind": "result",
@@ -1987,7 +2278,15 @@
           "The group’s budget can accommodate the higher end of the price range.",
           "Traveling by subway for about 31–49 minutes is acceptable."
         ],
-        "website": "https://www.gramercytavern.com/"
+        "website": "https://www.gramercytavern.com/",
+        "restaurantId": "gramercy-tavern-flatiron",
+        "travel": [
+          "Hope: about 31–49 min by subway from Park Slope",
+          "Ike: about 31–49 min by subway from Park Slope",
+          "Joy: about 31–49 min by subway from Park Slope",
+          "Ken: about 31–49 min by subway from Park Slope",
+          "Liv: about 31–49 min by subway from Park Slope"
+        ]
       }
     },
     {
@@ -2063,7 +2362,16 @@
           "Not everyone answered in time, so we kept any earlier requirements and leaned on usual tastes.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.viacarota.com/"
+        "website": "https://www.viacarota.com/",
+        "restaurantId": "via-carota-west-village",
+        "travel": [
+          "Moe: about 17–28 min by subway from Midtown (Bryant Park)",
+          "Nan: about 17–28 min by subway from Midtown (Bryant Park)",
+          "Oli: about 17–28 min by subway from Midtown (Bryant Park)",
+          "Pam: about 17–28 min by subway from Midtown (Bryant Park)",
+          "Ron: about 17–28 min by subway from Midtown (Bryant Park)",
+          "Sal: about 17–28 min by subway from Midtown (Bryant Park)"
+        ]
       },
       "B": {
         "kind": "result",
@@ -2090,7 +2398,16 @@
           "Not everyone answered in time, so we kept any earlier requirements and leaned on usual tastes.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.tonchinus.com/"
+        "website": "https://www.tonchinus.com/",
+        "restaurantId": "tonchin-midtown",
+        "travel": [
+          "Moe: about a 5–7 min walk from Midtown (Bryant Park)",
+          "Nan: about a 5–7 min walk from Midtown (Bryant Park)",
+          "Oli: about a 5–7 min walk from Midtown (Bryant Park)",
+          "Pam: about a 5–7 min walk from Midtown (Bryant Park)",
+          "Ron: about a 5–7 min walk from Midtown (Bryant Park)",
+          "Sal: about a 5–7 min walk from Midtown (Bryant Park)"
+        ]
       }
     },
     {
@@ -2139,7 +2456,12 @@
           "d2’s “not crazy expensive” is interpreted as preferring a moderate price tier",
           "both diners are okay with a higher‑priced steakhouse for a better steak experience"
         ],
-        "website": "https://www.cotekoreansteakhouse.com/locations/cotenycflatiron"
+        "website": "https://www.cotekoreansteakhouse.com/locations/cotenycflatiron",
+        "restaurantId": "cote-korean-steakhouse-flatiron",
+        "travel": [
+          "Bex: about a 8–11 min walk from Union Square",
+          "Cass: about a 8–11 min walk from Union Square"
+        ]
       },
       "B": {
         "kind": "result",
@@ -2165,7 +2487,12 @@
           "Where no budget was given, we treated it as unknown and leaned on usual price habits.",
           "The per‑person estimate includes tax and a 20 % tip, so the budget covers those costs."
         ],
-        "website": "https://www.cotekoreansteakhouse.com/locations/cotenycflatiron"
+        "website": "https://www.cotekoreansteakhouse.com/locations/cotenycflatiron",
+        "restaurantId": "cote-korean-steakhouse-flatiron",
+        "travel": [
+          "Bex: about a 8–11 min walk from Union Square",
+          "Cass: about a 8–11 min walk from Union Square"
+        ]
       }
     },
     {
@@ -2220,7 +2547,13 @@
           "Anyone who didn't share a starting point is assumed to be coming from Park Slope.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://balthazarny.com/"
+        "website": "https://balthazarny.com/",
+        "restaurantId": "balthazar-soho",
+        "travel": [
+          "Dara: about 26–41 min by subway from Park Slope",
+          "Egan: about 26–41 min by subway from Park Slope",
+          "Faye: about 26–41 min by subway from Park Slope"
+        ]
       },
       "B": {
         "kind": "result",
@@ -2248,7 +2581,13 @@
           "d2 wants Italian cuisine",
           "d3's request for sushi cannot be fully met, but the other diners' preferences are prioritized"
         ],
-        "website": "https://www.aldilatrattoria.com/"
+        "website": "https://www.aldilatrattoria.com/",
+        "restaurantId": "al-di-la-trattoria-park-slope",
+        "travel": [
+          "Dara: about a 1–2 min walk from Park Slope",
+          "Egan: about a 1–2 min walk from Park Slope",
+          "Faye: about a 1–2 min walk from Park Slope"
+        ]
       }
     },
     {
@@ -2311,7 +2650,14 @@
           "Hanoi House’s pho is non‑spicy, matching the need to avoid heat.",
           "The restaurant’s price tier $$ is higher than the cheapest options, so it’s not the cheapest choice."
         ],
-        "website": "https://www.hanoihousenyc.com/"
+        "website": "https://www.hanoihousenyc.com/",
+        "restaurantId": "hanoi-house-east-village",
+        "travel": [
+          "Gray: about a 2–3 min walk from East Village",
+          "Hope: about a 2–3 min walk from East Village",
+          "Ivo: about a 2–3 min walk from East Village",
+          "Jas: about a 2–3 min walk from East Village"
+        ]
       },
       "B": {
         "kind": "result",
@@ -2340,7 +2686,14 @@
           "Anyone who didn't share a starting point is assumed to be coming from East Village.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.missadanyc.com/"
+        "website": "https://www.missadanyc.com/",
+        "restaurantId": "miss-ada-fort-greene",
+        "travel": [
+          "Gray: about 22–34 min by subway from East Village",
+          "Hope: about 22–34 min by subway from East Village",
+          "Ivo: about 22–34 min by subway from East Village",
+          "Jas: about 22–34 min by subway from East Village"
+        ]
       }
     },
     {
@@ -2410,7 +2763,15 @@
           "Anyone who didn't share a starting point is assumed to be coming from Lower East Side.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.scarrspizza.com/"
+        "website": "https://www.scarrspizza.com/",
+        "restaurantId": "scarrs-pizza-lower-east-side",
+        "travel": [
+          "Kam: about a 6–8 min walk from Lower East Side",
+          "Lyn: about a 6–8 min walk from Lower East Side",
+          "Moss: about a 6–8 min walk from Lower East Side",
+          "Nell: about a 6–8 min walk from Lower East Side",
+          "Orr: about a 6–8 min walk from Lower East Side"
+        ]
       },
       "B": {
         "kind": "result",
@@ -2437,7 +2798,15 @@
           "Anyone who didn't share a starting point is assumed to be coming from Lower East Side.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.scarrspizza.com/"
+        "website": "https://www.scarrspizza.com/",
+        "restaurantId": "scarrs-pizza-lower-east-side",
+        "travel": [
+          "Kam: about a 6–8 min walk from Lower East Side",
+          "Lyn: about a 6–8 min walk from Lower East Side",
+          "Moss: about a 6–8 min walk from Lower East Side",
+          "Nell: about a 6–8 min walk from Lower East Side",
+          "Orr: about a 6–8 min walk from Lower East Side"
+        ]
       }
     },
     {
@@ -2489,7 +2858,12 @@
           "vegetarian options are sufficient for the vegetarian diner",
           "restaurant is open past the 10:30 PM dinner time"
         ],
-        "website": "https://veselka.com/"
+        "website": "https://veselka.com/",
+        "restaurantId": "veselka-east-village",
+        "travel": [
+          "Xan: about a 7–10 min walk from East Village",
+          "Yoko: about a 7–10 min walk from East Village"
+        ]
       },
       "B": {
         "kind": "result",
@@ -2517,7 +2891,12 @@
           "Anyone who didn't share a starting point is assumed to be coming from East Village.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://veselka.com/"
+        "website": "https://veselka.com/",
+        "restaurantId": "veselka-east-village",
+        "travel": [
+          "Xan: about a 7–10 min walk from East Village",
+          "Yoko: about a 7–10 min walk from East Village"
+        ]
       }
     },
     {
@@ -2579,7 +2958,14 @@
           "Where no budget was given, we treated it as unknown and leaned on usual price habits.",
           "The per‑person estimate includes tax and a 20% tip, so the actual cash outlay will be a bit higher."
         ],
-        "website": "https://birdsofafeatherny.com/"
+        "website": "https://birdsofafeatherny.com/",
+        "restaurantId": "birds-of-a-feather-williamsburg",
+        "travel": [
+          "Zuri: about 23–37 min by subway from Park Slope",
+          "Abel: about 23–37 min by subway from Park Slope",
+          "Bree: about 23–37 min by subway from Park Slope",
+          "Cole: about 23–37 min by subway from Park Slope"
+        ]
       },
       "B": {
         "kind": "result",
@@ -2607,7 +2993,14 @@
           "Where no budget was given, we treated it as unknown and leaned on usual price habits.",
           "We couldn't confirm how this place handles tables — call ahead before you go."
         ],
-        "website": "https://www.bahariestiatorio.com/"
+        "website": "https://www.bahariestiatorio.com/",
+        "restaurantId": "bahari-estiatorio-astoria",
+        "travel": [
+          "Zuri: about 43–66 min by subway from Park Slope",
+          "Abel: about 43–66 min by subway from Park Slope",
+          "Bree: about 43–66 min by subway from Park Slope",
+          "Cole: about 43–66 min by subway from Park Slope"
+        ]
       }
     },
     {
@@ -2685,7 +3078,16 @@
           "The Bee Sting pizza counts as a spicy dish for the spicy diner.",
           "Roberta's does not have seafood options for the seafood diner."
         ],
-        "website": "https://www.robertaspizza.com/"
+        "website": "https://www.robertaspizza.com/",
+        "restaurantId": "robertas-bushwick",
+        "travel": [
+          "Dex: about 24–38 min by subway from Downtown Brooklyn",
+          "Ella: about 24–38 min by subway from Downtown Brooklyn",
+          "Ford: about 24–38 min by subway from Downtown Brooklyn",
+          "Gemma: about 24–38 min by subway from Downtown Brooklyn",
+          "Hank: about 24–38 min by subway from Downtown Brooklyn",
+          "Isla: about 24–38 min by subway from Downtown Brooklyn"
+        ]
       },
       "B": {
         "kind": "result",
@@ -2710,7 +3112,16 @@
           "Anyone who didn't share a starting point is assumed to be coming from Downtown Brooklyn.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.aldilatrattoria.com/"
+        "website": "https://www.aldilatrattoria.com/",
+        "restaurantId": "al-di-la-trattoria-park-slope",
+        "travel": [
+          "Dex: about 15–24 min by subway from Downtown Brooklyn",
+          "Ella: about 15–24 min by subway from Downtown Brooklyn",
+          "Ford: about 15–24 min by subway from Downtown Brooklyn",
+          "Gemma: about 15–24 min by subway from Downtown Brooklyn",
+          "Hank: about 15–24 min by subway from Downtown Brooklyn",
+          "Isla: about 15–24 min by subway from Downtown Brooklyn"
+        ]
       }
     },
     {
@@ -2779,7 +3190,15 @@
           "Anyone who didn't share a starting point is assumed to be coming from Union Square.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.tonchinus.com/"
+        "website": "https://www.tonchinus.com/",
+        "restaurantId": "tonchin-midtown",
+        "travel": [
+          "Jory: about 13–22 min by subway from Union Square",
+          "Kyra: about 13–22 min by subway from Union Square",
+          "Liam: about 13–22 min by subway from Union Square",
+          "Mona: about 13–22 min by subway from Union Square",
+          "Nico: about 13–22 min by subway from Union Square"
+        ]
       },
       "B": {
         "kind": "result",
@@ -2805,7 +3224,15 @@
           "Anyone who didn't share a starting point is assumed to be coming from Union Square.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.thaidiner.com/"
+        "website": "https://www.thaidiner.com/",
+        "restaurantId": "thai-diner-nolita",
+        "travel": [
+          "Jory: about 14–22 min by subway from Union Square",
+          "Kyra: about 14–22 min by subway from Union Square",
+          "Liam: about 14–22 min by subway from Union Square",
+          "Mona: about 14–22 min by subway from Union Square",
+          "Nico: about 14–22 min by subway from Union Square"
+        ]
       }
     },
     {
@@ -3013,7 +3440,12 @@
           "Anyone who didn't share a starting point is assumed to be coming from Chelsea.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.lostacos1.com/"
+        "website": "https://www.lostacos1.com/",
+        "restaurantId": "los-tacos-no-1-chelsea-market",
+        "travel": [
+          "Wolf: about a 1–2 min walk from Chelsea",
+          "Xena: about a 1–2 min walk from Chelsea"
+        ]
       },
       "B": {
         "kind": "result",
@@ -3037,7 +3469,12 @@
           "Anyone who didn't share a starting point is assumed to be coming from Chelsea.",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.lostacos1.com/"
+        "website": "https://www.lostacos1.com/",
+        "restaurantId": "los-tacos-no-1-chelsea-market",
+        "travel": [
+          "Wolf: about a 1–2 min walk from Chelsea",
+          "Xena: about a 1–2 min walk from Chelsea"
+        ]
       }
     },
     {
@@ -3094,7 +3531,13 @@
           "Fits everyone's budget if you stick to a single main without extras.",
           "The budget estimate already includes tax and a 20% tip."
         ],
-        "website": "https://www.tonchinus.com/"
+        "website": "https://www.tonchinus.com/",
+        "restaurantId": "tonchin-midtown",
+        "travel": [
+          "Yoshi: about a 5–7 min walk from Midtown (Bryant Park)",
+          "Zita: about a 5–7 min walk from Midtown (Bryant Park)",
+          "Aldo: about a 5–7 min walk from Midtown (Bryant Park)"
+        ]
       },
       "B": {
         "kind": "result",
@@ -3121,7 +3564,13 @@
           "Anyone who didn't share a starting point is assumed to be coming from Midtown (Bryant Park).",
           "Where no budget was given, we treated it as unknown and leaned on usual price habits."
         ],
-        "website": "https://www.nomwah.com/chinatown"
+        "website": "https://www.nomwah.com/chinatown",
+        "restaurantId": "nom-wah-tea-parlor-chinatown",
+        "travel": [
+          "Yoshi: about 23–36 min by subway from Midtown (Bryant Park)",
+          "Zita: about 23–36 min by subway from Midtown (Bryant Park)",
+          "Aldo: about 23–36 min by subway from Midtown (Bryant Park)"
+        ]
       }
     },
     {
@@ -3185,7 +3634,14 @@
           "Where no budget was given, we treated it as unknown and leaned on usual price habits.",
           "The budget limit includes the 20% tip already accounted for in the per‑person estimate."
         ],
-        "website": "https://www.scarrspizza.com/"
+        "website": "https://www.scarrspizza.com/",
+        "restaurantId": "scarrs-pizza-lower-east-side",
+        "travel": [
+          "Blair: about 13–21 min by subway from East Village",
+          "Colm: about 13–21 min by subway from East Village",
+          "Dana: about 13–21 min by subway from East Village",
+          "Emre: about 13–21 min by subway from East Village"
+        ]
       },
       "B": {
         "kind": "result",
@@ -3212,7 +3668,14 @@
           "Where no budget was given, we treated it as unknown and leaned on usual price habits.",
           "Fits everyone's budget if you stick to a single main without extras."
         ],
-        "website": "https://www.thaidiner.com/"
+        "website": "https://www.thaidiner.com/",
+        "restaurantId": "thai-diner-nolita",
+        "travel": [
+          "Blair: about 12–21 min by subway from East Village",
+          "Colm: about 12–21 min by subway from East Village",
+          "Dana: about 12–21 min by subway from East Village",
+          "Emre: about 12–21 min by subway from East Village"
+        ]
       }
     },
     {
@@ -3272,6 +3735,1048 @@
         "kind": "no_match",
         "text": "No restaurant in the prototype's list meets everyone's must-haves."
       }
+    }
+  ],
+  "restaurants": [
+    {
+      "id": "nom-wah-tea-parlor-chinatown",
+      "name": "Nom Wah Tea Parlor",
+      "description": "chinese, cantonese, dim sum in Chinatown, Manhattan — casual, group friendly, quick.",
+      "address": "13 Doyers St, New York, NY 10013",
+      "price": "$24–$45 per person all-in ($18.85–$35.2 food only)",
+      "priceBasis": "Three to four dim sum plates (or two plates plus a noodle/rice dish) per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Shrimp dumplings ($6.85) + Shanghainese soup dumplings ($6.35) + house special roast pork bun ($5.65) — $18.85 before tax/tip",
+        "Vegetarian dumplings ($5.75) + scallion pancakes ($5.50) + spring rolls ($5.50) + egg-fried rice ($13.00) — $29.75 before tax/tip",
+        "Original 'OG' egg roll ($8.50) + shrimp siu mai ($6.85) + soup dumplings ($6.35) + pan-fried noodle in superior soy sauce ($13.50) — $35.2 before tax/tip"
+      ],
+      "dietary": [
+        "vegetarian (menu labeled): Menu legend marks Vegetarian (齋菜) items; e.g. 'Vegetarian Dumplings' (mixed vegetables and mushrooms), scallion pancakes, spring rolls",
+        "gluten free (menu labeled): Menu legend marks Gluten-free* items, with a warning about possible cross-contamination for celiac guests; gluten-free soy sauce available on request"
+      ],
+      "allergyPolicy": "\"Please let your server know of dietary restrictions or preferences, including but not limited to: shellfish and/or gluten allergies... If you have celiac disease, please be aware that there is a chance of cross-contamination in food prep with gluten products.\"",
+      "hours": [
+        "Sun 11:00 AM–9:00 PM",
+        "Mon 11:00 AM–9:00 PM",
+        "Tue 11:00 AM–9:00 PM",
+        "Wed 11:00 AM–9:00 PM",
+        "Thu 11:00 AM–9:00 PM",
+        "Fri 11:00 AM–9:00 PM",
+        "Sat 11:00 AM–9:00 PM"
+      ],
+      "tables": "reservations and walk ins",
+      "partySize": "Resy reservations only for parties of 3-5, Monday-Thursday; parties of 2 are walk-in only on all days.",
+      "vibeNotes": [
+        "The Infatuation: 'super casual diner feel with chrome barstools'; 'worth going to with a small group'; venue status Open.",
+        "Official Doyers St page: 'open everyday from 11 AM to 9 PM'; Resy reservations for parties of 3-5 Mon-Thu, parties of 2 walk-in only; menus highlight gluten-free, vegetarian and vegan items."
+      ],
+      "website": "https://www.nomwah.com/chinatown",
+      "menu": "https://www.nomwah.com/s/NYC-Menu-Legal-8_1.pdf"
+    },
+    {
+      "id": "katzs-delicatessen-lower-east-side",
+      "name": "Katz's Delicatessen",
+      "description": "deli, jewish, american in Lower East Side, Manhattan — casual, lively, quick, group friendly.",
+      "address": "205 E Houston St, New York, NY 10002",
+      "price": "$35–$54 per person all-in ($26.95–$41.9 food only)",
+      "priceBasis": "One signature hot sandwich, or a half sandwich with soup, optionally plus a bowl of matzo ball soup; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Katz's Pastrami sandwich — $30.95 before tax/tip",
+        "Katz's Pastrami sandwich ($30.95) + matzo ball soup ($10.95) — $41.9 before tax/tip",
+        "Half sandwich with matzo ball soup — $26.95 before tax/tip",
+        "Potato latkes ($17.45) + square potato knish ($7.95) (meat-free) — $25.4 before tax/tip"
+      ],
+      "dietary": [
+        "vegetarian (menu inferred): Meat-free items by description: cheese sandwich, grilled cheese, potato latkes, cheese blintzes, knishes, 'Vegetarian Baked Beans' (only the beans are labeled vegetarian)"
+      ],
+      "allergyPolicy": "None published",
+      "hours": [
+        "Sun 12:00 AM–11:00 PM",
+        "Mon 8:00 AM–11:00 PM",
+        "Tue 8:00 AM–11:00 PM",
+        "Wed 8:00 AM–11:00 PM",
+        "Thu 8:00 AM–11:00 PM",
+        "Fri 8:00 AM–12:00 AM",
+        "Sat 12:00 AM–12:00 AM"
+      ],
+      "tables": "walk in only",
+      "partySize": "Group reservations only for parties greater than 10 (call 212-254-2246); everyone else walks in.",
+      "vibeNotes": [
+        "The Infatuation: 'hurried service', 'sheer spectacle of how rapidly things move'; paper-ticket ordering; venue status Open.",
+        "Official Hours & Location: Mon-Thu 8 AM-11 PM; open Friday 8 AM through Sunday 11 PM; group reservations only for parties greater than 10."
+      ],
+      "website": "https://katzsdelicatessen.com/",
+      "menu": "https://katzsdelicatessen.com/store-menu"
+    },
+    {
+      "id": "via-carota-west-village",
+      "name": "Via Carota",
+      "description": "italian, pasta in West Village, Manhattan — date night, cozy, outdoor seating.",
+      "address": "51 Grove St, New York, NY 10014",
+      "price": "$64–$95 per person all-in ($50–$74 food only)",
+      "priceBasis": "One vegetable/antipasto plate plus one pasta, up to a starter + pasta + meat course, per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Tonnarelli cacio e pepe ($27) + insalata verde ($23) — $50 before tax/tip",
+        "Tortelli butternut squash ($25) + carote ($23) (meat-free) — $48 before tax/tip",
+        "'Nduja arancini ($17) + pappardelle wild boar ragu ($28) + pollo alla griglia ($29) — $74 before tax/tip"
+      ],
+      "dietary": [
+        "vegetarian (menu inferred): Many meat-free dishes by description (not labeled): cacio e pepe, butternut squash tortelli, Meyer lemon risotto, insalata verde, carote, funghi, porri alla cenere"
+      ],
+      "allergyPolicy": "None published",
+      "hours": [
+        "Sun 10:00 AM–11:00 PM",
+        "Mon 11:00 AM–11:00 PM",
+        "Tue 11:00 AM–11:00 PM",
+        "Wed 11:00 AM–11:00 PM",
+        "Thu 11:00 AM–11:00 PM",
+        "Fri 11:00 AM–11:00 PM",
+        "Sat 10:00 AM–11:00 PM"
+      ],
+      "tables": "reservations and walk ins",
+      "partySize": null,
+      "vibeNotes": [
+        "The Infatuation: Perfect For 'Date Nights', 'Walk-Ins'; 'takes limited reservations, but saves plenty of room for walk-ins'; long waits; venue status Open.",
+        "Official site: 'Walk-ins always welcome', Resy link, 'relaxed care and warmth', interior of heirloom keepsakes, outdoor terrazza on Grove Street; hours Mon-Thu 11am-11pm, Fri/Sat/Sun 10am-11pm (Italian text)."
+      ],
+      "website": "https://www.viacarota.com/",
+      "menu": "https://www.viacarota.com/text"
+    },
+    {
+      "id": "dirt-candy-lower-east-side",
+      "name": "Dirt Candy",
+      "description": "vegetarian, new american, tasting menu in Lower East Side, Manhattan — special occasion, upscale, counter seating.",
+      "address": "86 Allen St, New York, NY 10002",
+      "price": "$128–$128 per person all-in ($118–$118 food only)",
+      "priceBasis": "Single five-course seasonal tasting menu at $118 per person; price already includes the tip (no-tipping policy); adds 8.875% sales tax; drinks/pairings excluded.",
+      "typicalOrders": [
+        "Five-course seasonal tasting menu — $118 before tax/tip",
+        "Tasting menu + non-alcoholic beverage pairing — $163 before tax/tip"
+      ],
+      "dietary": [
+        "vegetarian (restaurant statement): Entirely vegetarian: 'We serve nothing but vegetables' (single seasonal tasting menu)",
+        "vegan (restaurant statement): 'Every single one of our dishes can be made vegan' - tell your server"
+      ],
+      "allergyPolicy": "Gluten-free diners cannot be accommodated at dinner. For other allergies, call 48 hours ahead or note it on the reservation; 'There's no guarantee we'll be able to accommodate you'.",
+      "hours": [
+        "Sun closed",
+        "Mon closed",
+        "Tue 5:30 PM–10:30 PM",
+        "Wed 5:30 PM–10:30 PM",
+        "Thu 5:30 PM–10:30 PM",
+        "Fri 5:30 PM–10:30 PM",
+        "Sat 5:30 PM–10:30 PM"
+      ],
+      "tables": "reservations and walk ins",
+      "partySize": "Credit card required to book; $50/person cancellation fee with under 24 hours' notice.",
+      "vibeNotes": [
+        "The Infatuation: Perfect For 'Special Occasions', 'Vegetarians'; 'upscale, meat-free special occasion'; 'long counter bordering an open kitchen'; venue status Open."
+      ],
+      "website": "https://www.dirtcandynyc.com/",
+      "menu": "https://www.dirtcandynyc.com/dinner-menu"
+    },
+    {
+      "id": "balthazar-soho",
+      "name": "Balthazar",
+      "description": "french, brasserie, seafood in SoHo, Manhattan — lively, romantic, bar scene.",
+      "address": "80 Spring St, New York, NY 10012",
+      "price": "$49–$97 per person all-in ($38–$75 food only)",
+      "priceBasis": "Dinner: one entrée, up to one hors d'oeuvre plus one entrée, per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Moules frites — $38 before tax/tip",
+        "Onion soup gratinée ($23) + steak frites ($49) — $72 before tax/tip",
+        "Warm goat cheese & caramelized onion tart ($24) + sweet pea ravioli ($38) (meat-free) — $62 before tax/tip",
+        "Balthazar Burger — $31 before tax/tip"
+      ],
+      "dietary": [
+        "vegetarian (menu inferred): Meat-free dishes by description (not labeled): sweet pea ravioli, Parmesan risotto, warm goat cheese tart, Bibb lettuce salad"
+      ],
+      "allergyPolicy": "\"Although every effort will be made to accommodate food allergies, we're afraid we cannot always guarantee meeting your needs.\" French fries are cooked in peanut oil.",
+      "hours": [
+        "Sun 9:00 AM–12:00 AM",
+        "Mon 8:00 AM–12:00 AM",
+        "Tue 8:00 AM–12:00 AM",
+        "Wed 8:00 AM–12:00 AM",
+        "Thu 8:00 AM–12:00 AM",
+        "Fri 8:00 AM–12:00 AM",
+        "Sat 9:00 AM–12:00 AM"
+      ],
+      "tables": "reservations",
+      "partySize": "If the online reservation isn't available, call (212) 965-1414; no email reservations.",
+      "vibeNotes": [
+        "Official: 'The bustling, romantic brasserie serves traditional French fare from breakfast through supper every day'.",
+        "The Infatuation: 'Balthazar is always a scene'; Perfect For 'People Watching', 'Brunch'; venue status Open."
+      ],
+      "website": "https://balthazarny.com/",
+      "menu": "https://balthazarny.com/menus/dinner-menu"
+    },
+    {
+      "id": "gramercy-tavern-flatiron",
+      "name": "Gramercy Tavern",
+      "description": "new american, seasonal, tasting menu in Flatiron / Union Square, Manhattan — lively, casual, upscale, special occasion.",
+      "address": "42 E 20th St, New York, NY 10003",
+      "price": "$45–$229 per person all-in ($35–$178 food only)",
+      "priceBasis": "Low end: à la carte in the front Tavern (burger, or starter + main). High end: $178 five-course seasonal menu in the Dining Room. includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "The Tavern Burger (Tavern room) — $35 before tax/tip",
+        "Market greens salad ($23) + brick pressed chicken ($36) (Tavern room) — $59 before tax/tip",
+        "Chilled corn soup ($20) + grilled summer squash ($32) (Tavern, meat-free) — $52 before tax/tip",
+        "Dining Room five-course seasonal menu — $178 before tax/tip"
+      ],
+      "dietary": [
+        "vegetarian (menu inferred): Meat-free options by description: grilled summer squash and market greens in the Tavern; heirloom tomatoes, sweet corn agnolotti, grilled eggplant, wheatberries courses in the Dining Room",
+        "vegetarian (restaurant statement): 'Dietary restrictions can be accommodated' (both rooms)"
+      ],
+      "allergyPolicy": "\"Kindly inform our team of any food allergies.\"",
+      "hours": [
+        "Sun 11:30 AM–11:00 PM",
+        "Mon 11:30 AM–11:00 PM",
+        "Tue 11:30 AM–11:00 PM",
+        "Wed 11:30 AM–11:00 PM",
+        "Thu 11:30 AM–11:00 PM",
+        "Fri 11:30 AM–11:00 PM",
+        "Sat 11:30 AM–11:00 PM"
+      ],
+      "tables": "reservations and walk ins",
+      "partySize": "The Tavern bar is available for walk-ins at all times; tables in both rooms bookable.",
+      "vibeNotes": [
+        "Official: The Tavern open everyday 11:30 AM-11:00 PM; 'lively, casual setting'; dietary restrictions can be accommodated.",
+        "The Infatuation: Perfect For 'Special Occasions', 'Fine Dining', 'Eating At The Bar'; 'a room so alive'; venue status Open.",
+        "Official: Dining Room Sun-Thu 5-9:30PM, Fri-Sat 5-10PM; 'elegant and relaxed backdrop'."
+      ],
+      "website": "https://www.gramercytavern.com/",
+      "menu": "https://www.gramercytavern.com/tavern-menu/"
+    },
+    {
+      "id": "cote-korean-steakhouse-flatiron",
+      "name": "COTE Korean Steakhouse",
+      "description": "korean, korean bbq, steakhouse in Flatiron, Manhattan — group friendly, special occasion, upscale, outdoor seating.",
+      "address": "16 W 22nd St, New York, NY 10010",
+      "price": "$106–$139 per person all-in ($82–$108 food only)",
+      "priceBasis": "Butcher's Feast ($82 per person, four cuts with accompaniments, stews and dessert), optionally plus one shared-style appetizer; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Butcher's Feast (per person) — $82 before tax/tip",
+        "Butcher's Feast ($82) + Korean 'Bacon' ($26) — $108 before tax/tip",
+        "Steak Omakase 'The Grand Tour' (per person) — $225 before tax/tip"
+      ],
+      "dietary": [],
+      "allergyPolicy": "None published",
+      "hours": [
+        "Sun 5:00 PM–11:00 PM",
+        "Mon 5:00 PM–11:00 PM",
+        "Tue 5:00 PM–11:00 PM",
+        "Wed 5:00 PM–11:00 PM",
+        "Thu 5:00 PM–12:00 AM",
+        "Fri 5:00 PM–12:00 AM",
+        "Sat 5:00 PM–12:00 AM"
+      ],
+      "tables": "reservations",
+      "partySize": "Standard reservations up to 6 guests; parties of 7-18 use group dining tables (book an event).",
+      "vibeNotes": [
+        "Official: Michelin-starred; 'refined ambiance' indoors or 'heated outdoor cabanas'; up to 6 with standard reservation, 7-18 group dining tables.",
+        "The Infatuation: Perfect For 'Big Groups', 'Birthdays', 'Night On The Town'; reservations released 30 days ahead; venue status Open."
+      ],
+      "website": "https://www.cotekoreansteakhouse.com/locations/cotenycflatiron",
+      "menu": "https://www.cotekoreansteakhouse.com/nycdinnermenu"
+    },
+    {
+      "id": "red-rooster-harlem",
+      "name": "Red Rooster Harlem",
+      "description": "american, southern, soul food in Harlem, Manhattan — lively, special occasion, family friendly, bar scene.",
+      "address": "310 Lenox Ave, New York, NY 10027",
+      "price": "$34–$58 per person all-in ($26–$45 food only)",
+      "priceBasis": "One entrée, up to one entrée plus a snack/side, per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Lenox smash burger (with fries, collards or house salad) — $26 before tax/tip",
+        "Yardbird fried chicken ($34) + cornbread ($9) — $43 before tax/tip",
+        "Roasted maitake mushroom & cauliflower ($27) + mac & greens ($14) (meat-free) — $41 before tax/tip",
+        "Shrimp & grits ($34) + hush puppies ($11) — $45 before tax/tip"
+      ],
+      "dietary": [
+        "gluten free (menu labeled): Dedicated Gluten Free Menu (e.g. roasted cauliflower without bulgur, fried catfish, shrimp & grits, NY strip)",
+        "vegetarian (menu inferred): Meat-free dishes by description (not labeled): roasted maitake mushroom & cauliflower, farmer's remix salad, sweet potato coconut soup, mac & greens"
+      ],
+      "allergyPolicy": "None published",
+      "hours": [
+        "Sun 10:00 AM–9:30 PM",
+        "Mon 12:00 PM–9:30 PM",
+        "Tue 12:00 PM–9:30 PM",
+        "Wed 12:00 PM–9:30 PM",
+        "Thu 12:00 PM–9:30 PM",
+        "Fri 12:00 PM–10:30 PM",
+        "Sat 11:00 AM–10:30 PM"
+      ],
+      "tables": "reservations",
+      "partySize": null,
+      "vibeNotes": [
+        "The Infatuation: 'feels very much alive' with regular live jazz/soul/R&B; 'Couples, families, and friends of all ages'; Perfect For 'Birthdays'; venue status Open.",
+        "Official reservations page with embedded OpenTable booking widget; separate Dining Room and Bar hours."
+      ],
+      "website": "https://www.redroosterharlem.com/",
+      "menu": "https://www.redroosterharlem.com/s/All-Day-Menu-9-30-26.pdf"
+    },
+    {
+      "id": "jacobs-pickles-upper-west-side",
+      "name": "Jacob's Pickles",
+      "description": "american, southern, comfort food in Upper West Side, Manhattan — group friendly, casual, family friendly.",
+      "address": "680 Columbus Ave, New York, NY 10025",
+      "price": "$32–$50 per person all-in ($25–$39 food only)",
+      "priceBasis": "One main (biscuit sandwich, burger, mac & cheese or home-cooking plate), up to a main plus a starter, per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Original double smash burger (with fresh-cut fries) — $25 before tax/tip",
+        "Hot chicken biscuit ($24) + fried pickles ($15) — $39 before tax/tip",
+        "Classic mac & cheese ($21) + Jacob's pickles, 4 types ($12) (meat-free) — $33 before tax/tip"
+      ],
+      "dietary": [
+        "vegetarian (menu inferred): Meat-free items by description (not labeled): veggie cheese omelette, vegetable wrap, classic mac & cheese, mushroom-gravy biscuits, house pickles"
+      ],
+      "allergyPolicy": "None published",
+      "hours": [
+        "Sun 9:00 AM–12:00 AM",
+        "Mon 10:00 AM–12:00 AM",
+        "Tue 10:00 AM–12:00 AM",
+        "Wed 10:00 AM–12:00 AM",
+        "Thu 10:00 AM–12:00 AM",
+        "Fri 10:00 AM–12:00 AM",
+        "Sat 9:00 AM–12:00 AM"
+      ],
+      "tables": "reservations",
+      "partySize": null,
+      "vibeNotes": [
+        "The Infatuation: Perfect For 'Big Groups', 'Casual Dinners', 'Brunch'; 'long tables and a big bar area'; good for 'your visiting aunt or your friend's kid'; venue status Open."
+      ],
+      "website": "https://www.jacobspickles.com/location/jacobs-pickles-upper-west-side/",
+      "menu": "https://www.jacobspickles.com/upper-west-side-menus/"
+    },
+    {
+      "id": "thai-diner-nolita",
+      "name": "Thai Diner",
+      "description": "thai, thai-american in Nolita, Manhattan — date night, special occasion, casual.",
+      "address": "186 Mott St, New York, NY 10012",
+      "price": "$34–$57 per person all-in ($26–$44 food only)",
+      "priceBasis": "One Thai classic or wok dish, up to one dish plus a snack, per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Khao soi (northern golden curry noodles) — $26 before tax/tip",
+        "Vegetarian phat thai ($24) + corn tod mun ($15) — $39 before tax/tip",
+        "Uncle Boon's khao pat puu crab fried rice ($29) + drunken dumplings ($15) — $44 before tax/tip"
+      ],
+      "dietary": [
+        "vegan (menu labeled): Items labeled 'VEGAN' or 'AVAILABLE VEGAN' (e.g. Baan salad; vegan wok dishes with vegan egg & tofu; som tum, laab, phat thai available vegan)",
+        "vegetarian (menu labeled): Wok dishes offered in a labeled 'Vegetarian (Egg, Tofu)' version; khao soi 'AVAILABLE VEGETARIAN'"
+      ],
+      "allergyPolicy": "None published",
+      "hours": [
+        "Sun 10:00 AM–10:00 PM",
+        "Mon 8:30 AM–10:30 PM",
+        "Tue 8:30 AM–10:30 PM",
+        "Wed 8:30 AM–10:30 PM",
+        "Thu 8:30 AM–11:30 PM",
+        "Fri 8:30 AM–11:30 PM",
+        "Sat 10:00 AM–11:30 PM"
+      ],
+      "tables": "reservations",
+      "partySize": "No phone contact; book via Resy.",
+      "vibeNotes": [
+        "The Infatuation: Perfect For 'Date Nights', 'Birthdays', 'Brunch'; rating 9.6; venue status Open.",
+        "Official homepage: 'THAI AMERICAN RESTAURANT', 186 Mott Street, 'NO PHONE CONTACT'; Mon-Wed 8:30am-10:30pm, Thu-Fri 8:30am-11:30pm, Sat 10am-11:30pm, Sun 10am-10:30pm; Resy link."
+      ],
+      "website": "https://www.thaidiner.com/",
+      "menu": "https://www.thaidiner.com/home-1"
+    },
+    {
+      "id": "los-tacos-no-1-chelsea-market",
+      "name": "Los Tacos No. 1 (Chelsea Market)",
+      "description": "mexican, tacos in Chelsea, Manhattan — quick, casual.",
+      "address": "75 9th Ave (Chelsea Market), New York, NY 10011",
+      "price": "$22–$30 per person all-in ($17.25–$23.2 food only)",
+      "priceBasis": "Three to four tacos (or two tacos + a quesadilla) per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Three tacos: carne asada ($5.95) + adobada ($5.65) + pollo asado ($5.65) — $17.25 before tax/tip",
+        "Two carne asada tacos ($11.90) + especial fried quesadilla ($9) — $20.9 before tax/tip",
+        "Nopal plate ($12) + chips y guacamole ($5.95) (meat-free; beans contain pork lard) — $17.95 before tax/tip"
+      ],
+      "dietary": [
+        "vegetarian (menu inferred): Nopal (grilled cactus) taco, quesadilla and plate are the only meat-free mains; menu warns 'Beans and flour tortillas contain pork lard' and adobada guacamole contains dairy - choose corn tortillas"
+      ],
+      "allergyPolicy": "None published",
+      "hours": [
+        "Sun 11:00 AM–9:00 PM",
+        "Mon 11:00 AM–10:00 PM",
+        "Tue 11:00 AM–10:00 PM",
+        "Wed 11:00 AM–10:00 PM",
+        "Thu 11:00 AM–10:00 PM",
+        "Fri 11:00 AM–10:00 PM",
+        "Sat 11:00 AM–10:00 PM"
+      ],
+      "tables": "walk in only",
+      "partySize": "Counter-service taco stand inside Chelsea Market; no reservations offered on the official site.",
+      "vibeNotes": [
+        "The Infatuation: 'an indoor taco stand'... 'a simple set-up, much like a good roadside operation'; Perfect For 'Cheap Eats'; venue status Open."
+      ],
+      "website": "https://www.lostacos1.com/",
+      "menu": "https://www.lostacos1.com/menus/"
+    },
+    {
+      "id": "hangawi-koreatown",
+      "name": "Hangawi",
+      "description": "korean, vegan, vegetarian in Koreatown / Midtown, Manhattan — quiet, cozy, group friendly.",
+      "address": "12 E 32nd St, New York, NY 10016",
+      "price": "$55–$71 per person all-in ($43–$55 food only)",
+      "priceBasis": "À la carte: one appetizer/dumpling plate plus one stone-bowl rice, hot pot or tofu main per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Spicy baby dumplings ($16) + avocado stone bowl rice ($27) — $43 before tax/tip",
+        "Organic wheat-free kale pancakes ($20) + spicy tofu kimchi hot pot ($27) — $47 before tax/tip",
+        "Black truffle dumplings ($20) + mushroom stone bowl rice with black truffle paste ($35) — $55 before tax/tip",
+        "Fall Emperor's Tasting Menu (per person, minimum 2) — $99 before tax/tip"
+      ],
+      "dietary": [
+        "vegan (restaurant statement): 'Our dishes are entirely plant based.'",
+        "vegetarian (restaurant statement): Entire menu is plant based",
+        "gluten free (menu labeled): Dedicated Gluten Free menu section (e.g. gluten free vegetable / avocado stone bowl rice) - not recommended for celiac guests due to cross-contact"
+      ],
+      "allergyPolicy": "\"We are able to accommodate some dietary restrictions, but we cannot guarantee the absence of cross contamination.\" Gluten-free dishes are not recommended for guests with celiac disease.",
+      "hours": [
+        "Sun 1:00 PM–9:30 PM",
+        "Mon 5:00 PM–9:30 PM",
+        "Tue 5:00 PM–9:30 PM",
+        "Wed 5:00 PM–9:30 PM",
+        "Thu 5:00 PM–9:30 PM",
+        "Fri 5:00 PM–9:30 PM",
+        "Sat 1:00 PM–9:30 PM"
+      ],
+      "tables": "reservations",
+      "partySize": "Groups of 5-8 have a $50/person food minimum; low tables with shoes removed.",
+      "vibeNotes": [
+        "Official About: 'a quiet sanctuary in the heart of Manhattan'; low tables, muted lighting; since 1994. Resy link on official homepage.",
+        "The Infatuation: 'feels homey and unique', 'entirely vegetarian', good 'for a group meal with some vegetarians near K-Town'; venue status Open."
+      ],
+      "website": "https://hangawirestaurant.com/",
+      "menu": "https://hangawirestaurant.com/menus/"
+    },
+    {
+      "id": "al-di-la-trattoria-park-slope",
+      "name": "Al Di Là Trattoria",
+      "description": "italian, pasta in Park Slope, Brooklyn — cozy, date night, casual.",
+      "address": "248 5th Ave, Brooklyn, NY 11215",
+      "price": "$47–$69 per person all-in ($36.5–$53.5 food only)",
+      "priceBasis": "One antipasto plus one pasta or secondo per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Fave e cicoria ($17.50) + casunziei beet & ricotta ravioli ($19) (meat-free) — $36.5 before tax/tip",
+        "Warm farro salad ($19.50) + malfatti ($23) (meat-free) — $42.5 before tax/tip",
+        "Insalata di cavolo nero ($18) + tagliatelle al ragù ($28) — $46 before tax/tip",
+        "Stracciatella ($19.50) + galletto alla diavola ($34) — $53.5 before tax/tip"
+      ],
+      "dietary": [
+        "vegetarian (menu inferred): Many meat-free dishes by description (not labeled): casunziei, malfatti, squash tortelli, ricotta ravioli, funghi & polenta, farro and radicchio salads"
+      ],
+      "allergyPolicy": "None published",
+      "hours": [
+        "Sun closed",
+        "Mon 5:00 PM–9:30 PM",
+        "Tue 5:00 PM–9:30 PM",
+        "Wed 5:00 PM–9:30 PM",
+        "Thu 5:00 PM–9:30 PM",
+        "Fri 5:00 PM–10:00 PM",
+        "Sat 5:00 PM–10:00 PM"
+      ],
+      "tables": "reservations",
+      "partySize": null,
+      "vibeNotes": [
+        "The Infatuation: 'intimate Northern Italian restaurant'; 'closely packed but comfortable dining room'; Perfect For 'Date Nights', 'Casual Dinners'; 'easy to get a reservation'; venue status Open."
+      ],
+      "website": "https://www.aldilatrattoria.com/",
+      "menu": "https://www.aldilatrattoria.com/menus/"
+    },
+    {
+      "id": "gage-and-tollner-downtown-brooklyn",
+      "name": "Gage & Tollner",
+      "description": "american, steakhouse, seafood in Downtown Brooklyn, Brooklyn — special occasion, upscale, group friendly.",
+      "address": "372 Fulton St, Brooklyn, NY 11201",
+      "price": "$67–$115 per person all-in ($52–$89 food only)",
+      "priceBasis": "One main plus one salad/appetizer/side per person, up to a prime strip with a side; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Roasted carrot risotto (V) ($34) + broiled tomatoes ($18) — $52 before tax/tip",
+        "Fried chicken ($35) + G&T Caesar ($18) — $53 before tax/tip",
+        "Steak frites (bavette) — $65 before tax/tip",
+        "NY prime strip ($74) + house-cut french fries ($15) — $89 before tax/tip"
+      ],
+      "dietary": [
+        "vegetarian (menu labeled): Roasted carrot risotto marked (V) on dinner menu; other meat-free dishes by description (crispy hen-of-the-woods mushrooms, broiled tomatoes, mixed greens)",
+        "nut free (menu labeled): Celebration cakes (72 hours' notice) labeled 'Nut-free' (birthday, lemon poppy, blackout) or 'Can be made nut-free'"
+      ],
+      "allergyPolicy": "None published",
+      "hours": [
+        "Sun 11:00 AM–10:00 PM",
+        "Mon 5:00 PM–10:00 PM",
+        "Tue 5:00 PM–10:00 PM",
+        "Wed 5:00 PM–10:00 PM",
+        "Thu 5:00 PM–10:00 PM",
+        "Fri 5:00 PM–10:00 PM",
+        "Sat 11:00 AM–10:00 PM"
+      ],
+      "tables": "reservations and walk ins",
+      "partySize": "Parties of 8-10 must reserve the prix-fixe family-style menu in advance (email reservations@gageandtollner.com); 20% gratuity for 8+.",
+      "vibeNotes": [
+        "The Infatuation: 'big chandeliers, floor-to-ceiling mirrors and red velvet booths'; 'great place to celebrate a special occasion'; Perfect For 'Special Occasions'; venue status Open.",
+        "Official Menus page: 'We accept reservations and walk-ins alike'; parties of 8-10 prix-fixe family-style; weekend brunch 11-2:45; nut-free celebration cakes."
+      ],
+      "website": "https://www.gageandtollner.com/",
+      "menu": "https://images.getbento.com/accounts/01e00818a7c206a52f282e3ab9590831/media/3e3RawGqS3qomfMAW02C_NEW%20DINNER%20MENU%2007.19.2025.pdf%20(2).pdf"
+    },
+    {
+      "id": "robertas-bushwick",
+      "name": "Roberta's",
+      "description": "pizza, italian in Bushwick, Brooklyn — outdoor seating, family friendly, group friendly.",
+      "address": "261 Moore St, Brooklyn, NY 11206",
+      "price": "$31–$60 per person all-in ($23.69–$46.35 food only)",
+      "priceBasis": "One wood-fired pizza per person, up to a pizza plus an antipasto; card prices; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Margherita pizza (card price) — $23.69 before tax/tip",
+        "Spaghettini cacio e pepe ($22.66) + marinated cucumbers ($16.48) (meat-free, card prices) — $39.14 before tax/tip",
+        "Bee Sting pizza ($26.78) + little gem salad ($19.57) (card prices) — $46.35 before tax/tip"
+      ],
+      "dietary": [
+        "vegetarian (menu inferred): Meat-free pizzas and plates by description (not labeled): Margherita, Fyre & Ice, Normcore, little gem salad, roasted honey nut squash, cacio e pepe"
+      ],
+      "allergyPolicy": "\"Menu items may contain or come into contact with WHEAT, EGGS, PEANUTS, TREE NUTS, and MILK... we are unable to guarantee that any menu item can be completely allergens free. For more information please speak to a manager.\"",
+      "hours": [
+        "Sun 11:00 AM–10:00 PM",
+        "Mon 12:00 PM–10:00 PM",
+        "Tue 12:00 PM–10:00 PM",
+        "Wed 12:00 PM–10:00 PM",
+        "Thu 12:00 PM–10:00 PM",
+        "Fri 12:00 PM–10:00 PM",
+        "Sat 11:00 AM–11:00 PM"
+      ],
+      "tables": "reservations and walk ins",
+      "partySize": "20% automatic gratuity for parties of 6 or more.",
+      "vibeNotes": [
+        "The Infatuation: Perfect For 'Sitting Outside', 'Kids', 'Birthdays', 'Day Drinking', 'Walk-Ins'; backyard birthday parties; venue status Open."
+      ],
+      "website": "https://www.robertaspizza.com/",
+      "menu": "https://cdn.prod.website-files.com/696159b904660542e3efba81/6abec02a2c06d0db7633b35b_Bushwick%20Dinner%2010_1_26%20-%20CC%20MENU.pdf"
+    },
+    {
+      "id": "casa-enrique-long-island-city",
+      "name": "Casa Enrique",
+      "description": "mexican in Long Island City, Queens — lively, special occasion.",
+      "address": "5-48 49th Ave, Long Island City, NY 11101",
+      "price": "$44–$63 per person all-in ($34–$49 food only)",
+      "priceBasis": "One taco order or main plus a shared-size starter per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Tacos de pastor ($16) + guacamole ($18) — $34 before tax/tip",
+        "Tacos veganos de la temporada ($18) + guacamole ($18) — $36 before tax/tip",
+        "Chile relleno ($26) + ensalada de betabel ($18) — $44 before tax/tip",
+        "Mole de Piaxtla ($29) + rajas con crema ($20) — $49 before tax/tip"
+      ],
+      "dietary": [
+        "vegan (menu labeled): 'Tacos veganos de la temporada' (seasonal vegan tacos) named as vegan on the dinner menu",
+        "vegetarian (menu inferred): Meat-free by description (not labeled): guacamole, rajas con crema, ensalada de betabel"
+      ],
+      "allergyPolicy": "None published",
+      "hours": [
+        "Sun 11:00 AM–10:15 PM",
+        "Mon 5:00 PM–10:15 PM",
+        "Tue 5:00 PM–10:15 PM",
+        "Wed 5:00 PM–10:15 PM",
+        "Thu 5:00 PM–10:15 PM",
+        "Fri 5:00 PM–10:30 PM",
+        "Sat 11:00 AM–10:30 PM"
+      ],
+      "tables": "reservations",
+      "partySize": null,
+      "vibeNotes": [
+        "The Infatuation: Perfect For 'Birthdays', 'Impressing Out Of Towners'; the room 'stays packed'; venue status Open."
+      ],
+      "website": "https://casaenriquelic.com/",
+      "menu": "https://casaenriquelic.com/dinner-1"
+    },
+    {
+      "id": "rolos-ridgewood",
+      "name": "Rolo's",
+      "description": "american, italian, wood-fired grill in Ridgewood, Queens — date night, lively.",
+      "address": "853 Onderdonk Ave, Ridgewood, NY 11385",
+      "price": "$36–$77 per person all-in ($28–$60 food only)",
+      "priceBasis": "One pasta or large plate plus a snack/salad per person, or the burger with potatoes; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Double cheeseburger ($20) + crispy potatoes ($8) — $28 before tax/tip",
+        "Roasted sweet corn cappelletti ($27) + leafy greens & herb salad ($15) (meat-free by description) — $42 before tax/tip",
+        "Wood-fired polenta bread with olive oil ($8) + two-sheet lasagna verde bolognese ($35) — $43 before tax/tip",
+        "Grilled swordfish ($38) + squash salad with stracciatella ($22) — $60 before tax/tip"
+      ],
+      "dietary": [
+        "vegetarian (menu inferred): Meat-free dishes by description (not labeled): polenta bread, tahini chickpeas, leafy greens salad, sungold tomato candele, sweet corn cappelletti, charred peppers"
+      ],
+      "allergyPolicy": "None published",
+      "hours": [
+        "Sun 11:00 AM–3:00 PM, 5:00 PM–10:00 PM",
+        "Mon 5:00 PM–10:00 PM",
+        "Tue 5:00 PM–10:00 PM",
+        "Wed 5:00 PM–10:00 PM",
+        "Thu 5:00 PM–10:00 PM",
+        "Fri 5:00 PM–11:00 PM",
+        "Sat 11:00 AM–3:00 PM, 5:00 PM–11:00 PM"
+      ],
+      "tables": "reservations",
+      "partySize": "Dinner groups of 8+ book by email (bigparties@rolosnyc.com); no reservations taken via email otherwise.",
+      "vibeNotes": [
+        "The Infatuation: 'busy Ridgewood restaurant'; Perfect For 'Date Nights', 'Birthdays', 'People Watching'; venue status Open."
+      ],
+      "website": "https://www.rolosnyc.com/",
+      "menu": "https://www.rolosnyc.com/menus/"
+    },
+    {
+      "id": "bahari-estiatorio-astoria",
+      "name": "Bahari Estiatorio",
+      "description": "greek, mediterranean, seafood in Astoria, Queens — group friendly, lively, special occasion, cozy.",
+      "address": "31-14 Broadway, Astoria, NY 11106",
+      "price": "$35–$73 per person all-in ($27–$56.75 food only)",
+      "priceBasis": "One main or casserole dish plus a spread/salad/pie per person, up to lamb chops with a spread sampler; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Gemista, tomatoes & peppers stuffed with herbed rice ($15) + spanakopita ($12) (meat-free) — $27 before tax/tip",
+        "Pastitsio ($19) + Elliniki (Greek) salad, small ($14) — $33 before tax/tip",
+        "Kotopoulo souvlaki ($22) + tzatziki ($12) — $34 before tax/tip",
+        "Paidakia, baby lamb chops ($39.75) + krya pikilia spread assortment, small ($17) — $56.75 before tax/tip"
+      ],
+      "dietary": [
+        "vegetarian (menu inferred): Meat-free by description (not labeled): gigantes, briam, gemista, spanakopita, tzatziki, melitzanosalata, radikia, Greek salads"
+      ],
+      "allergyPolicy": "None published",
+      "hours": [
+        "Sun 12:00 PM–12:00 AM",
+        "Mon 12:00 PM–12:00 AM",
+        "Tue 12:00 PM–12:00 AM",
+        "Wed 12:00 PM–12:00 AM",
+        "Thu 12:00 PM–12:00 AM",
+        "Fri 12:00 PM–12:00 AM",
+        "Sat 12:00 PM–12:00 AM"
+      ],
+      "tables": "unknown",
+      "partySize": "Official site has a 'Parties' page for group events; no reservation link found.",
+      "vibeNotes": [
+        "The Infatuation: 'great for big groups'; 'huge, and usually pretty busy with groups'; Perfect For 'Big Groups', 'Birthdays', 'Special Occasions'; venue status Open.",
+        "Official homepage: 31-14 Broadway, Astoria; 'OPEN DAILY MONDAY - SUNDAY 12pm - 12Midnight'; lunch special weekdays 12-4pm; 'rustic, cozy and inviting'."
+      ],
+      "website": "https://www.bahariestiatorio.com/",
+      "menu": "https://www.bahariestiatorio.com/menu"
+    },
+    {
+      "id": "jackson-diner-jackson-heights",
+      "name": "Jackson Diner",
+      "description": "indian in Jackson Heights, Queens — group friendly, casual, family friendly.",
+      "address": "37-47 74th St, Queens, NY 11372",
+      "price": "$30–$37 per person all-in ($23–$29 food only)",
+      "priceBasis": "One curry plus garlic nan and a side (rice pulao or samosa) per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Saag paneer ($14) + garlic nan ($5) + samosa ($4) — $23 before tax/tip",
+        "Chicken curry special ($16) + garlic nan ($5) + rice pulao ($4) — $25 before tax/tip",
+        "Goat curry special ($20) + garlic nan ($5) + rice pulao ($4) — $29 before tax/tip"
+      ],
+      "dietary": [
+        "vegetarian (menu labeled): Dedicated 'Vegetarian Specials' section ($14): malai kofta, saag paneer/aloo/chana, kadai paneer, chana masala, dal makhani, dal tadka; tofu and vegetable curry options"
+      ],
+      "allergyPolicy": "None published",
+      "hours": [
+        "Sun 11:30 AM–9:00 PM",
+        "Mon 11:30 AM–9:00 PM",
+        "Tue 11:30 AM–9:00 PM",
+        "Wed 11:30 AM–9:00 PM",
+        "Thu 11:30 AM–9:00 PM",
+        "Fri 11:30 AM–10:00 PM",
+        "Sat 11:30 AM–10:00 PM"
+      ],
+      "tables": "unknown",
+      "partySize": null,
+      "vibeNotes": [
+        "The Infatuation: 'big Indian restaurant'; 'one-room space is giant, so you won't have trouble bringing a group'; dishes 'mostly in the $15-20 range'; Perfect For 'Big Groups', 'Casual Dinners', 'Kids'; venue status Open."
+      ],
+      "website": "https://www.jacksondiner.com/",
+      "menu": "https://www.jacksondiner.com/restaurant-menu.html"
+    },
+    {
+      "id": "dawas-woodside",
+      "name": "Dawa's",
+      "description": "himalayan, tibetan, nepali in Woodside, Queens — casual, cozy.",
+      "address": "51-18 Skillman Ave, Queens, NY 11377",
+      "price": "$28–$43 per person all-in ($22–$33.5 food only)",
+      "priceBasis": "Two Himalayan dishes per person (e.g. momos plus a noodle or a small plate); includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Momo, beef or veg ($14) + laphing ($8) — $22 before tax/tip",
+        "Thenthuk ($16.50) + laphing ($8) — $24.5 before tax/tip",
+        "Chili cauliflower (V) ($17) + veg momo (V) ($14) — $31 before tax/tip",
+        "Chicken sekuwa ($19.50) + chicken momo ($14) — $33.5 before tax/tip"
+      ],
+      "dietary": [
+        "vegetarian (menu labeled): Dishes marked (V) on the menu: veg momo, pharsi (kabocha stew), tsel-baley, chili cauliflower, Nepali aloo. The page doesn't define (V); treated as vegetarian"
+      ],
+      "allergyPolicy": "None published",
+      "hours": [
+        "Sun 12:00 PM–10:00 PM",
+        "Mon 12:00 PM–10:00 PM",
+        "Tue closed",
+        "Wed 12:00 PM–10:00 PM",
+        "Thu 12:00 PM–10:00 PM",
+        "Fri 12:00 PM–11:00 PM",
+        "Sat 12:00 PM–11:00 PM"
+      ],
+      "tables": "unknown",
+      "partySize": null,
+      "vibeNotes": [
+        "The Infatuation: 'friendly neighborhood spot' with 'mismatched furniture, flowers on the tables'; 'go-to spots for a casual weeknight meal'; Perfect For 'Casual Dinners'; venue status Open.",
+        "Official homepage: 51-18 Skillman Avenue; Sun, Mon, Wed, Thu 12pm-10pm, Fri & Sat 12pm-11pm, closed Tue; 'warm and relaxing setting'; Himalayan menu: laphing $8, momo $14, thenthuk $16.50, chili cauliflower (V) $17, chicken sekuwa $19.50."
+      ],
+      "website": "https://www.dawasnyc.com/",
+      "menu": "https://www.dawasnyc.com/#menu-section"
+    },
+    {
+      "id": "hometown-bar-b-que-red-hook",
+      "name": "Hometown Bar-B-Que",
+      "description": "barbecue, american in Red Hook, Brooklyn — casual, lively, group friendly, outdoor seating.",
+      "address": "454 Van Brunt St, Brooklyn, NY 11231",
+      "price": "$31–$55 per person all-in ($24–$43 food only)",
+      "priceBasis": "A sandwich with a side, up to a half pound of brisket plus ribs and a side per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Pulled pork sandwich ($17) + mac & cheese, small ($7) — $24 before tax/tip",
+        "Brisket, 1/2 lb ($20) + mac & cheese, small ($7) + Texas-style pinto beans, small ($7) — $34 before tax/tip",
+        "Brisket, 1/2 lb ($20) + spare ribs, 1/2 lb ($16) + mac & cheese, small ($7) — $43 before tax/tip"
+      ],
+      "dietary": [],
+      "allergyPolicy": "None published",
+      "hours": [
+        "Sun 12:00 PM–9:00 PM",
+        "Mon unknown",
+        "Tue 12:00 PM–9:00 PM",
+        "Wed 12:00 PM–9:00 PM",
+        "Thu 12:00 PM–9:00 PM",
+        "Fri 12:00 PM–10:00 PM",
+        "Sat 12:00 PM–10:00 PM"
+      ],
+      "tables": "walk in only",
+      "partySize": "Walk-up counter service, first-come first-served.",
+      "vibeNotes": [
+        "Official homepage: 454 Van Brunt St; Sun, Tue, Wed, Thu noon-9pm, Fri-Sat noon-10pm; 'walk-up service to our counter on a first-come, first-served basis'; butcher-paper trays; live music on weekend nights.",
+        "The Infatuation: Perfect For 'Big Groups', 'Birthdays', 'Sitting Outside'; venue status Open."
+      ],
+      "website": "https://hometownbbq.com/",
+      "menu": "https://hometownbbq.com/menu-rh"
+    },
+    {
+      "id": "scarrs-pizza-lower-east-side",
+      "name": "Scarr's Pizza",
+      "description": "pizza, italian-american in Lower East Side, Manhattan — casual, lively, late night.",
+      "address": "35 Orchard St, New York, NY 10002",
+      "price": "$14–$35 per person all-in ($11–$27 food only)",
+      "priceBasis": "Two slices to go, up to half a shared 12-inch pie plus half a side, or a parm plate with garlic knots; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Original slice ($4.50) + Margherita slice ($6.50), to go — $11 before tax/tip",
+        "Half a 12-inch Hotboi pie ($34) + half an order of vegan garlic knots ($8) — $21 before tax/tip",
+        "Half a 12-inch Vegan pie ($28) + half a small vegan Caesar ($15) — $21.5 before tax/tip",
+        "Chicken parm (GF) ($19) + vegan garlic knots ($8) — $27 before tax/tip"
+      ],
+      "dietary": [
+        "vegan (menu labeled): Items named vegan: Vegan pie (NUMU vegan cheese), vegan garlic knots, vegan Caesar, vegan cheese calzone, vegan soft-serve",
+        "gluten free (menu labeled): Gluten-free 10x12 Sicilian pies (whole pie only); eggplant and chicken parm marked (GF)",
+        "vegetarian (menu inferred): Meat-free by description: Margherita, cheese slices and pies, eggplant parm (menu notes the cheese is made with cow rennet)"
+      ],
+      "allergyPolicy": "\"*Please inform your server if any person in your party has a food allergy*\"",
+      "hours": [
+        "Sun 11:30 AM–11:00 PM",
+        "Mon 11:30 AM–11:00 PM",
+        "Tue 11:30 AM–11:00 PM",
+        "Wed 11:30 AM–11:00 PM",
+        "Thu 11:30 AM–12:00 AM",
+        "Fri 11:30 AM–2:00 AM",
+        "Sat 11:30 AM–2:00 AM"
+      ],
+      "tables": "reservations and walk ins",
+      "partySize": "20% service charge for parties of 6 or more. Slice counter is walk-up; seated pies can be booked via OpenTable.",
+      "vibeNotes": [
+        "The Infatuation: 'retro slice shop... pretty lively scene'; more seating in back for full pies; Perfect For 'Casual Dinners'; venue status Open.",
+        "Official location page: 35 Orchard St; Sun-Wed 11:30am-11pm, Thu 11:30am-12am, Fri-Sat 11:30am-2am; OpenTable reservations link."
+      ],
+      "website": "https://www.scarrspizza.com/",
+      "menu": "https://www.scarrspizza.com/menus/"
+    },
+    {
+      "id": "veselka-east-village",
+      "name": "Veselka",
+      "description": "ukrainian, eastern european, diner in East Village, Manhattan — late night, lively, outdoor seating.",
+      "address": "144 2nd Ave, New York, NY 10003",
+      "price": "$32–$52 per person all-in ($25–$40 food only)",
+      "priceBasis": "A combo plate (includes soup or salad), pierogi with soup, or the 3-course Taste of Ukraine; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Vegetarian combo plate (cheese and potato pierogi, vegetarian stuffed cabbage; includes cup of soup or salad) — $25 before tax/tip",
+        "Eight handmade pierogi ($20) + cup of Ukrainian borscht ($7) — $27 before tax/tip",
+        "Beef stroganoff ($27) + cup of Ukrainian borscht ($7) — $34 before tax/tip",
+        "Taste of Ukraine 3-course meal (includes a glass of kompot) — $40 before tax/tip"
+      ],
+      "dietary": [
+        "vegetarian (menu labeled): Menu legend marks V (vegetarian): e.g. vegetarian combo plates, vegetarian holubtsi, vegetarian Reuben potato pancakes",
+        "vegan (menu labeled): Menu legend defines VG (vegan) marks, used mostly on sides",
+        "gluten free (menu labeled): Menu legend marks GF items (e.g. Ukrainian borscht); any sandwich can be made gluten-free for $3"
+      ],
+      "allergyPolicy": "\"Our kitchen utilizes common allergens such as tree nuts, gluten, and other common ingredients and we cannot guarantee that cross contamination has not taken place. For more information, please ask your server.\"",
+      "hours": [
+        "Sun 12:00 AM–11:00 PM",
+        "Mon 9:00 AM–12:00 AM",
+        "Tue 9:00 AM–12:00 AM",
+        "Wed 9:00 AM–12:00 AM",
+        "Thu 9:00 AM–12:00 AM",
+        "Fri 9:00 AM–12:00 AM",
+        "Sat 12:00 AM–12:00 AM"
+      ],
+      "tables": "reservations and walk ins",
+      "partySize": "Mostly first-come first-served with limited reservations; groups of 8+ email info@veselka.com.",
+      "vibeNotes": [
+        "Official locations page: 144 2nd Avenue; Mon-Thu 9am-12am, Fri 9am-open overnight, Sat open 24hrs, Sun 11pm close; indoor and outdoor dining; 'first come first served basis, but do take limited reservations'; 8+ email; Resy link.",
+        "The Infatuation: 24-hour policy back on weekends; dining room 'at its bustling best during brunch'; Perfect For 'Classic Establishment', 'Late Nights'; venue status Open."
+      ],
+      "website": "https://veselka.com/",
+      "menu": "https://cdn.shopify.com/s/files/1/0713/3331/4847/files/VES_9.23_MenuUpdate_260922_2ndAve_V3_17x11_PRINT.pdf?v=1790274052"
+    },
+    {
+      "id": "hanoi-house-east-village",
+      "name": "Hanoi House",
+      "description": "vietnamese in East Village, Manhattan — date night, casual, outdoor seating, lively.",
+      "address": "119 St Marks Pl, New York, NY 10009",
+      "price": "$41–$71 per person all-in ($32–$55 food only)",
+      "priceBasis": "A bowl of pho or an entree plus an appetizer per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Vegetarian pho chay ($19) + tofu summer rolls ($13) — $32 before tax/tip",
+        "Pho bac with two meats ($20) + summer rolls ($13) — $33 before tax/tip",
+        "Bun cha Ha Noi ($26) + crispy spring rolls ($12) — $38 before tax/tip",
+        "Shaking beef ($36) + papaya & pig ear salad ($19) — $55 before tax/tip"
+      ],
+      "dietary": [
+        "vegetarian (menu labeled): 'Vegetarian - Pho Chay' (mushroom & ginger broth, tofu) and a vegetarian pho broth option are labeled; tofu summer rolls by description"
+      ],
+      "allergyPolicy": "\"If you have a food allergy, please notify your server! We have a small kitchen with shared work surfaces so we cannot guarantee that any dish is 100% allergen free. However we will do our absolute best to accommodate you.\"",
+      "hours": [
+        "Sun 11:30 AM–3:30 PM, 5:30 PM–9:00 PM",
+        "Mon 5:30 PM–9:30 PM",
+        "Tue 5:30 PM–9:30 PM",
+        "Wed 5:30 PM–9:30 PM",
+        "Thu 5:30 PM–9:30 PM",
+        "Fri 5:30 PM–10:30 PM",
+        "Sat 11:30 AM–3:30 PM, 5:30 PM–10:30 PM"
+      ],
+      "tables": "reservations",
+      "partySize": "Reservations through a form on the official site (booking provider not exposed).",
+      "vibeNotes": [
+        "The Infatuation: 'reserve a table... inside or outside on the sidewalk patio that always feels like a pho-powered St. Marks party'; Perfect For 'Brunch', 'Casual Dinners', 'Date Nights'; venue status Open."
+      ],
+      "website": "https://www.hanoihousenyc.com/",
+      "menu": "https://www.hanoihousenyc.com/menu-hanoi-house/"
+    },
+    {
+      "id": "tonchin-midtown",
+      "name": "Tonchin",
+      "description": "japanese, ramen in Midtown, Manhattan — casual, solo friendly.",
+      "address": "13 W 36th St, New York, NY 10018",
+      "price": "$28–$53 per person all-in ($22–$41 food only)",
+      "priceBasis": "One bowl of ramen, optionally with a bite or gyoza, up to tsukemen with gyoza; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Tonchin classic Tokyo tonkotsu ramen — $22 before tax/tip",
+        "Miso ginger ramen with vegan noodles and broth ($22) + one bite, e.g. kyuri (V & GF) ($9) — $31 before tax/tip",
+        "Spicy tan tan ramen ($23) + one bite ($9) — $32 before tax/tip",
+        "Original tsukemen ($25) + gyoza ($16) — $41 before tax/tip"
+      ],
+      "dietary": [
+        "vegan (menu labeled): Menu legend 'V = VEGAN': edamame, kyuri, kimchi mushrooms marked (V); shishito 'can be made vegan'; miso ginger ramen uses vegan noodles and vegan miso broth; ban ban kinoko uses a vegan sauce",
+        "vegetarian (menu labeled): Menu legend 'VG = VEGETARIAN': e.g. Tonchin salad (VG)",
+        "gluten free (menu labeled): Menu legend 'GF = GLUTEN FREE': e.g. kyuri (V & GF), potato & crab salad (GF), spicy maguro (GF)"
+      ],
+      "allergyPolicy": "\"* No substitutions. No modifications. Please notify your server of any allergies*\"",
+      "hours": [
+        "Sun 11:30 AM–10:00 PM",
+        "Mon 11:30 AM–10:00 PM",
+        "Tue 11:30 AM–10:00 PM",
+        "Wed 11:30 AM–10:00 PM",
+        "Thu 11:30 AM–10:00 PM",
+        "Fri 11:30 AM–10:00 PM",
+        "Sat 11:30 AM–10:00 PM"
+      ],
+      "tables": "reservations",
+      "partySize": null,
+      "vibeNotes": [
+        "The Infatuation: 'cool ramen place near Penn Station'; Perfect For 'Casual Dinners', 'Dining Solo', 'Eating At The Bar'; venue status Open."
+      ],
+      "website": "https://www.tonchinus.com/",
+      "menu": "https://www.tonchinus.com/new-york-menu"
+    },
+    {
+      "id": "miss-ada-fort-greene",
+      "name": "Miss Ada",
+      "description": "mediterranean, israeli, middle eastern in Fort Greene, Brooklyn — outdoor seating, date night, casual, cozy.",
+      "address": "184 DeKalb Ave, Brooklyn, NY 11205",
+      "price": "$41–$66 per person all-in ($32–$51 food only)",
+      "priceBasis": "One mezze or crudo plus a hummus masabaha, vegetable plate or entree per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Sweet potato hummus (GF, DF, V) ($14) + chicken shawarma hummus masabaha ($18) — $32 before tax/tip",
+        "Muhammara (GF, DF, V) ($14) + grilled radicchio (GF, DF, V) ($26) — $40 before tax/tip",
+        "Babaganoush ($13) + half brick chicken ($30) — $43 before tax/tip",
+        "Hiramasa crudo ($19) + hanger steak ($32) — $51 before tax/tip"
+      ],
+      "dietary": [
+        "vegan (menu labeled): Legend 'V = Can be served Vegan': muhammara, sweet potato hummus, olives, fall salad, market and kale salads, crispy cauliflower, grilled radicchio",
+        "gluten free (menu labeled): Legend 'GF = Can be served Gluten Free' on most dishes (crudo, mezze, masabaha, skewers, entrees)",
+        "dairy free (menu labeled): Legend 'DF = Can be served Dairy Free' (e.g. babaganoush, shawarma masabaha, chicken thigh, salmon)"
+      ],
+      "allergyPolicy": "\"Here at Miss Ada we take food allergies very seriously... We are happy to provide guidance on avoiding allergens, but cannot guarantee menu items are free of cross contamination. As a restaurant that uses nuts, gluten, dairy, sesame, and eggs heavily, there will always be some risk of cross contamination...\"",
+      "hours": [
+        "Sun 11:00 AM–2:30 PM, 5:00 PM–9:00 PM",
+        "Mon unknown",
+        "Tue 5:30 PM–10:00 PM",
+        "Wed 5:30 PM–10:00 PM",
+        "Thu 5:30 PM–10:00 PM",
+        "Fri 5:00 PM–10:00 PM",
+        "Sat 11:00 AM–2:30 PM, 5:00 PM–10:00 PM"
+      ],
+      "tables": "reservations",
+      "partySize": null,
+      "vibeNotes": [
+        "Official homepage/menu: 184 DeKalb Ave; Tue-Thu 5:30-10pm, Fri-Sat 5-10pm, Sun 5-9pm, Sat & Sun brunch 11am-2:30pm; DF/GF/V 'can be served' legend; allergy statement; backyard garden; Resy link; mezze $12-14, masabaha $18-20, entrees $26-32.",
+        "The Infatuation: 'small, comfortable spot in Fort Greene... with an outdoor garden in the back'; Perfect For 'Casual Dinners', 'Date Nights', 'Eating At The Bar', 'Sitting Outside'; venue status Open."
+      ],
+      "website": "https://www.missadanyc.com/",
+      "menu": "https://www.missadanyc.com/#menu-section"
+    },
+    {
+      "id": "sushi-katsuei-park-slope",
+      "name": "Sushi Katsuei",
+      "description": "japanese, sushi, omakase in Park Slope, Brooklyn — date night, counter seating.",
+      "address": "210 7th Ave, Brooklyn, NY 11215",
+      "price": "$70–$103 per person all-in ($54–$80 food only)",
+      "priceBasis": "Ten a la carte nigiri pieces, the Omasu sushi set, or the Omakon sushi + sashimi set per person; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "A la carte nigiri, 2 pieces each: maguro ($6), hamachi ($6), nama sake ($4.50), hotate ($5.50), unagi ($5) — $54 before tax/tip",
+        "Omasu: 9 chef-selected nigiri + 1 hand roll — $60 before tax/tip",
+        "Omakon: 5 kinds of sashimi + 6 nigiri + 1 hand roll — $80 before tax/tip"
+      ],
+      "dietary": [
+        "kosher (menu labeled): Omakase menu states '*Kosher Option Available'"
+      ],
+      "allergyPolicy": "\"Kindly inform your server of any food allergies before placing your order.\"",
+      "hours": [
+        "Sun 3:30 PM–9:30 PM",
+        "Mon 3:30 PM–9:30 PM",
+        "Tue closed",
+        "Wed 3:30 PM–9:30 PM",
+        "Thu 3:30 PM–9:30 PM",
+        "Fri 3:30 PM–9:30 PM",
+        "Sat 3:30 PM–9:30 PM"
+      ],
+      "tables": "reservations and walk ins",
+      "partySize": "Dining-room tables on Resy; sushi-bar omakase reservations by phone (718-788-5338) only. Walk-ins welcome.",
+      "vibeNotes": [
+        "The Infatuation: 'Brooklyn's best sushi restaurant'; Perfect For 'Date Nights'; venue (210 7th Ave.) status Open.",
+        "Official reservation page: dining room on Resy; omakase at the sushi bar counter by phone; 'We also welcome walk-in guests'; 210 7th Ave."
+      ],
+      "website": "https://www.sushikatsuei.com/parkslope-brooklyn-ny/",
+      "menu": "https://www.sushikatsuei.com/parkslope-brooklyn-ny/menu/"
+    },
+    {
+      "id": "birds-of-a-feather-williamsburg",
+      "name": "Birds of a Feather",
+      "description": "chinese, sichuan in Williamsburg, Brooklyn — group friendly, casual.",
+      "address": "191 Grand St, Brooklyn, NY 11211",
+      "price": "$34–$59 per person all-in ($26–$46 food only)",
+      "priceBasis": "One noodle/entree plus a dim sum or cold appetizer per person (family-style sharing works the same per head); includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Dan dan noodles ($14) + steamed soup buns ($12) — $26 before tax/tip",
+        "Ma po tofu ($20) + scallion pancakes (V) ($10) — $30 before tax/tip",
+        "Fried eggplant accordions (V) ($18) + vegetable potstickers (V) ($12) + purple rice ($3) — $33 before tax/tip",
+        "Spicy cumin lamb ($32) + seared baby cucumbers (V GF) ($14) — $46 before tax/tip"
+      ],
+      "dietary": [
+        "vegetarian (menu labeled): Dishes marked V (e.g. wood ears with pickled peppers, Sichuan cold noodles, vegetable potstickers, fried eggplant, snow pea shoots). V marks include an egg dish (thousand-year egg tofu rolls), so V means vegetarian, not vegan",
+        "gluten free (menu labeled): Dishes marked GF (e.g. okra with Sichuan pepper sauce, string beans in ginger sauce, shrimp dumplings, celtuce, mustard-green fried rice)"
+      ],
+      "allergyPolicy": "None published",
+      "hours": [
+        "Sun 11:00 AM–10:00 PM",
+        "Mon 12:00 PM–10:00 PM",
+        "Tue 12:00 PM–10:00 PM",
+        "Wed 12:00 PM–10:00 PM",
+        "Thu 12:00 PM–10:00 PM",
+        "Fri 12:00 PM–10:30 PM",
+        "Sat 11:00 AM–10:30 PM"
+      ],
+      "tables": "reservations",
+      "partySize": "Corkage $40 per 750ml bottle; outside dessert $3 per person (max $30 per party).",
+      "vibeNotes": [
+        "The Infatuation: 'Szechuan spot in Williamsburg that's great for small groups'; Perfect For 'Casual Dinners'; venue status Open."
+      ],
+      "website": "https://birdsofafeatherny.com/",
+      "menu": "https://birdsofafeatherny.com/menu"
+    },
+    {
+      "id": "june-wine-bar-cobble-hill",
+      "name": "June",
+      "description": "wine bar, new american in Cobble Hill, Brooklyn — cozy, date night, outdoor seating.",
+      "address": "231 Court St, Brooklyn, NY 11201",
+      "price": "$44–$80 per person all-in ($34–$62 food only)",
+      "priceBasis": "A snack plate with bread, up to a starter plus a main per person; wine not included; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Cheese plate ($25) + bread & butter ($9) — $34 before tax/tip",
+        "Beet hummus with crudite ($18) + June burger with fries ($28) — $46 before tax/tip",
+        "Heirloom tomato ($18) + half chicken ($36) — $54 before tax/tip",
+        "Hamachi crudo ($21) + striped bass ($41) — $62 before tax/tip"
+      ],
+      "dietary": [
+        "vegetarian (menu inferred): Meat-free by description (not labeled): heirloom tomato, burrata, beet hummus, fennel salad, cheese plate"
+      ],
+      "allergyPolicy": "\"*Please let your server know if you have any allergies or dietary restrictions\"",
+      "hours": [
+        "Sun 10:00 AM–11:00 PM",
+        "Mon 4:00 PM–12:00 AM",
+        "Tue 4:00 PM–12:00 AM",
+        "Wed 4:00 PM–12:00 AM",
+        "Thu 4:00 PM–12:00 AM",
+        "Fri 4:00 PM–1:00 AM",
+        "Sat 10:00 AM–1:00 AM"
+      ],
+      "tables": "reservations",
+      "partySize": null,
+      "vibeNotes": [
+        "The Infatuation: 'dark, cozy wine bar/date spot in Cobble Hill with a nice back patio'; Perfect For 'Date Nights', 'Drinking Great Wine', 'Sitting Outside'; venue status Open."
+      ],
+      "website": "https://www.junebk.com/",
+      "menu": "https://www.junebk.com/s/Dinner-6.pdf"
+    },
+    {
+      "id": "emily-clinton-hill",
+      "name": "Emily",
+      "description": "pizza, american, burgers in Clinton Hill, Brooklyn — date night, group friendly, casual.",
+      "address": "919 Fulton St, Brooklyn, NY 11238",
+      "price": "$26–$57 per person all-in ($20–$44 food only)",
+      "priceBasis": "One pizza per person, the Emmy burger, or a pizza plus a salad; includes 8.875% NYC sales tax and a 20% tip on the pre-tax food subtotal; drinks excluded.",
+      "typicalOrders": [
+        "Red Planet pizza (meat-free by description) — $20 before tax/tip",
+        "Famous Original Dan's vodka pizza — $22 before tax/tip",
+        "Emmy Burger with fries — $31 before tax/tip",
+        "Emily pizza ($26) + heirloom tomato salad ($18) — $44 before tax/tip"
+      ],
+      "dietary": [
+        "vegetarian (menu inferred): Meat-free pizzas and plates by description (not labeled): The Classic, Red Planet, Modern, Vivrant Thing, Famous Original Dan's, Quinn, Lady Pizza Girl, Emerald, raw broccoli salad"
+      ],
+      "allergyPolicy": "None published",
+      "hours": [
+        "Sun 12:00 PM–3:30 PM, 5:00 PM–9:00 PM",
+        "Mon 5:00 PM–9:00 PM",
+        "Tue 5:00 PM–9:00 PM",
+        "Wed 5:00 PM–9:00 PM",
+        "Thu 5:00 PM–9:00 PM",
+        "Fri 5:00 PM–9:30 PM",
+        "Sat 12:00 PM–3:30 PM, 5:00 PM–9:30 PM"
+      ],
+      "tables": "reservations",
+      "partySize": null,
+      "vibeNotes": [
+        "The Infatuation (updated Oct 2021): 'still a great place for a group dinner or a casual weeknight meal at the bar'; Perfect For 'First Dates'; venue status Open."
+      ],
+      "website": "https://www.pizzalovesemily.com/",
+      "menu": "https://www.pizzalovesemily.com/menus-brooklyn/"
     }
   ]
 }
