@@ -1,0 +1,13 @@
+{
+  "experimentVersion": "exp-v1",
+  "amendments": [
+    {
+      "date": "2026-10-06",
+      "decidedAfterHeldOutRuns": true,
+      "affectsMeasurements": false,
+      "change": "Human review reduced from all 40 held-out scenarios with per-diner fit and explanation ratings to a lighter pass: only the 23 scenarios where the two methods' first fixed-state runs recommend different restaurants, recording overall preference (A / B / tie / neither acceptable) only. Each diner's synthetic profile and top places are shown inline.",
+      "reason": "Time: a full review requires cross-referencing every diner's profile and restaurant details. Scenarios with identical picks (9), both no-match (7), or a failed side (1) carry little or no preference signal.",
+      "consequences": "Human evidence covers 23/40 scenarios with one reviewer who is also the developer. Per-diner human fit scores are not collected, so judge validation is limited to preference agreement. Unchanged: A/B order, packet contents, and all automated runs and metrics."
+    }
+  ]
+}

@@ -8,7 +8,7 @@
  */
 import fs from "node:fs";
 import type { RunRecord } from "../../src/experiment/simulate";
-import { meetingArea } from "../../src/shared/data";
+import { meetingArea, profile } from "../../src/shared/data";
 import { formatDiningTime } from "../../src/shared/time";
 import { clockLabel } from "../../src/server/hours";
 import { describeTravel, estimateTravel } from "../../src/server/travel";
@@ -96,8 +96,12 @@ const items = scenarios.map((s) => {
   const base = runs.find((r) => r.scenarioId === s.id && r.method === "llm_baseline");
   const clefIsA = rand() < 0.5;
   const area = meetingArea(s.meetingAreaId)!;
+  const A = card(clefIsA ? clef : base, s.id);
+  const B = card(clefIsA ? base : clef, s.id);
   return {
     item: {
+      /** True when both sides recommend different restaurants (the lighter review pass). */
+      differs: A.kind === "result" && B.kind === "result" && A.restaurantId !== B.restaurantId,
       scenarioId: s.id,
       when: formatDiningTime(s.diningAt),
       meetingArea: area.name,
@@ -108,9 +112,15 @@ const items = scenarios.map((s) => {
         request: d.text ?? "(didn't respond in time)",
         clarifications: Object.values(d.facts),
         startingPoint: d.startAreaId ? meetingArea(d.startAreaId)!.name : `${area.name} (default)`,
+        profile: (() => {
+          const pr = profile(d.profileId);
+          return pr
+            ? { label: pr.label, blurb: pr.blurb, topPlaces: pr.history.slice(0, 5).map((h) => `#${h.rank} ${h.name} (${h.cuisines.join("/")})${h.note ? ` — ${h.note}` : ""}`) }
+            : null;
+        })(),
       })),
-      A: card(clefIsA ? clef : base, s.id),
-      B: card(clefIsA ? base : clef, s.id),
+      A,
+      B,
     },
     key: { scenarioId: s.id, A: clefIsA ? "clef" : "llm_baseline", B: clefIsA ? "llm_baseline" : "clef", runIds: { clef: clef?.runId ?? null, llm_baseline: base?.runId ?? null } },
   };

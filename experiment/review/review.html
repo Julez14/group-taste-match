@@ -32,6 +32,7 @@
   .done { border-color: #3a9a5b; }
   select { font: inherit; }
   .linkish { background: none; border: 0; padding: 0; color: inherit; font: inherit; cursor: pointer; text-align: left; text-decoration: underline; text-decoration-color: #c9d6d8; text-underline-offset: 3px; }
+  .profile { margin: 2px 0 6px; font-size: 13px; }
   .ghost { background: #fff; color: var(--teal); border: 1.3px solid var(--teal); }
   .scrim { position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 5; display: none; }
   .scrim.open { display: block; }
@@ -71,6 +72,9 @@
 const $ = (s, el = document) => el.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 let state = { reviewer: null, responses: {} };
+// Lighter pass (default): only scenarios where the two sides picked different restaurants,
+// preference only, with each diner's profile inline. The full form remains at /#full.
+const LIGHT = location.hash !== "#full";
 
 function cardHtml(c) {
   if (c.kind !== "result") return `<h3>${c.kind === "no_match" ? "No match" : "No outcome"}</h3><p>${esc(c.text)}</p>`;
@@ -86,6 +90,7 @@ function cardHtml(c) {
 }
 
 function scoreGrid(item, side) {
+  if (LIGHT) return "";
   const r = state.responses[item.scenarioId] ?? {};
   const rows = item.diners.map((d) => {
     const cur = r.fit?.[side]?.[d.id];
@@ -96,13 +101,15 @@ function scoreGrid(item, side) {
     <div style="margin-top:8px">Explanation quality <select data-expl="${side}"><option value="">–</option>${[1,2,3,4,5].map((v) => `<option ${String(eq) === String(v) ? "selected" : ""}>${v}</option>`).join("")}</select></div>`;
 }
 
+const visible = (packet) => (LIGHT ? packet.items.filter((i) => i.differs) : packet.items);
+
 function render(packet) {
   const root = $("#root");
-  root.innerHTML = packet.items.map((item) => {
+  root.innerHTML = (LIGHT ? `<p class="muted" style="margin:0 0 16px">Lighter pass: ${visible(packet).length} scenarios where the two outcomes are different restaurants. Pick the better choice for the whole group mainly on the restaurant; use the explanation only to break ties or if it's wrong. Profiles are synthetic, and tonight's request outranks history. <a href="/#full">Full form</a></p>` : "") + visible(packet).map((item) => {
     const r = state.responses[item.scenarioId] ?? {};
     return `<section class="scenario ${r.preference ? "done" : ""}" data-id="${item.scenarioId}">
       <h2>${item.scenarioId} · ${esc(item.when)} · near ${esc(item.meetingArea)} · party of ${item.partySize}</h2>
-      <ul class="diners">${item.diners.map((d) => `<li><b>${esc(d.name)}</b> <span class="muted">(from ${esc(d.startingPoint)})</span>: “${esc(d.request)}”${d.clarifications.length ? ` <span class="muted">— clarified: “${esc(d.clarifications.join(" "))}”</span>` : ""}</li>`).join("")}</ul>
+      <ul class="diners">${item.diners.map((d) => `<li><b>${esc(d.name)}</b> <span class="muted">(from ${esc(d.startingPoint)})</span>: “${esc(d.request)}”${d.clarifications.length ? ` <span class="muted">— clarified: “${esc(d.clarifications.join(" "))}”</span>` : ""}${d.profile ? `<div class="profile"><span class="tag">${esc(d.profile.label)}</span> <span class="muted">${esc(d.profile.blurb)}</span><div class="muted">Usual favorites: ${d.profile.topPlaces.map(esc).join(" · ")}</div></div>` : ""}</li>`).join("")}</ul>
       <div class="cards">
         <div class="card"><div class="muted">A</div>${cardHtml(item.A)}${scoreGrid(item, "A")}</div>
         <div class="card"><div class="muted">B</div>${cardHtml(item.B)}${scoreGrid(item, "B")}</div>
@@ -134,8 +141,9 @@ function guideHtml(list) {
 }
 
 function updateProgress(packet) {
-  const done = packet.items.filter((i) => state.responses[i.scenarioId]?.preference).length;
-  $("#progress").textContent = `${done}/${packet.items.length} preferences recorded`;
+  const items = visible(packet);
+  const done = items.filter((i) => state.responses[i.scenarioId]?.preference).length;
+  $("#progress").textContent = `${done}/${items.length} preferences recorded`;
 }
 
 async function save() {
@@ -169,6 +177,10 @@ function renderGuidePage(packet) {
   draw();
   jump();
 }
+
+window.addEventListener("hashchange", () => {
+  if (!location.hash.startsWith("#guide")) location.reload();
+});
 
 (async () => {
   if (location.hash.startsWith("#guide")) {
