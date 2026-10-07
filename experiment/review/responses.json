@@ -1,0 +1,100 @@
+{
+  "reviewer": "Julian",
+  "responses": {
+    "S03": {
+      "preference": "B"
+    },
+    "S04": {
+      "preference": "A"
+    },
+    "S05": {
+      "preference": "B",
+      "reason": "Both options are bad because the correct answer was Tonchin for ramen. It's midtown manhattan so i don't see why this was chosen. B has a slight edge because Mo loves Birds of a Feather and Sichuan food and they want a big bowl of noodles which Birds of a Feather seems to have more noodle dishes."
+    },
+    "S06": {
+      "reason": "Both chose the cheapest taco option which is good."
+    },
+    "S09": {
+      "reason": "Clear winner. No one said they wanted Thai food. Hanoi House is closer too.",
+      "preference": "A"
+    },
+    "S10": {
+      "reason": "B is closer to everyone and serves Italian which at least one member wanted.",
+      "preference": "B"
+    },
+    "S11": {
+      "preference": "B",
+      "reason": "No one said they wanted Ukrainian food."
+    },
+    "S12": {
+      "preference": "B"
+    },
+    "S15": {
+      "preference": "A",
+      "reason": "closer, date night, more budget friendly for Finn. Even though both are under Finn's budget, him even mentioning a budget implies that he is cost-sensitive, so more weight to Thai Diner."
+    },
+    "S16": {
+      "preference": "A",
+      "reason": "the group wants nice atmosphere, not casual."
+    },
+    "S17": {
+      "preference": "B",
+      "reason": "somewhere that mina hasn't tried"
+    },
+    "S18": {
+      "preference": "A",
+      "reason": "closer and cheaper"
+    },
+    "S22": {
+      "preference": "A"
+    },
+    "S23": {
+      "preference": "A"
+    },
+    "S28": {
+      "preference": "A"
+    },
+    "S30": {
+      "preference": "B"
+    },
+    "S33": {
+      "preference": "tie"
+    },
+    "S35": {
+      "preference": "A"
+    },
+    "S36": {
+      "preference": "B",
+      "reason": "Group doesn't really have preferences. Tonchin is better simply because it's closer."
+    },
+    "S40": {
+      "reason": "No one has been to Balthazar and Dara requested this.",
+      "preference": "A"
+    },
+    "S41": {
+      "reason": "",
+      "preference": "A"
+    },
+    "S46": {
+      "preference": "neither",
+      "reason": "Neither options are Italian or sushi"
+    },
+    "S47": {
+      "reason": "",
+      "preference": "A"
+    },
+    "S48": {
+      "preference": "A",
+      "reason": "Kyra likes Tonchin"
+    },
+    "S58": {
+      "preference": "neither",
+      "reason": "neither are korean. B chose slightly better for budget. A chose better in terms of distance."
+    },
+    "S59": {
+      "reason": "A budget limit is more reasonable than unlimited budget",
+      "preference": "A"
+    }
+  },
+  "savedAt": "2026-10-07T02:11:13.920Z"
+}

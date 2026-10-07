@@ -19,8 +19,9 @@
   "vars": {
     // "live" calls Workers AI; set PROVIDER_MODE=fixture in .dev.vars for offline UI work.
     "PROVIDER_MODE": "live",
-    // Provisional until the experiment report sets it from the evidence.
-    "DECISION_METHOD": "clef",
+    // Provisional default from exp-v1 (see Beli_Group_Explore_Experiment_Report.md):
+    // automated quality tied; blinded human A/B preferred the baseline 15–5. Clef stays available.
+    "DECISION_METHOD": "llm_baseline",
     "AI_GATEWAY_ID": "group-taste-match"
   },
   "observability": { "enabled": true }

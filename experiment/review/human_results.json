@@ -1,0 +1,301 @@
+{
+  "collected": true,
+  "reviewers": 1,
+  "reviewer": "Julian",
+  "disclosure": "Single human reviewer, who is also the developer.",
+  "sample": 40,
+  "tally": {
+    "clef": 5,
+    "llm_baseline": 17,
+    "tie": 1,
+    "neither": 2,
+    "missing": 15
+  },
+  "clefWinShareOfDecided": 0.22727272727272727,
+  "disagreementsWithModelJudge": [
+    {
+      "scenarioId": "S04",
+      "human": "llm_baseline",
+      "model": "tie",
+      "reason": null
+    },
+    {
+      "scenarioId": "S17",
+      "human": "clef",
+      "model": "llm_baseline",
+      "reason": "somewhere that mina hasn't tried"
+    },
+    {
+      "scenarioId": "S18",
+      "human": "llm_baseline",
+      "model": "tie",
+      "reason": "closer and cheaper"
+    },
+    {
+      "scenarioId": "S22",
+      "human": "llm_baseline",
+      "model": "clef",
+      "reason": null
+    },
+    {
+      "scenarioId": "S23",
+      "human": "llm_baseline",
+      "model": "tie",
+      "reason": null
+    },
+    {
+      "scenarioId": "S30",
+      "human": "clef",
+      "model": "tie",
+      "reason": null
+    },
+    {
+      "scenarioId": "S35",
+      "human": "llm_baseline",
+      "model": "clef",
+      "reason": null
+    },
+    {
+      "scenarioId": "S36",
+      "human": "llm_baseline",
+      "model": "tie",
+      "reason": "Group doesn't really have preferences. Tonchin is better simply because it's closer."
+    },
+    {
+      "scenarioId": "S40",
+      "human": "clef",
+      "model": "llm_baseline",
+      "reason": "No one has been to Balthazar and Dara requested this."
+    },
+    {
+      "scenarioId": "S47",
+      "human": "llm_baseline",
+      "model": "tie",
+      "reason": ""
+    },
+    {
+      "scenarioId": "S48",
+      "human": "llm_baseline",
+      "model": "tie",
+      "reason": "Kyra likes Tonchin"
+    },
+    {
+      "scenarioId": "S59",
+      "human": "clef",
+      "model": "tie",
+      "reason": "A budget limit is more reasonable than unlimited budget"
+    }
+  ],
+  "perScenario": [
+    {
+      "scenarioId": "S03",
+      "preference": "llm_baseline",
+      "modelPreference": null,
+      "reason": null
+    },
+    {
+      "scenarioId": "S04",
+      "preference": "llm_baseline",
+      "modelPreference": "tie",
+      "reason": null
+    },
+    {
+      "scenarioId": "S05",
+      "preference": "clef",
+      "modelPreference": "clef",
+      "reason": "Both options are bad because the correct answer was Tonchin for ramen. It's midtown manhattan so i don't see why this was chosen. B has a slight edge because Mo loves Birds of a Feather and Sichuan food and they want a big bowl of noodles which Birds of a Feather seems to have more noodle dishes."
+    },
+    {
+      "scenarioId": "S06",
+      "preference": null
+    },
+    {
+      "scenarioId": "S09",
+      "preference": "llm_baseline",
+      "modelPreference": "llm_baseline",
+      "reason": "Clear winner. No one said they wanted Thai food. Hanoi House is closer too."
+    },
+    {
+      "scenarioId": "S10",
+      "preference": "llm_baseline",
+      "modelPreference": "llm_baseline",
+      "reason": "B is closer to everyone and serves Italian which at least one member wanted."
+    },
+    {
+      "scenarioId": "S11",
+      "preference": "llm_baseline",
+      "modelPreference": "llm_baseline",
+      "reason": "No one said they wanted Ukrainian food."
+    },
+    {
+      "scenarioId": "S12",
+      "preference": "llm_baseline",
+      "modelPreference": "llm_baseline",
+      "reason": null
+    },
+    {
+      "scenarioId": "S15",
+      "preference": "llm_baseline",
+      "modelPreference": "llm_baseline",
+      "reason": "closer, date night, more budget friendly for Finn. Even though both are under Finn's budget, him even mentioning a budget implies that he is cost-sensitive, so more weight to Thai Diner."
+    },
+    {
+      "scenarioId": "S16",
+      "preference": "llm_baseline",
+      "modelPreference": "llm_baseline",
+      "reason": "the group wants nice atmosphere, not casual."
+    },
+    {
+      "scenarioId": "S17",
+      "preference": "clef",
+      "modelPreference": "llm_baseline",
+      "reason": "somewhere that mina hasn't tried"
+    },
+    {
+      "scenarioId": "S18",
+      "preference": "llm_baseline",
+      "modelPreference": "tie",
+      "reason": "closer and cheaper"
+    },
+    {
+      "scenarioId": "S21",
+      "preference": null
+    },
+    {
+      "scenarioId": "S22",
+      "preference": "llm_baseline",
+      "modelPreference": "clef",
+      "reason": null
+    },
+    {
+      "scenarioId": "S23",
+      "preference": "llm_baseline",
+      "modelPreference": "tie",
+      "reason": null
+    },
+    {
+      "scenarioId": "S24",
+      "preference": null
+    },
+    {
+      "scenarioId": "S27",
+      "preference": null
+    },
+    {
+      "scenarioId": "S28",
+      "preference": "llm_baseline",
+      "modelPreference": "llm_baseline",
+      "reason": null
+    },
+    {
+      "scenarioId": "S29",
+      "preference": null
+    },
+    {
+      "scenarioId": "S30",
+      "preference": "clef",
+      "modelPreference": "tie",
+      "reason": null
+    },
+    {
+      "scenarioId": "S33",
+      "preference": "tie",
+      "modelPreference": "tie",
+      "reason": null
+    },
+    {
+      "scenarioId": "S34",
+      "preference": null
+    },
+    {
+      "scenarioId": "S35",
+      "preference": "llm_baseline",
+      "modelPreference": "clef",
+      "reason": null
+    },
+    {
+      "scenarioId": "S36",
+      "preference": "llm_baseline",
+      "modelPreference": "tie",
+      "reason": "Group doesn't really have preferences. Tonchin is better simply because it's closer."
+    },
+    {
+      "scenarioId": "S39",
+      "preference": null
+    },
+    {
+      "scenarioId": "S40",
+      "preference": "clef",
+      "modelPreference": "llm_baseline",
+      "reason": "No one has been to Balthazar and Dara requested this."
+    },
+    {
+      "scenarioId": "S41",
+      "preference": "llm_baseline",
+      "modelPreference": "llm_baseline",
+      "reason": ""
+    },
+    {
+      "scenarioId": "S42",
+      "preference": null
+    },
+    {
+      "scenarioId": "S45",
+      "preference": null
+    },
+    {
+      "scenarioId": "S46",
+      "preference": "neither",
+      "modelPreference": "llm_baseline",
+      "reason": "Neither options are Italian or sushi"
+    },
+    {
+      "scenarioId": "S47",
+      "preference": "llm_baseline",
+      "modelPreference": "tie",
+      "reason": ""
+    },
+    {
+      "scenarioId": "S48",
+      "preference": "llm_baseline",
+      "modelPreference": "tie",
+      "reason": "Kyra likes Tonchin"
+    },
+    {
+      "scenarioId": "S51",
+      "preference": null
+    },
+    {
+      "scenarioId": "S52",
+      "preference": null
+    },
+    {
+      "scenarioId": "S53",
+      "preference": null
+    },
+    {
+      "scenarioId": "S54",
+      "preference": null
+    },
+    {
+      "scenarioId": "S57",
+      "preference": null
+    },
+    {
+      "scenarioId": "S58",
+      "preference": "neither",
+      "modelPreference": "llm_baseline",
+      "reason": "neither are korean. B chose slightly better for budget. A chose better in terms of distance."
+    },
+    {
+      "scenarioId": "S59",
+      "preference": "clef",
+      "modelPreference": "tie",
+      "reason": "A budget limit is more reasonable than unlimited budget"
+    },
+    {
+      "scenarioId": "S60",
+      "preference": null
+    }
+  ]
+}

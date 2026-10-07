@@ -1,0 +1,366 @@
+{
+  "note": "Do not open before review responses are final.",
+  "seed": 20261004,
+  "keys": [
+    {
+      "scenarioId": "S03",
+      "A": "clef",
+      "B": "llm_baseline",
+      "runIds": {
+        "clef": "fixed:S03:clef:0",
+        "llm_baseline": "fixed:S03:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S04",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S04:clef:0",
+        "llm_baseline": "fixed:S04:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S05",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S05:clef:0",
+        "llm_baseline": "fixed:S05:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S06",
+      "A": "clef",
+      "B": "llm_baseline",
+      "runIds": {
+        "clef": "fixed:S06:clef:0",
+        "llm_baseline": "fixed:S06:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S09",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S09:clef:0",
+        "llm_baseline": "fixed:S09:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S10",
+      "A": "clef",
+      "B": "llm_baseline",
+      "runIds": {
+        "clef": "fixed:S10:clef:0",
+        "llm_baseline": "fixed:S10:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S11",
+      "A": "clef",
+      "B": "llm_baseline",
+      "runIds": {
+        "clef": "fixed:S11:clef:0",
+        "llm_baseline": "fixed:S11:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S12",
+      "A": "clef",
+      "B": "llm_baseline",
+      "runIds": {
+        "clef": "fixed:S12:clef:0",
+        "llm_baseline": "fixed:S12:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S15",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S15:clef:0",
+        "llm_baseline": "fixed:S15:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S16",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S16:clef:0",
+        "llm_baseline": "fixed:S16:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S17",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S17:clef:0",
+        "llm_baseline": "fixed:S17:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S18",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S18:clef:0",
+        "llm_baseline": "fixed:S18:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S21",
+      "A": "clef",
+      "B": "llm_baseline",
+      "runIds": {
+        "clef": "fixed:S21:clef:0",
+        "llm_baseline": "fixed:S21:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S22",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S22:clef:0",
+        "llm_baseline": "fixed:S22:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S23",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S23:clef:0",
+        "llm_baseline": "fixed:S23:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S24",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S24:clef:0",
+        "llm_baseline": "fixed:S24:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S27",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S27:clef:0",
+        "llm_baseline": "fixed:S27:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S28",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S28:clef:0",
+        "llm_baseline": "fixed:S28:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S29",
+      "A": "clef",
+      "B": "llm_baseline",
+      "runIds": {
+        "clef": "fixed:S29:clef:0",
+        "llm_baseline": "fixed:S29:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S30",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S30:clef:0",
+        "llm_baseline": "fixed:S30:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S33",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S33:clef:0",
+        "llm_baseline": "fixed:S33:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S34",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S34:clef:0",
+        "llm_baseline": "fixed:S34:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S35",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S35:clef:0",
+        "llm_baseline": "fixed:S35:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S36",
+      "A": "clef",
+      "B": "llm_baseline",
+      "runIds": {
+        "clef": "fixed:S36:clef:0",
+        "llm_baseline": "fixed:S36:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S39",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S39:clef:0",
+        "llm_baseline": "fixed:S39:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S40",
+      "A": "clef",
+      "B": "llm_baseline",
+      "runIds": {
+        "clef": "fixed:S40:clef:0",
+        "llm_baseline": "fixed:S40:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S41",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S41:clef:0",
+        "llm_baseline": "fixed:S41:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S42",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S42:clef:0",
+        "llm_baseline": "fixed:S42:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S45",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S45:clef:0",
+        "llm_baseline": "fixed:S45:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S46",
+      "A": "clef",
+      "B": "llm_baseline",
+      "runIds": {
+        "clef": "fixed:S46:clef:0",
+        "llm_baseline": "fixed:S46:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S47",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S47:clef:0",
+        "llm_baseline": "fixed:S47:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S48",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S48:clef:0",
+        "llm_baseline": "fixed:S48:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S51",
+      "A": "clef",
+      "B": "llm_baseline",
+      "runIds": {
+        "clef": "fixed:S51:clef:0",
+        "llm_baseline": "fixed:S51:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S52",
+      "A": "clef",
+      "B": "llm_baseline",
+      "runIds": {
+        "clef": "fixed:S52:clef:0",
+        "llm_baseline": "fixed:S52:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S53",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S53:clef:0",
+        "llm_baseline": "fixed:S53:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S54",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S54:clef:0",
+        "llm_baseline": "fixed:S54:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S57",
+      "A": "llm_baseline",
+      "B": "clef",
+      "runIds": {
+        "clef": "fixed:S57:clef:0",
+        "llm_baseline": "fixed:S57:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S58",
+      "A": "clef",
+      "B": "llm_baseline",
+      "runIds": {
+        "clef": "fixed:S58:clef:0",
+        "llm_baseline": "fixed:S58:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S59",
+      "A": "clef",
+      "B": "llm_baseline",
+      "runIds": {
+        "clef": "fixed:S59:clef:0",
+        "llm_baseline": "fixed:S59:llm_baseline:0"
+      }
+    },
+    {
+      "scenarioId": "S60",
+      "A": "clef",
+      "B": "llm_baseline",
+      "runIds": {
+        "clef": "fixed:S60:clef:0",
+        "llm_baseline": "fixed:S60:llm_baseline:0"
+      }
+    }
+  ]
+}

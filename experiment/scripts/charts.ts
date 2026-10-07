@@ -50,7 +50,7 @@ function quality() {
   const axis = [0, 0.25, 0.5, 0.75, 1]
     .map((v) => `<line x1="70" x2="${w - 20}" y1="${240 - v * 200}" y2="${240 - v * 200}" stroke="#eee"/><text x="62" y="${244 - v * 200}" text-anchor="end" font-size="10" fill="${MUTED}" ${font}>${v * 100}%</text>`)
     .join("");
-  const legend = ["clef", "llm_baseline"].map((m, i) => `<rect x="${w - 260 + i * 130}" y="8" width="12" height="12" fill="${COLOR[m]}" rx="2"/><text x="${w - 243 + i * 130}" y="18" font-size="12" ${font}>${LABEL[m]}</text>`).join("");
+  const legend = ["clef", "llm_baseline"].map((m, i) => `<rect x="${80 + i * 130}" y="28" width="12" height="12" fill="${COLOR[m]}" rx="2"/><text x="${97 + i * 130}" y="38" font-size="12" ${font}>${LABEL[m]}</text>`).join("");
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}"><text x="10" y="18" font-size="14" font-weight="700" ${font}>Acceptable-group rate (model-judged, feasible scenarios, 95% CI)</text>${legend}${axis}${bars}</svg>`;
 }
 
@@ -73,14 +73,14 @@ function latencyCost() {
   let body = `<text x="10" y="18" font-size="14" font-weight="700" ${font}>Fixed-state decision latency (s) and estimated cost per decision</text>`;
   rows.forEach((r, i) => {
     const y = 50 + i * 100;
-    const sx = (v: number) => (v / maxS) * 330;
+    const sx = (v: number) => (v / maxS) * 270;
     body += `<text x="10" y="${y + 14}" font-size="12" font-weight="600" ${font}>${LABEL[r.m]}</text>`;
     body += `<rect x="130" y="${y}" width="${sx(r.p50)}" height="18" fill="${COLOR[r.m]}" rx="3"/><text x="${136 + sx(r.p50)}" y="${y + 13}" font-size="11" ${font}>p50 ${r.p50.toFixed(1)} s</text>`;
     body += `<rect x="130" y="${y + 24}" width="${sx(r.p95)}" height="18" fill="${COLOR[r.m]}" opacity="0.55" rx="3"/><text x="${136 + sx(r.p95)}" y="${y + 37}" font-size="11" ${font}>p95 ${r.p95.toFixed(1)} s</text>`;
-    const cw = (r.cost / maxC) * 110;
-    body += `<rect x="510" y="${y + 6}" width="${cw}" height="24" fill="${COLOR[r.m]}" rx="3"/><text x="510" y="${y + 50}" font-size="11" ${font}>$${(r.cost * 1000).toFixed(2)} per 1,000 → $${r.cost.toFixed(4)}/decision</text>`;
+    const cw = (r.cost / maxC) * 90;
+    body += `<rect x="480" y="${y + 6}" width="${cw}" height="24" fill="${COLOR[r.m]}" rx="3"/><text x="480" y="${y + 50}" font-size="11" ${font}>$${(r.cost * 1000).toFixed(2)} per 1,000 decisions</text>`;
   });
-  body += `<text x="510" y="40" font-size="11" fill="${MUTED}" ${font}>est. cost (token usage × list price)</text>`;
+  body += `<text x="480" y="40" font-size="11" fill="${MUTED}" ${font}>Est. cost (usage × list price)</text>`;
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}">${body}</svg>`;
 }
 

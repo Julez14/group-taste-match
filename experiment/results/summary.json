@@ -1,0 +1,738 @@
+{
+  "split": "test",
+  "generatedAt": "2026-10-04T11:44:09.045Z",
+  "pricing": {
+    "retrieved": "2026-10-04",
+    "source": "Cloudflare API GET /accounts/{id}/ai/models/search (model properties: price)",
+    "perMillion": {
+      "@cf/cloudflare/clef": {
+        "input": 0.24,
+        "output": 0
+      },
+      "@cf/openai/gpt-oss-120b": {
+        "input": 0.35,
+        "output": 0.75
+      },
+      "@cf/moonshotai/kimi-k2.6": {
+        "input": 0.95,
+        "output": 4
+      }
+    },
+    "perAudioMinute": {
+      "@cf/deepgram/nova-3": 0.0052
+    }
+  },
+  "bootstrap": {
+    "iterations": 10000,
+    "seed": 20261004,
+    "method": "percentile, paired, resampling whole scenarios"
+  },
+  "tracks": {
+    "fixed": {
+      "perMethod": {
+        "clef": {
+          "runs": 120,
+          "acceptable": {
+            "numerator": 21,
+            "denominator": 99,
+            "scenarios": 33,
+            "value": 0.21212121212121213,
+            "ciLow": 0.09090909090909091,
+            "ciHigh": 0.3434343434343434
+          },
+          "weakest": {
+            "numerator": 75,
+            "denominator": 99,
+            "scenarios": 33,
+            "value": 0.7575757575757576,
+            "ciLow": 0.3939393939393939,
+            "ciHigh": 1.1616161616161615
+          },
+          "meanFit": {
+            "numerator": 187.5666666666667,
+            "denominator": 99,
+            "scenarios": 33,
+            "value": 1.8946127946127949,
+            "ciLow": 1.5937584175084174,
+            "ciHigh": 2.2052314814814813
+          },
+          "correctNoMatch": {
+            "numerator": 21,
+            "denominator": 21,
+            "scenarios": 7,
+            "value": 1,
+            "ciLow": 1,
+            "ciHigh": 1
+          },
+          "falseNoMatch": {
+            "numerator": 0,
+            "denominator": 99,
+            "scenarios": 33,
+            "value": 0,
+            "ciLow": 0,
+            "ciHigh": 0
+          },
+          "byFamily": {
+            "clear_shared": {
+              "numerator": 6,
+              "denominator": 12,
+              "scenarios": 4,
+              "value": 0.5,
+              "ciLow": 0,
+              "ciHigh": 1
+            },
+            "mixed_preferences": {
+              "numerator": 0,
+              "denominator": 12,
+              "scenarios": 4,
+              "value": 0,
+              "ciLow": 0,
+              "ciHigh": 0
+            },
+            "budget_vs_atmosphere": {
+              "numerator": 1,
+              "denominator": 12,
+              "scenarios": 4,
+              "value": 0.08333333333333333,
+              "ciLow": 0,
+              "ciHigh": 0.25
+            },
+            "dietary_verification": {
+              "numerator": 2,
+              "denominator": 9,
+              "scenarios": 3,
+              "value": 0.2222222222222222,
+              "ciLow": 0,
+              "ciHigh": 0.6666666666666666
+            },
+            "travel_origins": {
+              "numerator": 0,
+              "denominator": 9,
+              "scenarios": 3,
+              "value": 0,
+              "ciLow": 0,
+              "ciHigh": 0
+            },
+            "sparse_unknowns": {
+              "numerator": 3,
+              "denominator": 12,
+              "scenarios": 4,
+              "value": 0.25,
+              "ciLow": 0,
+              "ciHigh": 0.75
+            },
+            "current_vs_history": {
+              "numerator": 3,
+              "denominator": 12,
+              "scenarios": 4,
+              "value": 0.25,
+              "ciLow": 0,
+              "ciHigh": 0.5
+            },
+            "hours_party_slots": {
+              "numerator": 3,
+              "denominator": 12,
+              "scenarios": 4,
+              "value": 0.25,
+              "ciLow": 0,
+              "ciHigh": 0.75
+            },
+            "infeasible_timeouts": {
+              "numerator": 0,
+              "denominator": 0,
+              "scenarios": 0,
+              "value": null,
+              "ciLow": null,
+              "ciHigh": null
+            },
+            "noisy_injection": {
+              "numerator": 3,
+              "denominator": 9,
+              "scenarios": 3,
+              "value": 0.3333333333333333,
+              "ciLow": 0,
+              "ciHigh": 1
+            }
+          },
+          "bySize": {
+            "2": {
+              "numerator": 11,
+              "denominator": 18,
+              "scenarios": 6,
+              "value": 0.6111111111111112,
+              "ciLow": 0.2777777777777778,
+              "ciHigh": 0.9444444444444444
+            },
+            "3": {
+              "numerator": 3,
+              "denominator": 18,
+              "scenarios": 6,
+              "value": 0.16666666666666666,
+              "ciLow": 0,
+              "ciHigh": 0.5
+            },
+            "4": {
+              "numerator": 3,
+              "denominator": 21,
+              "scenarios": 7,
+              "value": 0.14285714285714285,
+              "ciLow": 0,
+              "ciHigh": 0.3333333333333333
+            },
+            "5": {
+              "numerator": 1,
+              "denominator": 21,
+              "scenarios": 7,
+              "value": 0.047619047619047616,
+              "ciLow": 0,
+              "ciHigh": 0.14285714285714285
+            },
+            "6": {
+              "numerator": 3,
+              "denominator": 21,
+              "scenarios": 7,
+              "value": 0.14285714285714285,
+              "ciLow": 0,
+              "ciHigh": 0.42857142857142855
+            }
+          }
+        },
+        "llm_baseline": {
+          "runs": 120,
+          "acceptable": {
+            "numerator": 26,
+            "denominator": 99,
+            "scenarios": 33,
+            "value": 0.26262626262626265,
+            "ciLow": 0.12121212121212122,
+            "ciHigh": 0.41414141414141414
+          },
+          "weakest": {
+            "numerator": 90,
+            "denominator": 99,
+            "scenarios": 33,
+            "value": 0.9090909090909091,
+            "ciLow": 0.48484848484848486,
+            "ciHigh": 1.3737373737373737
+          },
+          "meanFit": {
+            "numerator": 218.31666666666678,
+            "denominator": 99,
+            "scenarios": 33,
+            "value": 2.2052188552188565,
+            "ciLow": 1.8927483164983179,
+            "ciHigh": 2.5205387205387217
+          },
+          "correctNoMatch": {
+            "numerator": 21,
+            "denominator": 21,
+            "scenarios": 7,
+            "value": 1,
+            "ciLow": 1,
+            "ciHigh": 1
+          },
+          "falseNoMatch": {
+            "numerator": 0,
+            "denominator": 99,
+            "scenarios": 33,
+            "value": 0,
+            "ciLow": 0,
+            "ciHigh": 0
+          },
+          "byFamily": {
+            "clear_shared": {
+              "numerator": 6,
+              "denominator": 12,
+              "scenarios": 4,
+              "value": 0.5,
+              "ciLow": 0,
+              "ciHigh": 1
+            },
+            "mixed_preferences": {
+              "numerator": 0,
+              "denominator": 12,
+              "scenarios": 4,
+              "value": 0,
+              "ciLow": 0,
+              "ciHigh": 0
+            },
+            "budget_vs_atmosphere": {
+              "numerator": 3,
+              "denominator": 12,
+              "scenarios": 4,
+              "value": 0.25,
+              "ciLow": 0,
+              "ciHigh": 0.75
+            },
+            "dietary_verification": {
+              "numerator": 0,
+              "denominator": 9,
+              "scenarios": 3,
+              "value": 0,
+              "ciLow": 0,
+              "ciHigh": 0
+            },
+            "travel_origins": {
+              "numerator": 0,
+              "denominator": 9,
+              "scenarios": 3,
+              "value": 0,
+              "ciLow": 0,
+              "ciHigh": 0
+            },
+            "sparse_unknowns": {
+              "numerator": 5,
+              "denominator": 12,
+              "scenarios": 4,
+              "value": 0.4166666666666667,
+              "ciLow": 0,
+              "ciHigh": 0.8333333333333334
+            },
+            "current_vs_history": {
+              "numerator": 6,
+              "denominator": 12,
+              "scenarios": 4,
+              "value": 0.5,
+              "ciLow": 0,
+              "ciHigh": 1
+            },
+            "hours_party_slots": {
+              "numerator": 3,
+              "denominator": 12,
+              "scenarios": 4,
+              "value": 0.25,
+              "ciLow": 0,
+              "ciHigh": 0.75
+            },
+            "infeasible_timeouts": {
+              "numerator": 0,
+              "denominator": 0,
+              "scenarios": 0,
+              "value": null,
+              "ciLow": null,
+              "ciHigh": null
+            },
+            "noisy_injection": {
+              "numerator": 3,
+              "denominator": 9,
+              "scenarios": 3,
+              "value": 0.3333333333333333,
+              "ciLow": 0,
+              "ciHigh": 1
+            }
+          },
+          "bySize": {
+            "2": {
+              "numerator": 12,
+              "denominator": 18,
+              "scenarios": 6,
+              "value": 0.6666666666666666,
+              "ciLow": 0.3333333333333333,
+              "ciHigh": 1
+            },
+            "3": {
+              "numerator": 5,
+              "denominator": 18,
+              "scenarios": 6,
+              "value": 0.2777777777777778,
+              "ciLow": 0,
+              "ciHigh": 0.6111111111111112
+            },
+            "4": {
+              "numerator": 3,
+              "denominator": 21,
+              "scenarios": 7,
+              "value": 0.14285714285714285,
+              "ciLow": 0,
+              "ciHigh": 0.42857142857142855
+            },
+            "5": {
+              "numerator": 3,
+              "denominator": 21,
+              "scenarios": 7,
+              "value": 0.14285714285714285,
+              "ciLow": 0,
+              "ciHigh": 0.42857142857142855
+            },
+            "6": {
+              "numerator": 3,
+              "denominator": 21,
+              "scenarios": 7,
+              "value": 0.14285714285714285,
+              "ciLow": 0,
+              "ciHigh": 0.42857142857142855
+            }
+          }
+        }
+      },
+      "acceptableDiff": {
+        "scenarios": 33,
+        "value": -0.050505050505050504,
+        "ciLow": -0.13131313131313133,
+        "ciHigh": 0.0202020202020202
+      },
+      "weakestDiff": {
+        "scenarios": 33,
+        "value": -0.15151515151515155,
+        "ciLow": -0.3737373737373738,
+        "ciHigh": 0.0404040404040404
+      }
+    },
+    "flow": {
+      "perMethod": {
+        "clef": {
+          "runs": 40,
+          "acceptable": {
+            "numerator": 9,
+            "denominator": 34,
+            "scenarios": 34,
+            "value": 0.2647058823529412,
+            "ciLow": 0.11764705882352941,
+            "ciHigh": 0.4117647058823529
+          },
+          "weakest": {
+            "numerator": 31,
+            "denominator": 34,
+            "scenarios": 34,
+            "value": 0.9117647058823529,
+            "ciLow": 0.5294117647058824,
+            "ciHigh": 1.3529411764705883
+          },
+          "meanFit": {
+            "numerator": 68.51666666666667,
+            "denominator": 34,
+            "scenarios": 34,
+            "value": 2.0151960784313725,
+            "ciLow": 1.6838235294117652,
+            "ciHigh": 2.3563848039215682
+          },
+          "correctNoMatch": {
+            "numerator": 6,
+            "denominator": 6,
+            "scenarios": 6,
+            "value": 1,
+            "ciLow": 1,
+            "ciHigh": 1
+          },
+          "falseNoMatch": {
+            "numerator": 0,
+            "denominator": 34,
+            "scenarios": 34,
+            "value": 0,
+            "ciLow": 0,
+            "ciHigh": 0
+          },
+          "byFamily": {
+            "clear_shared": {
+              "numerator": 2,
+              "denominator": 4,
+              "scenarios": 4,
+              "value": 0.5,
+              "ciLow": 0,
+              "ciHigh": 1
+            },
+            "mixed_preferences": {
+              "numerator": 0,
+              "denominator": 4,
+              "scenarios": 4,
+              "value": 0,
+              "ciLow": 0,
+              "ciHigh": 0
+            },
+            "budget_vs_atmosphere": {
+              "numerator": 1,
+              "denominator": 4,
+              "scenarios": 4,
+              "value": 0.25,
+              "ciLow": 0,
+              "ciHigh": 0.75
+            },
+            "dietary_verification": {
+              "numerator": 1,
+              "denominator": 3,
+              "scenarios": 3,
+              "value": 0.3333333333333333,
+              "ciLow": 0,
+              "ciHigh": 1
+            },
+            "travel_origins": {
+              "numerator": 0,
+              "denominator": 4,
+              "scenarios": 4,
+              "value": 0,
+              "ciLow": 0,
+              "ciHigh": 0
+            },
+            "sparse_unknowns": {
+              "numerator": 1,
+              "denominator": 4,
+              "scenarios": 4,
+              "value": 0.25,
+              "ciLow": 0,
+              "ciHigh": 0.75
+            },
+            "current_vs_history": {
+              "numerator": 2,
+              "denominator": 4,
+              "scenarios": 4,
+              "value": 0.5,
+              "ciLow": 0,
+              "ciHigh": 1
+            },
+            "hours_party_slots": {
+              "numerator": 1,
+              "denominator": 4,
+              "scenarios": 4,
+              "value": 0.25,
+              "ciLow": 0,
+              "ciHigh": 0.75
+            },
+            "infeasible_timeouts": {
+              "numerator": 0,
+              "denominator": 0,
+              "scenarios": 0,
+              "value": null,
+              "ciLow": null,
+              "ciHigh": null
+            },
+            "noisy_injection": {
+              "numerator": 1,
+              "denominator": 3,
+              "scenarios": 3,
+              "value": 0.3333333333333333,
+              "ciLow": 0,
+              "ciHigh": 1
+            }
+          },
+          "bySize": {
+            "2": {
+              "numerator": 4,
+              "denominator": 6,
+              "scenarios": 6,
+              "value": 0.6666666666666666,
+              "ciLow": 0.3333333333333333,
+              "ciHigh": 1
+            },
+            "3": {
+              "numerator": 1,
+              "denominator": 7,
+              "scenarios": 7,
+              "value": 0.14285714285714285,
+              "ciLow": 0,
+              "ciHigh": 0.42857142857142855
+            },
+            "4": {
+              "numerator": 2,
+              "denominator": 7,
+              "scenarios": 7,
+              "value": 0.2857142857142857,
+              "ciLow": 0,
+              "ciHigh": 0.5714285714285714
+            },
+            "5": {
+              "numerator": 1,
+              "denominator": 7,
+              "scenarios": 7,
+              "value": 0.14285714285714285,
+              "ciLow": 0,
+              "ciHigh": 0.42857142857142855
+            },
+            "6": {
+              "numerator": 1,
+              "denominator": 7,
+              "scenarios": 7,
+              "value": 0.14285714285714285,
+              "ciLow": 0,
+              "ciHigh": 0.42857142857142855
+            }
+          }
+        },
+        "llm_baseline": {
+          "runs": 40,
+          "acceptable": {
+            "numerator": 9,
+            "denominator": 34,
+            "scenarios": 34,
+            "value": 0.2647058823529412,
+            "ciLow": 0.11764705882352941,
+            "ciHigh": 0.4117647058823529
+          },
+          "weakest": {
+            "numerator": 30,
+            "denominator": 34,
+            "scenarios": 34,
+            "value": 0.8823529411764706,
+            "ciLow": 0.47058823529411764,
+            "ciHigh": 1.3235294117647058
+          },
+          "meanFit": {
+            "numerator": 77.26666666666668,
+            "denominator": 34,
+            "scenarios": 34,
+            "value": 2.2725490196078435,
+            "ciLow": 1.9666666666666668,
+            "ciHigh": 2.5710784313725497
+          },
+          "correctNoMatch": {
+            "numerator": 6,
+            "denominator": 6,
+            "scenarios": 6,
+            "value": 1,
+            "ciLow": 1,
+            "ciHigh": 1
+          },
+          "falseNoMatch": {
+            "numerator": 1,
+            "denominator": 34,
+            "scenarios": 34,
+            "value": 0.029411764705882353,
+            "ciLow": 0,
+            "ciHigh": 0.08823529411764706
+          },
+          "byFamily": {
+            "clear_shared": {
+              "numerator": 2,
+              "denominator": 4,
+              "scenarios": 4,
+              "value": 0.5,
+              "ciLow": 0,
+              "ciHigh": 1
+            },
+            "mixed_preferences": {
+              "numerator": 0,
+              "denominator": 4,
+              "scenarios": 4,
+              "value": 0,
+              "ciLow": 0,
+              "ciHigh": 0
+            },
+            "budget_vs_atmosphere": {
+              "numerator": 1,
+              "denominator": 4,
+              "scenarios": 4,
+              "value": 0.25,
+              "ciLow": 0,
+              "ciHigh": 0.75
+            },
+            "dietary_verification": {
+              "numerator": 1,
+              "denominator": 3,
+              "scenarios": 3,
+              "value": 0.3333333333333333,
+              "ciLow": 0,
+              "ciHigh": 1
+            },
+            "travel_origins": {
+              "numerator": 0,
+              "denominator": 4,
+              "scenarios": 4,
+              "value": 0,
+              "ciLow": 0,
+              "ciHigh": 0
+            },
+            "sparse_unknowns": {
+              "numerator": 2,
+              "denominator": 4,
+              "scenarios": 4,
+              "value": 0.5,
+              "ciLow": 0,
+              "ciHigh": 1
+            },
+            "current_vs_history": {
+              "numerator": 1,
+              "denominator": 4,
+              "scenarios": 4,
+              "value": 0.25,
+              "ciLow": 0,
+              "ciHigh": 0.75
+            },
+            "hours_party_slots": {
+              "numerator": 1,
+              "denominator": 4,
+              "scenarios": 4,
+              "value": 0.25,
+              "ciLow": 0,
+              "ciHigh": 0.75
+            },
+            "infeasible_timeouts": {
+              "numerator": 0,
+              "denominator": 0,
+              "scenarios": 0,
+              "value": null,
+              "ciLow": null,
+              "ciHigh": null
+            },
+            "noisy_injection": {
+              "numerator": 1,
+              "denominator": 3,
+              "scenarios": 3,
+              "value": 0.3333333333333333,
+              "ciLow": 0,
+              "ciHigh": 1
+            }
+          },
+          "bySize": {
+            "2": {
+              "numerator": 3,
+              "denominator": 6,
+              "scenarios": 6,
+              "value": 0.5,
+              "ciLow": 0.16666666666666666,
+              "ciHigh": 0.8333333333333334
+            },
+            "3": {
+              "numerator": 2,
+              "denominator": 7,
+              "scenarios": 7,
+              "value": 0.2857142857142857,
+              "ciLow": 0,
+              "ciHigh": 0.5714285714285714
+            },
+            "4": {
+              "numerator": 2,
+              "denominator": 7,
+              "scenarios": 7,
+              "value": 0.2857142857142857,
+              "ciLow": 0,
+              "ciHigh": 0.5714285714285714
+            },
+            "5": {
+              "numerator": 1,
+              "denominator": 7,
+              "scenarios": 7,
+              "value": 0.14285714285714285,
+              "ciLow": 0,
+              "ciHigh": 0.42857142857142855
+            },
+            "6": {
+              "numerator": 1,
+              "denominator": 7,
+              "scenarios": 7,
+              "value": 0.14285714285714285,
+              "ciLow": 0,
+              "ciHigh": 0.42857142857142855
+            }
+          }
+        }
+      },
+      "acceptableDiff": {
+        "scenarios": 34,
+        "value": 0,
+        "ciLow": -0.08823529411764706,
+        "ciHigh": 0.08823529411764706
+      },
+      "weakestDiff": {
+        "scenarios": 34,
+        "value": 0.029411764705882353,
+        "ciLow": -0.08823529411764706,
+        "ciHigh": 0.17647058823529413
+      }
+    }
+  },
+  "judgeCost": 0.1817903,
+  "totalServingCost": 1.652663280000001,
+  "runCounts": {
+    "fixed": 240,
+    "flow": 80
+  }
+}
