@@ -40,6 +40,12 @@
   .guide-head { padding: 14px 18px; border-bottom: 1px solid var(--line); display: flex; gap: 10px; align-items: center; }
   .guide-head input { flex: 1; border: 1.3px solid var(--line); border-radius: 10px; padding: 8px 10px; font: inherit; }
   .guide-body { overflow: auto; padding: 8px 18px 40px; }
+  .guide-page { max-width: 900px; margin: 0 auto; padding: 20px; }
+  .guide-page .search { position: sticky; top: 57px; background: #fafafa; padding: 10px 0; z-index: 1; }
+  .guide-page .search input { width: 100%; border: 1.3px solid var(--line); border-radius: 10px; padding: 10px 12px; font: inherit; background: #fff; }
+  .index { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 16px; }
+  .index a { font-size: 12px; color: var(--teal); text-decoration: none; border: 1px solid #c9d6d8; border-radius: 999px; padding: 3px 9px; background: #fff; }
+  .guide-page .r { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; margin-bottom: 14px; scroll-margin-top: 120px; }
   .r { border-bottom: 1px solid var(--line); padding: 14px 0; }
   .r.flash { background: #eef4f4; }
   .r h3 { margin: 0 0 2px; font: 700 18px Georgia, serif; }
@@ -55,16 +61,12 @@
   <div>Blinded review — methods hidden, A/B randomized. <span class="status" id="progress"></span></div>
   <div style="flex:1"></div>
   <label>Reviewer <input id="reviewer" placeholder="name" /></label>
-  <button id="openGuide" class="ghost">Restaurant guide</button>
+  <a id="openGuide" href="/#guide" target="gtm-guide"><button class="ghost" tabindex="-1">Restaurant guide ↗</button></a>
   <button id="save">Save</button>
   <span class="status" id="saved"></span>
 </header>
 <main id="root"></main>
-<div class="scrim" id="scrim"></div>
-<aside class="guide" id="guide" aria-label="Restaurant guide">
-  <div class="guide-head"><strong>Restaurant guide</strong><input id="guideSearch" placeholder="Search name, cuisine, neighborhood, diet…" /><button id="closeGuide" class="ghost">Close</button></div>
-  <div class="guide-body" id="guideBody"></div>
-</aside>
+
 <script>
 const $ = (s, el = document) => el.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
@@ -131,24 +133,6 @@ function guideHtml(list) {
   </div>`).join("");
 }
 
-function openGuide(packet, id) {
-  const q = $("#guideSearch").value.trim().toLowerCase();
-  const list = packet.restaurants.filter((r) => !q || JSON.stringify(r).toLowerCase().includes(q));
-  $("#guideBody").innerHTML = guideHtml(id ? packet.restaurants : list);
-  if (id) $("#guideSearch").value = "";
-  $("#guide").classList.add("open");
-  $("#scrim").classList.add("open");
-  if (id) {
-    const el = document.getElementById(`r-${id}`);
-    if (el) { el.scrollIntoView({ block: "start" }); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 1500); }
-  }
-}
-
-function closeGuide() {
-  $("#guide").classList.remove("open");
-  $("#scrim").classList.remove("open");
-}
-
 function updateProgress(packet) {
   const done = packet.items.filter((i) => state.responses[i.scenarioId]?.preference).length;
   $("#progress").textContent = `${done}/${packet.items.length} preferences recorded`;
@@ -160,7 +144,37 @@ async function save() {
   $("#saved").textContent = res.ok ? `Saved ${new Date().toLocaleTimeString()}` : "Save failed";
 }
 
+function renderGuidePage(packet) {
+  document.title = "Restaurant guide · Group Taste-Match";
+  document.querySelector("header").innerHTML = `<h1>beli</h1><div>Restaurant guide — all ${packet.restaurants.length} restaurants in the prototype's list</div>`;
+  document.querySelectorAll(".scrim, .guide").forEach((el) => el.remove());
+  const root = $("#root");
+  root.className = "guide-page";
+  root.innerHTML = `<div class="search"><input id="q" placeholder="Search name, cuisine, neighborhood, diet, vibe…" autofocus /></div>
+    <nav class="index">${packet.restaurants.map((r) => `<a href="#guide/${esc(r.id)}">${esc(r.name)}</a>`).join("")}</nav>
+    <div id="list"></div>`;
+  const draw = () => {
+    const q = $("#q").value.trim().toLowerCase();
+    $("#list").innerHTML = guideHtml(packet.restaurants.filter((r) => !q || JSON.stringify(r).toLowerCase().includes(q)));
+  };
+  const jump = () => {
+    const id = decodeURIComponent(location.hash.replace(/^#guide\/?/, ""));
+    if (!id) return;
+    if ($("#q").value) { $("#q").value = ""; draw(); }
+    const el = document.getElementById(`r-${id}`);
+    if (el) { el.scrollIntoView({ block: "start" }); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 1500); }
+  };
+  $("#q").addEventListener("input", draw);
+  window.addEventListener("hashchange", jump);
+  draw();
+  jump();
+}
+
 (async () => {
+  if (location.hash.startsWith("#guide")) {
+    renderGuidePage(await fetch("/packet.json").then((r) => r.json()));
+    return;
+  }
   const [packet, saved] = await Promise.all([fetch("/packet.json").then((r) => r.json()), fetch("/responses.json").then((r) => r.json())]);
   state = saved.responses ? saved : state;
   $("#reviewer").value = state.reviewer ?? "";
@@ -183,14 +197,10 @@ async function save() {
     clearTimeout(window.__t); window.__t = setTimeout(save, 800);
   });
   $("#save").addEventListener("click", save);
-  $("#openGuide").addEventListener("click", () => openGuide(packet));
-  $("#closeGuide").addEventListener("click", closeGuide);
-  $("#scrim").addEventListener("click", closeGuide);
-  document.addEventListener("keydown", (e) => e.key === "Escape" && closeGuide());
-  $("#guideSearch").addEventListener("input", () => openGuide(packet));
+  // Restaurant names open (or reuse) the guide tab at that restaurant.
   $("#root").addEventListener("click", (e) => {
     const b = e.target.closest("[data-guide]");
-    if (b) openGuide(packet, b.dataset.guide);
+    if (b) window.open(`/#guide/${b.dataset.guide}`, "gtm-guide");
   });
 })();
 </script>
