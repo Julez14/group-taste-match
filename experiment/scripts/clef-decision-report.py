@@ -118,6 +118,18 @@ table([['Workstream','Concrete next step'],['Selection policy','Evaluate highest
 add('The earlier prompt-order and profile-fallback decisions remain open. Budget sensitivity must not become an invented spending cap, and a majority preference must never override a diner\'s hard requirement. Retain the baseline as a benchmark while developing Clef.','small')
 
 page()
+title('vNext notes / deferred design work','How we might tune<br/>the Clef pipeline','Working hypotheses and open choices - no policy or model changes in this report')
+add('Product principles already stated','h2')
+table([['Principle','Intended behavior'],['Affordability','Keep every stated hard budget cap in the feasibility filter. Give a soft price concern meaningful weight; do not infer a dollar maximum from words such as "broke."'],['Cuisine support','When diners want different cuisines, favor the cuisine with more support among feasible choices. Count diners, not repeated words in a request.'],['Hard vs. soft travel','"Cannot travel more than 20 minutes" excludes unverifiable or longer trips; "prefer close" influences ranking.'],['Current request','Tonight\'s words and clarification outrank synthetic profile history. Profile use when a dimension is silent still needs a decision.'],['Compensation hypothesis','If a diner does not get their preferred cuisine, test whether lower all-in cost and a shorter trip make the compromise more acceptable.']],[116,400])
+add('A candidate policy to evaluate, not a frozen rule','h2')
+add('First, filter on every diner\'s hard requirements. Then compute cuisine or dish support from current requests for each eligible restaurant, using verified menu evidence. Track whose request is unmet. Compare soft cost and travel burden for those diners, while keeping a minimum individual-fit safeguard. Use average fit and stable tie-breaks after these priorities. The exact order, thresholds, treatment of multiple acceptable cuisines and whether to ask the host about a material tie are open choices.')
+add('Separate score quality from policy quality','h2')
+add('Replay recorded Clef scores under alternative selection rules to isolate policy effects. For scoring changes, inspect whether Clef recognizes requested cuisine, dishes, price leanings and travel preferences before changing the aggregation. Consider separate score components or clearer rubric anchors if one 0-4 score hides an important tradeoff. Repeated identical requests can test score repeatability; reordered diners, restaurants and question batches test sensitivity to presentation.')
+add('Evidence needed before promotion','h2')
+add('Use the 20 development scenarios for initial tuning and collect direct judgments about both the majority\'s match and the minority\'s cost and travel burden. Once prompts, data, rubric and selection policy are fixed, version exp-v2 and use a fresh held-out set for confirmation. Keep the baseline for comparison. Previously reviewed exp-v1 scenarios are diagnostic examples, not fresh test evidence. The preference-order and profile-fallback questions remain open with Julian.')
+callout('<b>Status:</b> These are design notes. No Clef prompt, selection code, serving default, provider setting or experiment protocol was changed by recording them.')
+
+page()
 title('Evidence / reproducibility','What supports this decision')
 add('Local project evidence','h2')
 refs=[
