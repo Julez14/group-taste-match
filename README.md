@@ -8,6 +8,7 @@ This is an independent concept prototype. It is not an official Beli product or 
 - Product spec: [Beli_Group_Taste_Match_Explore_PRD.md](Beli_Group_Taste_Match_Explore_PRD.md)
 - Experiment plan: [Beli_Group_Explore_Experiment_Plan.md](Beli_Group_Explore_Experiment_Plan.md)
 - Results report: [Beli_Group_Explore_Experiment_Report.md](Beli_Group_Explore_Experiment_Report.md) (and `.pdf`)
+- Decision addendum: [Beli_Group_Taste_Match_Clef_Decision_Addendum.pdf](output/pdf/Beli_Group_Taste_Match_Clef_Decision_Addendum.pdf)
 
 ## Architecture
 
@@ -25,7 +26,7 @@ One Cloudflare Worker serves the React + Vite client (`@cloudflare/vite-plugin`)
 | Client (Beli-style mobile web) | `src/client/` |
 | Experiment harness | `src/experiment/`, `experiment/` |
 
-Both decision methods implement the same interface and receive identical inputs. The server picks one with `DECISION_METHOD=clef|llm_baseline`; the participant UI never exposes the choice.
+Both decision methods implement the same interface and receive identical inputs. The server picks one with `DECISION_METHOD=clef|llm_baseline`; the participant UI never exposes the choice. The deployed default is Clef. It selects the eligible restaurant with the highest average diner fit, breaking exact ties by the shortest worst trip and then restaurant ID. The baseline remains available for comparison.
 
 Models: `@cf/cloudflare/clef` (fit scoring and bounded choices), `@cf/openai/gpt-oss-120b` (interpretation, wording, and the baseline), `@cf/deepgram/nova-3` (speech-to-text), and `@cf/moonshotai/kimi-k2.6` (experiment judge only).
 
@@ -72,7 +73,7 @@ Raw audio is never stored. Transcripts, decision traces, and interpretation cach
 
 ## Experiment
 
-The experiment follows the plan, with 60 synthetic scenarios: 20 for development and 40 held out. The fixed-state track runs 3 repeats per method on the held-out set (240 runs), and the complete-flow track runs once per method (80 sessions). An independent deterministic checker evaluates runs against ground truth, and Kimi K2.6 gives a separate model-judged per-diner fit score. A blinded A/B review by the developer decides the shipped method.
+The exp-v1 experiment followed the plan, with 60 synthetic scenarios: 20 for development and 40 held out. The fixed-state track ran 3 repeats per method on the held-out set (240 runs), and the complete-flow track ran once per method (80 sessions). An independent deterministic checker evaluated runs against ground truth, and Kimi K2.6 gave a separate model-judged per-diner fit score. The blinded A/B review by the developer initially favored the baseline. The later offline selection-policy diagnostic and the owner's choice to develop Clef are documented in the decision addendum. Exp-v1 used Clef's earlier minimum-fit rule; its results do not measure the deployed average-fit rule. For the original experiment, use the frozen exp-v1 commit recorded in `experiment/protocol.json`.
 
 The experiment endpoints run inside the local dev Worker, so calls use the Workers AI binding and AI Gateway and no API tokens are handled by scripts. Start `pnpm dev` with `PROVIDER_MODE=live` and `DEV_ROUTES=on`, then:
 

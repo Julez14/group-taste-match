@@ -6,7 +6,7 @@ import type { NormalizedGroup } from "../../src/shared/normalized";
 import { profile } from "../../src/shared/data";
 import { snapshot } from "../../src/server/snapshot";
 import type { ScoreTable } from "../../src/server/clef";
-import { selectFair, type Ranked } from "../../src/server/policy";
+import { rankCandidates, type Ranked } from "../../src/server/policy";
 import { describeTravel, estimateTravel } from "../../src/server/travel";
 import { fileHash, loadScenarios, p, readJson, readJsonl, writeJson } from "./common";
 
@@ -18,6 +18,16 @@ const manifest = readJson<{scenarios: {id: string; availability: Record<string, 
 const sourceHashes = Object.fromEntries(["results/runs.jsonl", "frozen/fixed_state_inputs.test.json", "dataset_manifest.json", "scenarios/v1.json"].map(f => [f, fileHash(p(f))]));
 assert.equal(runs.length, 120);
 assert.equal(new Set(runs.map(r => r.runId)).size, runs.length);
+
+/** Frozen exp-v1 selector, kept here so its traces remain replayable after product changes. */
+function selectExpV1(fits: Record<string, Record<string, number>>, travel: Record<string, number>) {
+  const ranked = rankCandidates(fits, travel);
+  if (!ranked.length) return null;
+  const bestWeakest = Math.max(...ranked.map(r => r.weakest));
+  const shortlist = ranked.filter(r => r.weakest >= bestWeakest - 0.15 - 1e-9).sort((a, b) =>
+    b.mean - a.mean || a.maxTravelHigh - b.maxTravelHigh || (a.restaurantId < b.restaurantId ? -1 : a.restaurantId > b.restaurantId ? 1 : 0));
+  return { choice: shortlist[0]!, bestWeakest, shortlist, ranked };
+}
 
 const results = runs.map(run => {
   const trace = run.phases[0]?.methodTrace;
@@ -37,7 +47,7 @@ const results = runs.map(run => {
     assert(restaurant);
     return [rid, Math.max(...group.diners.map(d => estimateTravel(d.origin, restaurant).minutesHigh))];
   }));
-  const fair = selectFair(fits, travel)!;
+  const fair = selectExpV1(fits, travel)!;
   const logged = trace!.selection as {choice: Ranked};
   assert.equal(fair.choice.restaurantId, run.outcome.restaurantId, `Replay disagrees: ${run.runId}`);
   assert.deepEqual(fair.choice, logged.choice, `Logged metrics disagree: ${run.runId}`);

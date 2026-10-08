@@ -2,7 +2,7 @@ import { consequentialTopics, type Topic } from "../clarify";
 import { buildClefState, clefChoice, scoreFits } from "../clef";
 import { eligible } from "../decision-context";
 import { writeClarifyQuestions, writeExplanation } from "../explain";
-import { applyHostPriority, type FitMatrix, HOST_OPTIONS, type HostPriority, hostCallUseful, POLICY, selectFair } from "../policy";
+import { applyHostPriority, type FitMatrix, HOST_OPTIONS, type HostPriority, hostCallUseful, POLICY, selectAverage } from "../policy";
 import type { DecisionMethodImpl } from "./types";
 
 export const HOST_TOPIC_ID = "trip_vs_match";
@@ -11,7 +11,7 @@ export const HOST_QUESTION = "Last call: should we favor a shorter trip for ever
 /**
  * Clef pipeline: application code finds consequential ambiguities and
  * enforces feasibility; Clef scores every diner × eligible restaurant and
- * picks among bounded options; code applies the fair group policy; the
+ * picks among bounded options; code selects the highest average fit; the
  * general LLM only writes wording.
  */
 export const clefMethod: DecisionMethodImpl = {
@@ -65,8 +65,8 @@ export const clefMethod: DecisionMethodImpl = {
       Object.entries(table).map(([rid, byDiner]) => [rid, Object.fromEntries(Object.entries(byDiner).map(([pid, a]) => [pid, a.score]))]),
     );
     const travel = Object.fromEntries(candidates.map((f) => [f.restaurantId, f.maxTravelHigh]));
-    const sel = selectFair(fits, travel)!;
-    trace.selection = { choice: sel.choice, bestWeakest: sel.bestWeakest, shortlist: sel.shortlist };
+    const sel = selectAverage(fits, travel)!;
+    trace.selection = { policyVersion: POLICY.version, choice: sel.choice, bestMean: sel.bestMean };
     let choice = sel.choice;
     let hostPriority: HostPriority | null = null;
 
@@ -85,7 +85,7 @@ export const clefMethod: DecisionMethodImpl = {
         if (mapped.choice !== "no_preference") hostPriority = mapped.choice as HostPriority;
       }
       if (hostPriority) {
-        const band = sel.ranked.filter((r) => r.weakest >= sel.bestWeakest - POLICY.hostBand);
+        const band = sel.ranked.filter((r) => r.mean >= sel.bestMean - POLICY.hostBand - 1e-9);
         choice = applyHostPriority(band, hostPriority) ?? choice;
       }
     } else if (input.allowHost) {
@@ -99,7 +99,7 @@ export const clefMethod: DecisionMethodImpl = {
     const facts = candidates.find((f) => f.restaurantId === choice.restaurantId)!;
     const chosenScores = Object.values(fits[choice.restaurantId] ?? {});
     const compromise =
-      chosenScores.length && Math.min(...chosenScores) < POLICY.acceptableFit ? "Not a perfect fit for everyone; this was the most balanced option." : undefined;
+      chosenScores.length && Math.min(...chosenScores) < POLICY.acceptableFit ? "This is the strongest overall match, though it may not fit every preference equally." : undefined;
     const { explanation, assumptions } = await writeExplanation(deps.ai, input, facts, {
       ...(compromise ? { compromise } : {}),
       ...(hostPriority ? { hostPriority: HOST_OPTIONS.find((o) => o.id === hostPriority)!.label } : {}),
