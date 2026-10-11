@@ -1,6 +1,6 @@
 # group-taste-match
 
-Group Taste-Match is a concept prototype of a Beli-style feature that helps 2–6 diners in New York City agree on **one** restaurant. A host creates a room and shares the link. Everyone says (or types) what they're in the mood for. The system asks at most one private clarification per affected diner and, only if it would help, one final question to the host. Then everyone sees the same single restaurant card.
+Group Taste-Match is a concept prototype of a Beli feature that helps 2–6 diners in New York City agree on **one** restaurant. A host creates a room and shares the link. Everyone says (or types) what they're in the mood for. The system asks at most one private clarification per affected diner and, only if it would help, one final question to the host. Then everyone sees the same single restaurant card.
 
 This is an independent concept prototype. It is not an official Beli product or integration, it doesn't use Beli systems or data, and the taste profiles are synthetic.
 
@@ -12,6 +12,8 @@ This is an independent concept prototype. It is not an official Beli product or 
 - [Architecture sketch](beli-project-architecture.png) (conceptual; see the flow below for the decision steps)
 
 ## Architecture
+
+![architecture diagram](beli-project-architecture.png)
 
 One Cloudflare deployment serves the React + Vite client's static assets and the API. Requests to `/api/*` run the Worker, which routes each group to its own Durable Object. Each room's object has SQLite-backed storage, alarms (deadlines, transcription grace, evaluation, 24-hour expiry), and hibernatable WebSockets. The browser connects to the Worker, not directly to the Durable Object. There are no D1 or R2 bindings. AI calls from the Durable Object use Workers AI through the `group-taste-match` AI Gateway; the application bypasses gateway caching for each call.
 
